@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Roots of Music - Creating the Next Generation of New Orleans Musicians</title>
+    <meta name="description" content="The Roots of Music is a nonprofit music education organization empowering youth in New Orleans through music education and community engagement.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#FFD700',
+                        'gold-light': '#FFF2A1',
+                        'gold-dark': '#B8960A',
+                        'dark-gray': '#1a1a1a',
+                        'medium-gray': '#666666',
+                        'light-gray': '#f5f5f5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for animations -->
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Header -->
+    <header class="bg-dark-gray shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <span class="text-dark-gray font-bold text-xl">♪</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-white">The Roots of Music</h1>
+                    <p class="text-xs text-gray-300">New Orleans</p>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-white hover:text-gold font-medium">About</a>
+                <a href="#programs" class="nav-link text-white hover:text-gold font-medium">Programs</a>
+                <a href="#get-involved" class="nav-link text-white hover:text-gold font-medium">Get Involved</a>
+                <a href="#support" class="nav-link text-white hover:text-gold font-medium">Support</a>
+                <a href="#community" class="nav-link text-white hover:text-gold font-medium">Community</a>
+                <a href="#contact" class="nav-link text-white hover:text-gold font-medium">Contact</a>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#support" class="bg-gold text-dark-gray px-6 py-2 rounded-full font-semibold hover:bg-gold-dark transition-colors">
+                    Donate
+                </a>
+                <a href="#get-involved" class="border-2 border-gold text-gold px-6 py-2 rounded-full font-semibold hover:bg-gold hover:text-dark-gray transition-colors">
+                    Join the Band
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-dark-gray border-t border-gray-600">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#about" class="block text-white hover:text-gold font-medium">About</a>
+                <a href="#programs" class="block text-white hover:text-gold font-medium">Programs</a>
+                <a href="#get-involved" class="block text-white hover:text-gold font-medium">Get Involved</a>
+                <a href="#support" class="block text-white hover:text-gold font-medium">Support</a>
+                <a href="#community" class="block text-white hover:text-gold font-medium">Community</a>
+                <a href="#contact" class="block text-white hover:text-gold font-medium">Contact</a>
+                <div class="pt-4 space-y-2">
+                    <a href="#support" class="block w-full bg-gold text-dark-gray py-2 rounded-full font-semibold text-center">Donate</a>
+                    <a href="#get-involved" class="block w-full bg-gold text-dark-gray py-2 rounded-full font-semibold text-center">Join the Band</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                The Roots of Music
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+                Creating the Next Generation of New Orleans Musicians
+            </p>
+            <div class="space-x-4">
+                <a href="#about" class="inline-block bg-gold text-dark-gray px-8 py-4 rounded-full text-lg font-semibold hover:bg-gold-dark transition-colors">
+                    Learn More
+                </a>
+                <a href="#get-involved" class="inline-block border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-dark-gray transition-colors">
+                    Get Involved
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold text-dark-gray mb-6">
+                            Creating the Next Generation of New Orleans Musicians
+                        </h2>
+                        <p class="text-lg text-medium-gray mb-6 leading-relaxed">
+                            Founded in 2007 by Grammy winner Derrick Tabb (CNN Hero), The Roots of Music strengthens communities 
+                            by transforming the lives of children through music education, academic support, and community engagement. 
+                            Our mission focuses on youth empowerment for low-income households, serving children ages 3-18 in New Orleans.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                                    <span class="text-dark-gray font-bold">♪</span>
+                                </div>
+                                <span class="text-dark-gray font-medium">Music Education & New Orleans Cultural Preservation</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                                    <span class="text-dark-gray font-bold">🍽️</span>
+                                </div>
+                                <span class="text-dark-gray font-medium">Hot Meals & Transportation Services</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                                    <span class="text-dark-gray font-bold">📚</span>
+                                </div>
+                                <span class="text-dark-gray font-medium">Academic Support & Tutoring</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                                    <span class="text-dark-gray font-bold">🤝</span>
+                                </div>
+                                <span class="text-dark-gray font-medium">Mentorship & Community Programs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Students learning music" 
+                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-gray mb-6">What We Do</h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                    We provide comprehensive music education and support to help young people reach their full potential through the transformative power of music.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg fade-in hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-6">
+                        <span class="text-2xl text-dark-gray">🎵</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-gray mb-4">Music Education</h3>
+                    <p class="text-medium-gray">
+                        Professional music instruction in various instruments and ensemble performance, building technical skills and musical knowledge.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg fade-in hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-6">
+                        <span class="text-2xl text-dark-gray">📚</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-gray mb-4">Academic Support</h3>
+                    <p class="text-medium-gray">
+                        Tutoring and homework assistance to ensure our students excel in school while pursuing their musical passions.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg fade-in hover:shadow-xl transition-shadow">
+                    <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-6">
+                        <span class="text-2xl text-dark-gray">🤝</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark-gray mb-4">Community Engagement</h3>
+                    <p class="text-medium-gray">
+                        Performance opportunities and community events that connect our students with the broader New Orleans community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-gray mb-6">Our Programs</h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                    Discover our comprehensive programs designed to nurture musical talent and support academic achievement.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto space-y-16">
+                <!-- Core Music Program -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">Ages 9-18</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-dark-gray mb-4">Core Music Education</h3>
+                        <p class="text-lg text-medium-gray mb-6">
+                            Comprehensive music education including history, theory, instrumental instruction, and ensemble performance. 
+                            Students receive professional-level training in traditional New Orleans music and modern techniques.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 bg-gold rounded-full"></span>
+                                <span class="text-medium-gray text-sm">Instrumental Instruction</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 bg-gold rounded-full"></span>
+                                <span class="text-medium-gray text-sm">Ensemble Performance</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 bg-gold rounded-full"></span>
+                                <span class="text-medium-gray text-sm">Music Theory & History</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2 h-2 bg-gold rounded-full"></span>
+                                <span class="text-medium-gray text-sm">Academic Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Students in music education program" 
+                             class="rounded-lg shadow-xl w-full h-80 object-cover">
+                    </div>
+                </div>
+                
+                <!-- Sprouts of Music -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in order-2 lg:order-1">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1486&q=80" 
+                             alt="Young children in Sprouts program" 
+                             class="rounded-lg shadow-xl w-full h-80 object-cover">
+                    </div>
+                    <div class="fade-in order-1 lg:order-2">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">K-1st Grade</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-dark-gray mb-4">Sprouts of Music</h3>
+                        <p class="text-lg text-medium-gray mb-6">
+                            Early childhood music program in partnership with KIPP Believe School, introducing our youngest 
+                            students to the joy of music through age-appropriate activities and after-school sessions.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg shadow-md">
+                            <h4 class="font-semibold text-dark-gray mb-2">Program Features:</h4>
+                            <ul class="text-sm text-medium-gray space-y-1">
+                                <li>• KIPP Believe Partnership</li>
+                                <li>• After-school Sessions</li>
+                                <li>• Age-appropriate Activities</li>
+                                <li>• Foundation Building</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Roots Studio Academy -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">Ages 15-18</span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-dark-gray mb-4">Roots Studio Academy</h3>
+                        <p class="text-lg text-medium-gray mb-6">
+                            Advanced program focusing on audio engineering, studio production training, and music business education. 
+                            Students gain hands-on experience with professional equipment and industry knowledge.
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <div class="text-2xl mb-2">🎧</div>
+                                <h4 class="font-semibold text-dark-gray text-sm">Audio Engineering</h4>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <div class="text-2xl mb-2">🎛️</div>
+                                <h4 class="font-semibold text-dark-gray text-sm">Studio Production</h4>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <div class="text-2xl mb-2">💼</div>
+                                <h4 class="font-semibold text-dark-gray text-sm">Music Business</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Students in recording studio" 
+                             class="rounded-lg shadow-xl w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="py-20 bg-dark-gray text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Get Involved</h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    Join our musical family! Whether you're looking to enroll your child or volunteer your time, 
+                    there are many ways to be part of our mission.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="fade-in">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">For Students & Families</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Join The Band</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            We offer four annual intake periods throughout the year to welcome new students into our programs. 
+                            The enrollment process is designed to find the best fit for each student's needs and interests.
+                        </p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Four Annual Intake Periods</h4>
+                                    <p class="text-gray-300 text-sm">Multiple opportunities throughout the year to join</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Comprehensive Enrollment Process</h4>
+                                    <p class="text-gray-300 text-sm">Personalized placement and program matching</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Student Requirements</h4>
+                                    <p class="text-gray-300 text-sm">Clear expectations and support for success</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="bg-gold text-dark-gray px-8 py-3 rounded-full font-semibold hover:bg-gold-dark transition-colors">
+                            Start Enrollment
+                        </a>
+                    </div>
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="New students joining the program" 
+                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                    </div>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in order-2 lg:order-1">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                             alt="Volunteers helping students" 
+                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                    </div>
+                    <div class="fade-in order-1 lg:order-2">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">For Community Members</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Volunteer Opportunities</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Share your skills and passion with our students. Whether you're a teacher, musician, or simply 
+                            someone who cares about youth development, we have volunteer opportunities that fit your schedule.
+                        </p>
+                        <div class="grid md:grid-cols-1 gap-4 mb-8">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <h4 class="text-gold font-semibold mb-2">📚 Academic Tutoring</h4>
+                                <p class="text-gray-300 text-sm mb-3">Help students with homework and test preparation in core subjects</p>
+                            </div>
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <h4 class="text-gold font-semibold mb-2">✏️ Homework Support</h4>
+                                <p class="text-gray-300 text-sm mb-3">Provide one-on-one assistance with daily assignments</p>
+                            </div>
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <h4 class="text-gold font-semibold mb-2">📝 Test Review Assistance</h4>
+                                <p class="text-gray-300 text-sm mb-3">Help students prepare for important exams and assessments</p>
+                            </div>
+                        </div>
+                        <a href="#contact" class="border-2 border-gold text-gold px-8 py-3 rounded-full font-semibold hover:bg-gold hover:text-dark-gray transition-colors">
+                            Volunteer With Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-gray mb-6">Our Impact</h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                    See the measurable difference we're making in the lives of young musicians and our community.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center fade-in">
+                    <div class="bg-dark-gray rounded-2xl p-8 shadow-xl">
+                        <div class="text-5xl font-bold text-gold mb-3">
+                            <span id="counter-1" data-target="2500">0</span>+
+                        </div>
+                        <div class="text-white font-medium">Hours of Music Education Annually</div>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-dark-gray rounded-2xl p-8 shadow-xl">
+                        <div class="text-5xl font-bold text-gold mb-3">
+                            <span id="counter-2" data-target="30400">0</span>+
+                        </div>
+                        <div class="text-white font-medium">Nutritious Hot Meals Served</div>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-dark-gray rounded-2xl p-8 shadow-xl">
+                        <div class="text-5xl font-bold text-gold mb-3">
+                            <span id="counter-3" data-target="1400">0</span>+
+                        </div>
+                        <div class="text-white font-medium">Bus Journeys Provided</div>
+                    </div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="bg-dark-gray rounded-2xl p-8 shadow-xl">
+                        <div class="text-5xl font-bold text-gold mb-3">
+                            <span id="counter-4" data-target="200">0</span>+
+                        </div>
+                        <div class="text-white font-medium">Instruments Available</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <div class="bg-gold-light p-6 rounded-lg inline-block">
+                    <p class="text-dark-gray font-semibold text-lg">
+                        🎵 5 Days/Week, 12 Months/Year Programming 🎵
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-20 relative overflow-hidden"
+             style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center; background-attachment: fixed;"
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <div class="flex items-center justify-center mb-4">
+                    <span class="text-gold text-4xl mr-3">🎺</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Support Our Mission</h2>
+                    <span class="text-gold text-4xl ml-3">♪</span>
+                </div>
+                <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+                    Your donation helps young musicians thrive in New Orleans. 
+                    See exactly how your contribution makes a difference.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+                    <div class="text-center fade-in">
+                        <div class="bg-dark-gray rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                            <div class="text-3xl font-bold text-gold mb-3">$25</div>
+                            <div class="text-2xl mb-3">👕</div>
+                            <p class="text-white text-sm font-medium">1 Student Performance Tee</p>
+                        </div>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="bg-dark-gray rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                            <div class="text-3xl font-bold text-gold mb-3">$50</div>
+                            <div class="text-2xl mb-3">👟</div>
+                            <p class="text-white text-sm font-medium">1 Pair of Band Shoes</p>
+                        </div>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="bg-dark-gray rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                            <div class="text-3xl font-bold text-gold mb-3">$120</div>
+                            <div class="text-2xl mb-3">🎼</div>
+                            <p class="text-white text-sm font-medium">4 Music Stands</p>
+                        </div>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="bg-dark-gray rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                            <div class="text-3xl font-bold text-gold mb-3">$300</div>
+                            <div class="text-2xl mb-3">🍽️</div>
+                            <p class="text-white text-sm font-medium">Meals for 300 Students</p>
+                        </div>
+                    </div>
+                    <div class="text-center fade-in">
+                        <div class="bg-dark-gray rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                            <div class="text-3xl font-bold text-gold mb-3">$1,100</div>
+                            <div class="text-2xl mb-3">🎵</div>
+                            <p class="text-white text-sm font-medium">1 Day of Programming</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-16 fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-6">Make Your Impact Today</h3>
+                    <div class="space-x-4">
+                        <a href="#contact" class="bg-gold text-dark-gray px-8 py-4 rounded-full text-lg font-semibold hover:bg-gold-dark transition-colors">
+                            Donate Now
+                        </a>
+                        <a href="#contact" class="bg-gold text-dark-gray px-8 py-4 rounded-full text-lg font-semibold hover:bg-gold-dark transition-colors">
+                            Corporate Partnership
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-gray text-white p-8 rounded-lg fade-in">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4">🏆 Recognition & Awards</h3>
+                        <p class="text-gray-300">We honor our supporters and celebrate our achievements together</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">Lewis Prize Accelerator Award</h4>
+                            <p class="text-gray-300 text-sm">Innovation in social impact</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">CNN Hero Award</h4>
+                            <p class="text-gray-300 text-sm">Derrick Tabb recognized</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">StubHub Rising Star Award</h4>
+                            <p class="text-gray-300 text-sm">Emerging nonprofit excellence</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">BCBS Angel Award</h4>
+                            <p class="text-gray-300 text-sm">Community health impact</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">Arhoolie Award</h4>
+                            <p class="text-gray-300 text-sm">Traditional music preservation</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-gold font-semibold mb-2">D'Addario Foundation Grant</h4>
+                            <p class="text-gray-300 text-sm">Music education support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-gray mb-6">Community & Partners</h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                    We're proud to work alongside exceptional partners who share our commitment to youth empowerment through music education.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-3 gap-12 mb-16">
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold text-dark-gray mb-6 text-center">🎓 Educational Partners</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Berklee College of Music</h4>
+                                <p class="text-medium-gray text-sm">Higher education pathway</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Tulane University</h4>
+                                <p class="text-medium-gray text-sm">Research and collaboration</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">KIPP Believe School</h4>
+                                <p class="text-medium-gray text-sm">Sprouts program partnership</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold text-dark-gray mb-6 text-center">🤝 Community Partners</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">New Orleans Jazz & Heritage Foundation</h4>
+                                <p class="text-medium-gray text-sm">Cultural preservation</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">City of New Orleans</h4>
+                                <p class="text-medium-gray text-sm">Municipal support</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Second Harvest Food Bank</h4>
+                                <p class="text-medium-gray text-sm">Nutrition program support</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Arts New Orleans</h4>
+                                <p class="text-medium-gray text-sm">Arts advocacy</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold text-dark-gray mb-6 text-center">🏢 Corporate Partners</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Raising Cane's</h4>
+                                <p class="text-medium-gray text-sm">Community investment</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Fidelity Bank</h4>
+                                <p class="text-medium-gray text-sm">Financial services partner</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">First Horizon Bank</h4>
+                                <p class="text-medium-gray text-sm">Banking partnership</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                                <h4 class="font-semibold text-dark-gray">Hotel Fontenot</h4>
+                                <p class="text-medium-gray text-sm">Hospitality partner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="bg-gold-light p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-dark-gray mb-4">🛍️ Support Through Shopping</h3>
+                        <p class="text-medium-gray mb-6">
+                            Show your support with official Roots of Music merchandise
+                        </p>
+                        <div class="grid md:grid-cols-4 gap-4 mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl mb-2">👕</div>
+                                <p class="text-sm text-dark-gray font-medium">Branded T-Shirts</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl mb-2">👘</div>
+                                <p class="text-sm text-dark-gray font-medium">Hoodies & Tanks</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl mb-2">🧲</div>
+                                <p class="text-sm text-dark-gray font-medium">Magnets & Pins</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl mb-2">💿</div>
+                                <p class="text-sm text-dark-gray font-medium">Media & More</p>
+                            </div>
+                        </div>
+                        <a href="#contact" class="bg-gold text-dark-gray px-6 py-3 rounded-full font-semibold hover:bg-gold-dark transition-colors">
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark-gray text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                            <span class="text-dark-gray font-bold text-xl">♪</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">The Roots of Music</h3>
+                            <p class="text-sm text-gray-400">New Orleans</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Strengthening communities by transforming the lives of children through music education.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
+                            <span class="text-dark-gray font-bold">f</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
+                            <span class="text-dark-gray font-bold">i</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
+                            <span class="text-dark-gray font-bold">t</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-300 hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#programs" class="text-gray-300 hover:text-gold transition-colors">Our Programs</a></li>
+                        <li><a href="#events" class="text-gray-300 hover:text-gold transition-colors">Events</a></li>
+                        <li><a href="#giving" class="text-gray-300 hover:text-gold transition-colors">Ways to Give</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Programs</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Sprouts of Music</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Marching Crusaders</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Studio Academy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Community Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p>📍 1020 N. Prieur Street<br>New Orleans, LA 70116</p>
+                        <p>📞 Phone: (504) 460-2611</p>
+                        <p>📧 Email: info@therootsofmusic.org</p>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h5 class="text-sm font-semibold mb-3">Stay Connected</h5>
+                        <p class="text-gray-400 text-sm mb-4">Founded in 2007 by Grammy Winner & CNN Hero Derrick Tabb</p>
+                        <p class="text-gray-400 text-xs">501(c)(3) Non-Profit Organization</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Roots of Music. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CountUp.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

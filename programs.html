@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - The Roots of Music</title>
+    <meta name="description" content="Explore our comprehensive music education programs including Sprouts of Music, Marching Crusaders, and Roots Studio Academy.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#FFD700',
+                        'gold-light': '#FFF2A1',
+                        'gold-dark': '#B8960A',
+                        'dark-gray': '#1a1a1a',
+                        'medium-gray': '#666666',
+                        'light-gray': '#f5f5f5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <span class="text-dark-gray font-bold text-xl">♪</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-dark-gray">The Roots of Music</h1>
+                    <p class="text-xs text-medium-gray">New Orleans</p>
+                </div>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-dark-gray hover:text-gold font-medium">Home</a>
+                <a href="about.html" class="nav-link text-dark-gray hover:text-gold font-medium">About</a>
+                <a href="programs.html" class="nav-link text-gold font-medium">Programs</a>
+                <a href="events.html" class="nav-link text-dark-gray hover:text-gold font-medium">Events</a>
+                <a href="contact.html" class="nav-link text-dark-gray hover:text-gold font-medium">Contact</a>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <button class="bg-gold text-dark-gray px-6 py-2 rounded-full font-semibold hover:bg-gold-dark transition-colors">
+                    Donate
+                </button>
+                <button class="border-2 border-gold text-gold px-6 py-2 rounded-full font-semibold hover:bg-gold hover:text-dark-gray transition-colors">
+                    Join the Band
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-dark-gray">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+            <div class="px-6 py-4 space-y-4">
+                <a href="index.html" class="block text-dark-gray hover:text-gold font-medium">Home</a>
+                <a href="about.html" class="block text-dark-gray hover:text-gold font-medium">About</a>
+                <a href="programs.html" class="block text-gold font-medium">Programs</a>
+                <a href="events.html" class="block text-dark-gray hover:text-gold font-medium">Events</a>
+                <a href="contact.html" class="block text-dark-gray hover:text-gold font-medium">Contact</a>
+                <div class="pt-4 space-y-2">
+                    <button class="w-full bg-gold text-dark-gray py-2 rounded-full font-semibold">Donate</button>
+                    <button class="w-full border-2 border-gold text-gold py-2 rounded-full font-semibold">Join the Band</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h1 class="text-5xl md:text-6xl font-bold text-dark-gray mb-6">Our Programs</h1>
+                <p class="text-xl text-medium-gray">
+                    Comprehensive music education programs designed to nurture talent and support academic achievement at every stage.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Overview -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-dark-gray mb-6">Three Pathways to Musical Excellence</h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                        Our progressive program structure ensures students receive age-appropriate instruction and support 
+                        throughout their musical journey, from early childhood through college preparation.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-light-gray p-8 rounded-lg text-center fade-in hover:shadow-lg transition-shadow">
+                        <div class="text-gold text-4xl mb-4">🌱</div>
+                        <h3 class="text-xl font-bold text-dark-gray mb-4">Ages 6-10</h3>
+                        <h4 class="text-lg font-semibold text-gold mb-2">Sprouts of Music</h4>
+                        <p class="text-medium-gray">Foundation building and musical exploration</p>
+                    </div>
+                    
+                    <div class="bg-light-gray p-8 rounded-lg text-center fade-in hover:shadow-lg transition-shadow">
+                        <div class="text-gold text-4xl mb-4">🎺</div>
+                        <h3 class="text-xl font-bold text-dark-gray mb-4">Ages 11-17</h3>
+                        <h4 class="text-lg font-semibold text-gold mb-2">Marching Crusaders</h4>
+                        <p class="text-medium-gray">Performance excellence and leadership development</p>
+                    </div>
+                    
+                    <div class="bg-light-gray p-8 rounded-lg text-center fade-in hover:shadow-lg transition-shadow">
+                        <div class="text-gold text-4xl mb-4">🎧</div>
+                        <h3 class="text-xl font-bold text-dark-gray mb-4">All Ages</h3>
+                        <h4 class="text-lg font-semibold text-gold mb-2">Studio Academy</h4>
+                        <p class="text-medium-gray">Modern music production and career preparation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sprouts of Music Program -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">Ages 6-10 | Sprouts Program</span>
+                        </div>
+                        <h2 class="text-4xl font-bold text-dark-gray mb-6">Sprouts of Music</h2>
+                        <p class="text-lg text-medium-gray mb-6 leading-relaxed">
+                            Our youngest musicians begin their musical journey with fundamental music education, 
+                            rhythm training, and introduction to various instruments in a fun, supportive environment 
+                            designed specifically for early childhood development.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Music Fundamentals</h4>
+                                    <p class="text-medium-gray text-sm">Basic rhythm, melody, and music theory through play and exploration</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Instrument Exploration</h4>
+                                    <p class="text-medium-gray text-sm">Hands-on experience with percussion, brass, and woodwind instruments</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Social Development</h4>
+                                    <p class="text-medium-gray text-sm">Building confidence, teamwork, and communication skills</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Academic Support</h4>
+                                    <p class="text-medium-gray text-sm">Reading and math reinforcement through music-based activities</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h4 class="text-lg font-semibold text-dark-gray mb-3">Program Schedule</h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="font-medium text-dark-gray">Weekdays:</p>
+                                    <p class="text-medium-gray">3:30 PM - 5:30 PM</p>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-dark-gray">Saturdays:</p>
+                                    <p class="text-medium-gray">10:00 AM - 12:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1576669802960-b7f7a76eedfb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Young children learning music" 
+                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marching Crusaders Program -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in order-2 lg:order-1">
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Marching band performance" 
+                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                    </div>
+                    <div class="fade-in order-1 lg:order-2">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">Ages 11-17 | Flagship Program</span>
+                        </div>
+                        <h2 class="text-4xl font-bold text-dark-gray mb-6">Marching Crusaders</h2>
+                        <p class="text-lg text-medium-gray mb-6 leading-relaxed">
+                            Our premier marching band program combines traditional New Orleans brass band music with 
+                            modern marching techniques, discipline, and performance excellence. Students develop advanced 
+                            musical skills while building character and leadership abilities.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Performance Excellence</h4>
+                                    <p class="text-medium-gray text-sm">Advanced ensemble performance and competition preparation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Leadership Development</h4>
+                                    <p class="text-medium-gray text-sm">Section leader roles and peer mentorship opportunities</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">College Preparation</h4>
+                                    <p class="text-medium-gray text-sm">Academic tutoring and college application assistance</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                                    <span class="text-dark-gray text-sm font-bold">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-dark-gray">Community Engagement</h4>
+                                    <p class="text-medium-gray text-sm">Performance opportunities at local festivals and events</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light-gray p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-dark-gray mb-3">Requirements</h4>
+                            <ul class="text-sm space-y-2 text-medium-gray">
+                                <li>• Minimum 2.5 GPA maintained</li>
+                                <li>• Regular attendance at rehearsals and performances</li>
+                                <li>• Commitment to program values and behavior standards</li>
+                                <li>• Participation in community service activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Academy Program -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <div class="bg-gold-light p-2 rounded-lg inline-block mb-4">
+                            <span class="bg-gold px-4 py-2 rounded text-dark-gray font-semibold">All Ages | Innovation Program</span>
+                        </div>
+                        <h2 class="text-4xl font-bold text-dark-gray mb-6">Roots Studio Academy</h2>
+                        <p class="text-lg text-medium-gray mb-6 leading-relaxed">
+                            Advanced music production, recording techniques, and contemporary music education 
+                            preparing students for careers in the modern music industry. Our state-of-the-art 
+                            studio facility provides hands-on experience with professional equipment and software.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-dark-gray mb-2">🎛️ Music Production</h4>
+                                <p class="text-medium-gray text-sm">Pro Tools, Logic Pro, and industry-standard software training</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-dark-gray mb-2">🎤 Recording Arts</h4>
+                                <p class="text-medium-gray text-sm">Professional recording techniques and audio engineering</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-dark-gray mb-2">💼 Music Business</h4>
+                                <p class="text-medium-gray text-sm">Industry knowledge, marketing, and entrepreneurship</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-md">
+                                <h4 class="font-semibold text-dark-gray mb-2">🎵 Songwriting</h4>
+                                <p class="text-medium-gray text-sm">Creative composition and collaborative songwriting workshops</p>
+                            </div>
+                        </div>
+                        
+                        <button class="bg-gold text-dark-gray px-8 py-3 rounded-full font-semibold hover:bg-gold-dark transition-colors">
+                            Schedule Studio Tour
+                        </button>
+                    </div>
+                    <div class="fade-in">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Music studio recording" 
+                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-dark-gray mb-6">Supporting Services</h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto">
+                        Comprehensive support services ensure our students succeed both musically and academically.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-dark-gray">📚</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-dark-gray mb-3">Academic Tutoring</h3>
+                        <p class="text-medium-gray text-sm">
+                            Homework help and test preparation in core subjects including math, reading, and science.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-dark-gray">🍎</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-dark-gray mb-3">Nutritious Meals</h3>
+                        <p class="text-medium-gray text-sm">
+                            Healthy snacks and meals provided to ensure students have the energy they need to learn.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-dark-gray">🚌</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-dark-gray mb-3">Transportation</h3>
+                        <p class="text-medium-gray text-sm">
+                            Safe, reliable transportation to and from program activities for all participants.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center fade-in">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-dark-gray">👨‍👩‍👧‍👦</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-dark-gray mb-3">Family Support</h3>
+                        <p class="text-medium-gray text-sm">
+                            Resources and support for families including workshops and community events.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment CTA -->
+    <section class="py-20 bg-dark-gray text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-4xl font-bold mb-6">Ready to Join Our Musical Family?</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Applications are now open for all programs. Give your child the gift of music education 
+                    and watch them grow into confident, capable leaders.
+                </p>
+                <div class="space-x-4">
+                    <button class="bg-gold text-dark-gray px-8 py-4 rounded-full text-lg font-semibold hover:bg-gold-dark transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="border-2 border-gold text-gold px-8 py-4 rounded-full text-lg font-semibold hover:bg-gold hover:text-dark-gray transition-colors">
+                        Schedule Visit
+                    </button>
+                </div>
+                
+                <div class="mt-12 grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-gold mb-2">Free</div>
+                        <div class="text-gray-300">Tuition & Materials</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-gold mb-2">150+</div>
+                        <div class="text-gray-300">Students Served Annually</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-gold mb-2">85%</div>
+                        <div class="text-gray-300">High School Graduation Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-gray text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                            <span class="text-dark-gray font-bold text-xl">♪</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">The Roots of Music</h3>
+                            <p class="text-sm text-gray-400">New Orleans</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Strengthening communities by transforming the lives of children through music education.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
+                            <span class="text-dark-gray font-bold">f</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
+                            <span class="text-dark-gray font-bold">i</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
+                            <span class="text-dark-gray font-bold">t</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="text-gray-300 hover:text-gold transition-colors">Our Programs</a></li>
+                        <li><a href="events.html" class="text-gray-300 hover:text-gold transition-colors">Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Programs</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Sprouts of Music</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Marching Crusaders</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Studio Academy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Community Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p>1234 Music Street<br>New Orleans, LA 70130</p>
+                        <p>Phone: (504) 555-MUSIC</p>
+                        <p>Email: info@therootsofmusic.org</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Roots of Music. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
