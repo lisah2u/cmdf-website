@@ -7,6 +7,7 @@
 /home /index.html 200
 /music /programs.html 200
 /donate /contribute.html 200
+/success /contact-success.html 200
 
 # Handle trailing slashes
 /about/ /about.html 200

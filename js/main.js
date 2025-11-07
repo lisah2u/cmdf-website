@@ -197,12 +197,25 @@ function initFormHandling() {
         });
     }
     
-    // Contact form (if exists)
-    const contactForms = document.querySelectorAll('form[data-form="contact"]');
+    // Contact form (if exists) - Updated for Netlify Forms
+    const contactForms = document.querySelectorAll('form[name="contact"]');
     contactForms.forEach(form => {
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleContactForm(this);
+            // Validate form before allowing Netlify to handle submission
+            if (!validateContactForm(this)) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            }
+
+            // Let Netlify handle the actual submission
+            // Form will redirect to success page
         });
     });
 }
@@ -267,14 +280,10 @@ function validateEmail(email) {
     return emailRegex.test(email);
 }
 
-function handleContactForm(form) {
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    
-    // Basic validation
+function validateContactForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
-    
+
     requiredFields.forEach(field => {
         if (!field.value.trim()) {
             isValid = false;
@@ -285,17 +294,38 @@ function handleContactForm(form) {
             hideFieldError(field);
         }
     });
-    
+
     // Email validation
     const emailField = form.querySelector('input[type="email"]');
     if (emailField && emailField.value && !validateEmail(emailField.value)) {
         isValid = false;
         emailField.classList.add('border-red-500');
         showFieldError(emailField, 'Please enter a valid email address');
+    } else if (emailField) {
+        emailField.classList.remove('border-red-500');
+        hideFieldError(emailField);
     }
-    
-    if (isValid) {
-        // Simulate form submission
+
+    // Phone validation (if provided)
+    const phoneField = form.querySelector('input[type="tel"]');
+    if (phoneField && phoneField.value) {
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        if (!phoneRegex.test(phoneField.value.replace(/[\s\-\(\)]/g, ''))) {
+            isValid = false;
+            phoneField.classList.add('border-red-500');
+            showFieldError(phoneField, 'Please enter a valid phone number');
+        } else {
+            phoneField.classList.remove('border-red-500');
+            hideFieldError(phoneField);
+        }
+    }
+
+    return isValid;
+}
+
+// Legacy function for backward compatibility
+function handleContactForm(form) {
+    if (validateContactForm(form)) {
         showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
         form.reset();
     }
