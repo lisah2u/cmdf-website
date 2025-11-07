@@ -1,0 +1,22 @@
+# Redirect rules for Netlify
+
+# Handle SPA-style routing (if needed)
+# /app/* /index.html 200
+
+# Redirect common paths to proper pages
+/home /index.html 200
+/music /programs.html 200
+/donate /contribute.html 200
+
+# Handle trailing slashes
+/about/ /about.html 200
+/programs/ /programs.html 200
+/contact/ /contact.html 200
+/events/ /events.html 200
+/dance/ /dance.html 200
+/scholarships/ /scholarships.html 200
+/contribute/ /contribute.html 200
+/partners/ /partners.html 200
+
+# Fallback for 404s to homepage
+/* /index.html 404
