@@ -3,125 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - The Roots of Music</title>
-    <meta name="description" content="Get in touch with The Roots of Music. Find our location, contact information, and ways to get involved with our programs.">
+    <title>Contact Us - Cacapon Music and Dance Foundation</title>
+    <meta name="description" content="Get in touch with the Cacapon Music and Dance Foundation (CMDF). Find our location, contact information, and ways to get involved with our music and dance programs in Capon Bridge, WV.">
     
+    <!-- Tailwind Config (must load before CDN) -->
+    <script src="assets/tailwind-config.js"></script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Custom Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'gold': '#FFD700',
-                        'gold-light': '#FFF2A1',
-                        'gold-dark': '#B8960A',
-                        'dark-gray': '#1a1a1a',
-                        'medium-gray': '#666666',
-                        'light-gray': '#f5f5f5'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Custom CSS -->
-    <style>
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #FFD700;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/palette.css">
+
+    <!-- CMDF Tailwind Configuration (already loaded above) -->
+
+    <!-- CMDF Component Styles -->
+    <link rel="stylesheet" href="assets/cmdf-components.css">
 </head>
 <body class="scroll-smooth">
-    <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                    <span class="text-dark-gray font-bold text-xl">♪</span>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-dark-gray">The Roots of Music</h1>
-                    <p class="text-xs text-medium-gray">New Orleans</p>
-                </div>
+    <!-- Header with centered logo on black background -->
+    <header class="bg-black fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 relative flex items-center justify-between">
+            <!-- Left Nav (desktop) -->
+            <div class="hidden lg:flex items-center space-x-6 text-white">
+                <a href="about.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">About</a>
+                <a href="dance.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">Dance</a>
+                <a href="events.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">Events</a>
+                <a href="partners.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">Partners</a>
             </div>
-            
-            <!-- Desktop Navigation -->
-            <div class="hidden lg:flex items-center space-x-8">
-                <a href="index.html" class="nav-link text-dark-gray hover:text-gold font-medium">Home</a>
-                <a href="about.html" class="nav-link text-dark-gray hover:text-gold font-medium">About</a>
-                <a href="programs.html" class="nav-link text-dark-gray hover:text-gold font-medium">Programs</a>
-                <a href="events.html" class="nav-link text-dark-gray hover:text-gold font-medium">Events</a>
-                <a href="contact.html" class="nav-link text-gold font-medium">Contact</a>
-            </div>
-            
-            <!-- CTA Buttons -->
-            <div class="hidden lg:flex items-center space-x-4">
-                <button class="bg-gold text-dark-gray px-6 py-2 rounded-full font-semibold hover:bg-gold-dark transition-colors">
-                    Donate
-                </button>
-                <button class="border-2 border-gold text-gold px-6 py-2 rounded-full font-semibold hover:bg-gold hover:text-dark-gray transition-colors">
-                    Join the Band
-                </button>
-            </div>
-            
+
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-dark-gray">
+            <button id="mobile-menu-btn" class="lg:hidden text-white">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
+
+            <!-- Centered Logo -->
+            <div class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-[55%]">
+                <a href="index.html" class="inline-block">
+                    <img src="images/CMDF_LOGO_COLOR_8_x8_300_dpi.png" alt="Cacapon Music and Dance Foundation logo" class="h-20 md:h-24 w-auto object-contain" />
+                </a>
+            </div>
+
+            <!-- Right CTAs (desktop) -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <a href="index.html#support" class="btn-nav-gold">Contribute</a>
+                <a href="contact.html#scholarships" class="btn-nav-gold">Scholarships</a>
+                <a href="programs.html" class="btn-nav-gold">Dance</a>
+            </div>
         </nav>
-        
+
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+        <div id="mobile-menu" class="lg:hidden hidden bg-black border-t border-white/10">
             <div class="px-6 py-4 space-y-4">
-                <a href="index.html" class="block text-dark-gray hover:text-gold font-medium">Home</a>
-                <a href="about.html" class="block text-dark-gray hover:text-gold font-medium">About</a>
-                <a href="programs.html" class="block text-dark-gray hover:text-gold font-medium">Programs</a>
-                <a href="events.html" class="block text-dark-gray hover:text-gold font-medium">Events</a>
-                <a href="contact.html" class="block text-gold font-medium">Contact</a>
+                <a href="about.html" class="block text-white hover:text-gold font-medium">About</a>
+                <a href="dance.html" class="block text-white hover:text-gold font-medium">Dance</a>
+                <a href="events.html" class="block text-white hover:text-gold font-medium">Events</a>
+                <a href="partners.html" class="block text-white hover:text-gold font-medium">Partners</a>
                 <div class="pt-4 space-y-2">
-                    <button class="w-full bg-gold text-dark-gray py-2 rounded-full font-semibold">Donate</button>
-                    <button class="w-full border-2 border-gold text-gold py-2 rounded-full font-semibold">Join the Band</button>
+                    <a href="index.html#support" class="btn-nav-gold w-full text-center block">Contribute</a>
+                    <a href="contact.html#scholarships" class="btn-nav-gold w-full text-center block">Scholarships</a>
+                    <a href="programs.html" class="btn-nav-gold w-full text-center block">Dance</a>
                 </div>
             </div>
         </div>
@@ -131,7 +77,7 @@
     <section class="pt-32 pb-16 bg-light-gray">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold text-dark-gray mb-6">Contact Us</h1>
+                <h1 class="text-5xl md:text-6xl font-bold text-cmdf-black mb-6">Contact Us</h1>
                 <p class="text-xl text-medium-gray">
                     Ready to get involved? We'd love to hear from you. Reach out with questions, enrollment inquiries, or to learn how you can support our mission.
                 </p>
@@ -139,245 +85,15 @@
         </div>
     </section>
 
-    <!-- Contact Information & Form -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Contact Information -->
-                    <div class="fade-in">
-                        <h2 class="text-3xl font-bold text-dark-gray mb-8">Get in Touch</h2>
-                        
-                        <div class="space-y-8">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-xl">📍</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-dark-gray mb-2">Visit Our Center</h3>
-                                    <p class="text-medium-gray">
-                                        1234 Music Street<br>
-                                        New Orleans, LA 70130<br>
-                                        French Quarter District
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-xl">📞</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-dark-gray mb-2">Call Us</h3>
-                                    <p class="text-medium-gray">
-                                        Main Office: (504) 555-MUSIC<br>
-                                        Enrollment: (504) 555-JOIN<br>
-                                        Emergency: (504) 555-HELP
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-xl">📧</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-dark-gray mb-2">Email Us</h3>
-                                    <p class="text-medium-gray">
-                                        General Info: info@therootsofmusic.org<br>
-                                        Enrollment: enrollment@therootsofmusic.org<br>
-                                        Donations: giving@therootsofmusic.org
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-xl">🕐</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-dark-gray mb-2">Office Hours</h3>
-                                    <p class="text-medium-gray">
-                                        Monday - Friday: 9:00 AM - 6:00 PM<br>
-                                        Saturday: 10:00 AM - 4:00 PM<br>
-                                        Sunday: By appointment only
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Social Media -->
-                        <div class="mt-12">
-                            <h3 class="text-lg font-semibold text-dark-gray mb-4">Follow Us</h3>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-12 h-12 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                                    <span class="text-dark-gray font-bold">f</span>
-                                </a>
-                                <a href="#" class="w-12 h-12 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                                    <span class="text-dark-gray font-bold">i</span>
-                                </a>
-                                <a href="#" class="w-12 h-12 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                                    <span class="text-dark-gray font-bold">t</span>
-                                </a>
-                                <a href="#" class="w-12 h-12 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                                    <span class="text-dark-gray font-bold">y</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Form -->
-                    <div class="fade-in">
-                        <div class="bg-light-gray p-8 rounded-lg">
-                            <h3 class="text-2xl font-bold text-dark-gray mb-6">Send Us a Message</h3>
-                            
-                            <form data-form="contact" class="space-y-6">
-                                <div class="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label for="firstName" class="block text-sm font-medium text-dark-gray mb-2">First Name *</label>
-                                        <input type="text" 
-                                               id="firstName" 
-                                               name="firstName" 
-                                               required
-                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label for="lastName" class="block text-sm font-medium text-dark-gray mb-2">Last Name *</label>
-                                        <input type="text" 
-                                               id="lastName" 
-                                               name="lastName" 
-                                               required
-                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-dark-gray mb-2">Email Address *</label>
-                                    <input type="email" 
-                                           id="email" 
-                                           name="email" 
-                                           required
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
-                                </div>
-                                
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium text-dark-gray mb-2">Phone Number</label>
-                                    <input type="tel" 
-                                           id="phone" 
-                                           name="phone"
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
-                                </div>
-                                
-                                <div>
-                                    <label for="subject" class="block text-sm font-medium text-dark-gray mb-2">Subject *</label>
-                                    <select id="subject" 
-                                            name="subject" 
-                                            required
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent">
-                                        <option value="">Please select a subject</option>
-                                        <option value="enrollment">Program Enrollment</option>
-                                        <option value="volunteer">Volunteer Opportunities</option>
-                                        <option value="donation">Donations & Giving</option>
-                                        <option value="partnership">Partnership Inquiry</option>
-                                        <option value="media">Media & Press</option>
-                                        <option value="general">General Information</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-dark-gray mb-2">Message *</label>
-                                    <textarea id="message" 
-                                              name="message" 
-                                              rows="5" 
-                                              required
-                                              placeholder="Tell us how we can help you..."
-                                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-none"></textarea>
-                                </div>
-                                
-                                <div class="flex items-start space-x-3">
-                                    <input type="checkbox" 
-                                           id="newsletter" 
-                                           name="newsletter"
-                                           class="mt-1 w-4 h-4 text-gold border-gray-300 rounded focus:ring-gold">
-                                    <label for="newsletter" class="text-sm text-medium-gray">
-                                        I would like to receive newsletters and updates about The Roots of Music programs and events.
-                                    </label>
-                                </div>
-                                
-                                <button type="submit" 
-                                        class="w-full bg-gold text-dark-gray py-3 px-6 rounded-lg font-semibold hover:bg-gold-dark transition-colors">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="py-20 bg-light-gray">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto fade-in">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-dark-gray mb-4">Find Us</h2>
-                    <p class="text-lg text-medium-gray">
-                        Located in the heart of New Orleans' French Quarter, our facility is easily accessible by public transportation and car.
-                    </p>
-                </div>
-                
-                <!-- Map Placeholder -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-96 bg-gray-200 flex items-center justify-center">
-                        <div class="text-center text-gray-500">
-                            <div class="text-4xl mb-4">🗺️</div>
-                            <p class="text-lg font-medium">Interactive Map</p>
-                            <p class="text-sm">1234 Music Street, New Orleans, LA 70130</p>
-                            <button class="mt-4 bg-gold text-dark-gray px-6 py-2 rounded-full font-semibold hover:bg-gold-dark transition-colors">
-                                Get Directions
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Transportation Info -->
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-gold text-3xl mb-4">🚗</div>
-                        <h3 class="text-lg font-semibold text-dark-gray mb-2">Parking</h3>
-                        <p class="text-medium-gray text-sm">
-                            Free parking available on-site. Street parking also available on nearby streets.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-gold text-3xl mb-4">🚌</div>
-                        <h3 class="text-lg font-semibold text-dark-gray mb-2">Public Transit</h3>
-                        <p class="text-medium-gray text-sm">
-                            Accessible via RTA bus lines 5, 8, and 11. Canal Streetcar stops within 3 blocks.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-gold text-3xl mb-4">🚶</div>
-                        <h3 class="text-lg font-semibold text-dark-gray mb-2">Walking</h3>
-                        <p class="text-medium-gray text-sm">
-                            Pedestrian-friendly location with sidewalks and crosswalks. Safe, well-lit area.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   <div id="scholarships" class="sr-only" aria-hidden="true"></div>
+ 
+ 
     <!-- FAQ Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 fade-in">
-                    <h2 class="text-3xl font-bold text-dark-gray mb-6">Frequently Asked Questions</h2>
+                    <h2 class="text-3xl font-bold text-cmdf-black mb-6">Frequently Asked Questions</h2>
                     <p class="text-lg text-medium-gray">
                         Find quick answers to common questions about our programs and enrollment process.
                     </p>
@@ -385,28 +101,28 @@
                 
                 <div class="space-y-6">
                     <div class="bg-light-gray p-6 rounded-lg fade-in">
-                        <h3 class="text-lg font-semibold text-dark-gray mb-3">How do I enroll my child in a program?</h3>
+                        <h3 class="text-lg font-semibold text-cmdf-black mb-3">How do I enroll my child in a program?</h3>
                         <p class="text-medium-gray">
-                            You can start the enrollment process by filling out our online application form or contacting our enrollment coordinator at (504) 555-JOIN. We'll schedule an interview and audition to determine the best program fit for your child.
+                            You can start the enrollment process by filling out our online application form or contacting our enrollment coordinator at (304) 555-ARTS. We'll schedule a meeting to determine the best program fit for your child.
                         </p>
                     </div>
                     
                     <div class="bg-light-gray p-6 rounded-lg fade-in">
-                        <h3 class="text-lg font-semibold text-dark-gray mb-3">Are there any costs for participation?</h3>
+                        <h3 class="text-lg font-semibold text-cmdf-black mb-3">Are there any costs for participation?</h3>
                         <p class="text-medium-gray">
-                            All of our programs are completely free, including instruments, materials, meals, and transportation. This is made possible through the generous support of our donors and community partners.
+                            Our programs are offered at low cost to ensure accessibility. Scholarships are available for those who need financial assistance. This is made possible through the generous support of our donors and community partners.
                         </p>
                     </div>
                     
                     <div class="bg-light-gray p-6 rounded-lg fade-in">
-                        <h3 class="text-lg font-semibold text-dark-gray mb-3">What if my child has no musical experience?</h3>
+                        <h3 class="text-lg font-semibold text-cmdf-black mb-3">What if my child has no musical or dance experience?</h3>
                         <p class="text-medium-gray">
-                            No prior musical experience is required! Our programs are designed to welcome students at all skill levels. We provide comprehensive instruction starting from the very basics.
+                            No prior musical or dance experience is required! Our programs are designed to welcome students at all skill levels. We provide comprehensive instruction starting from the very basics.
                         </p>
                     </div>
                     
                     <div class="bg-light-gray p-6 rounded-lg fade-in">
-                        <h3 class="text-lg font-semibold text-dark-gray mb-3">How can I support The Roots of Music?</h3>
+                        <h3 class="text-lg font-semibold text-cmdf-black mb-3">How can I support the Cacapon Music and Dance Foundation?</h3>
                         <p class="text-medium-gray">
                             There are many ways to support our mission including financial donations, volunteering, instrument donations, and corporate partnerships. Contact us to learn more about how you can get involved.
                         </p>
@@ -417,67 +133,65 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark-gray text-white py-16">
+    <footer class="bg-cmdf-black text-white py-16">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                            <span class="text-dark-gray font-bold text-xl">♪</span>
-                        </div>
+                        <img src="images/CMDF_LOGO_COLOR_8_x8_300_dpi.png" alt="Cacapon Music and Dance Foundation logo" class="h-12 w-12 object-contain" />
                         <div>
-                            <h3 class="text-xl font-bold">The Roots of Music</h3>
-                            <p class="text-sm text-gray-400">New Orleans</p>
+                            <h3 class="text-xl font-bold">Cacapon Music and Dance Foundation</h3>
+                            <p class="text-sm text-gray-400">Capon Bridge, WV</p>
                         </div>
                     </div>
                     <p class="text-gray-300 mb-6">
-                        Strengthening communities by transforming the lives of children through music education.
+                        Strengthening communities by transforming the lives of children through music and dance education.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                            <span class="text-dark-gray font-bold">f</span>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-cmdf-black font-bold hover:bg-gold-dark transition-colors">
+                            <span>f</span>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                            <span class="text-dark-gray font-bold">i</span>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-cmdf-black font-bold hover:bg-gold-dark transition-colors">
+                            <span>i</span>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold-dark transition-colors">
-                            <span class="text-dark-gray font-bold">t</span>
+                        <a href="#" class="w-10 h-10 bg-gold rounded-full flex items-center justify-center text-cmdf-black font-bold hover:bg-gold-dark transition-colors">
+                            <span>t</span>
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-gray-300 hover:text-gold transition-colors">Home</a></li>
                         <li><a href="about.html" class="text-gray-300 hover:text-gold transition-colors">About Us</a></li>
                         <li><a href="programs.html" class="text-gray-300 hover:text-gold transition-colors">Our Programs</a></li>
-                        <li><a href="events.html" class="text-gray-300 hover:text-gold transition-colors">Events</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-gold transition-colors">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold mb-6">Programs</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Sprouts of Music</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Marching Crusaders</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Studio Academy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Community Events</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Youth Music</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Traditional Dance</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Community Workshops</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-gold transition-colors">Cultural Events</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold mb-6">Contact Info</h4>
                     <div class="space-y-3 text-gray-300">
-                        <p>1234 Music Street<br>New Orleans, LA 70130</p>
-                        <p>Phone: (504) 555-MUSIC</p>
-                        <p>Email: info@therootsofmusic.org</p>
+                        <p>123 Heritage Lane<br>Capon Bridge, WV 26711</p>
+                        <p>Phone: (304) 555-CMDF</p>
+                        <p>Email: info@cmdf.org</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 The Roots of Music. All rights reserved.</p>
+                <p>&copy; 2024 Cacapon Music and Dance Foundation. All rights reserved.</p>
             </div>
         </div>
     </footer>

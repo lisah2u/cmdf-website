@@ -1,0 +1,22 @@
+/* CMDF Brand Palette - Single Source of Truth */
+:root {
+  /* Primary Brand Colors */
+  --steel-blue: #437CA5;
+  --celestial-blue: #549ED2;
+  --hunyadi-yellow: #E7BB5F;
+  --lion: #B29251;
+  --cmdf-black: #07070A;
+
+  /* Utility Colors */
+  --light-gray: #f5f5f5;
+  --medium-gray: #666666;
+
+  /* Semantic Aliases for Tailwind/CSS */
+  --color-primary: var(--steel-blue);
+  --color-secondary: var(--celestial-blue);
+  --color-accent: var(--hunyadi-yellow);
+  --color-accent-dark: var(--lion);
+  --color-dark: var(--cmdf-black);
+  --color-light: var(--light-gray);
+  --color-medium: var(--medium-gray);
+}

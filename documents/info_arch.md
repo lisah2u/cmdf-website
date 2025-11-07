@@ -1,43 +1,39 @@
 🏠 HOME (/)
 │
-├── 📖 ABOUT
-│   ├── 🎯 Mission (/mission/)
-│   ├── 👥 Our Team (/our-team/)
-│   └── 📋 Annual Report (/annual-report/) - TBD
+├── 📖 ABOUT (/about/)
+│   ├── 🎯 Mission (text from documents/mission.md)
+│   ├── 👥 Our Team (text from documents/team.md)
+│   └── 📋 Bylaws (text from documents/bylaws.md) 
 │
 ├── 🎵 PROGRAMS
 │   ├── 🎼 Main Programs (/programs/)
 │   │   ├── Music Scholarships (Ages 8-18)
 │   │   ├── Community Square Dances
 │   │   └── Special Events
-|
-├── 🤝 GET INVOLVED
-│   ├── 🎺 Apply for a Youth Scholarship (/scholarship/)
+│   ├── 🎺 Apply for a Youth Scholarship (/scholarships/)
 │   │   ├── Make a donation to the Youth Scholarship Fund
 │   │   ├── Scholarship Information
 │   │   └── Student Requirements
-│   │
 │   └── 🙋 Join a Square Dance (/dance/)
 │       ├── Help with Square Dances
 │       ├── Square Dance Information
-│       └── Frequently Asked Questions
+│       └── Frequently Asked Questions (content in documents/faq.md)
 │
-├── 💝 SUPPORT
-│   ├── 💰 Donate (/donate/)
+├── 💝 SUPPORT (/give/)
+│   ├── 💰 Donate (external link in donations.md)
 │   │   ├── $25 → Support a Square Dance
 │   │   ├── $50 → Support a Square Dance Caller
 │   │   ├── $100 → Support a Square Dance Band
 │   │   ├── $200 → Bronze Roots Sponsor - Acknowledgement of Sponsorship on Site
 │   │   ├── $1,200 → Silver Strings Sponsor - One Full Student Scholarship
 │   │   └── $2,400 → Golden Steps Sponsor - Host a Square Dance
-│   │
-│   └── 🏆 Recognition (/recognition/)
+│   └── 🏆 Recognition 
 │       ├── Donor Acknowledgment
 │       ├── Sponsor Recognition
 │       └── Partnership Opportunities
 │
-├── 🎪 COMMUNITY
-│   ├── 📅 Events
+├── 🎪 COMMUNITY (/community/)
+│   ├── 📅 Events (content in events.md)
 │   │   ├── Square Dances
 │   │   ├── Youth Performances
 │   │   └── Community Appearances
@@ -46,7 +42,7 @@
 │       ├── Branded T-Shirts
 │       ├── Stickers and Magnets
 │
-└── 📞 CONTACT
+└── 📞 CONTACT (/contact/)
     ├── 📍 152 Capon School Street, Capon Bridge, WV 26711
     ├── 📧 admin@cacaponmusicanddance.org
     └── 📱 Social Media Links
@@ -59,22 +55,6 @@
 ├── Students supported
 ├── Student teaching hours supported
 └── Guest artists
-
-🏆 RECOGNITION:
-├── Bronze, Silver, Gold Sponsors
-
-🤝 PARTNERS:
-├── Community:
-│   ├── Rebecca Keiver
-│   ├── Hampshire County Community Foundation
-│   ├── Mid-Atlantic Arts - Central Appalachian Living Traditions (CALT)
-│   └── 
-│
-└── Corporate:
-│   ├── The Kettle Stop
-│   ├── El Puente Mexican Restaurant
-│   ├── Nino's Pizzarama
-    └── SJ Morse
 
 ═══════════════════════════════════════════════════════════════
 
@@ -98,8 +78,11 @@
 
 📶 IMPACT METRICS
 ├── Students Served (20)
+├── Teaching Hours supported (200)
 ├── Scholarship Hours (500)
-└── Community Dances (12)
+├── Square Dance Participants (400)
+├── Community Dances (12)
+└── Guest Artists (14)
 ═══════════════════════════════════════════════════════════════
 
 🎨 WEBSITE FEATURES:

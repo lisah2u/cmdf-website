@@ -3,19 +3,22 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu functionality
     initMobileMenu();
-    
+
     // Smooth scrolling for navigation links
     initSmoothScrolling();
-    
+
     // Intersection Observer for fade-in animations
     initScrollAnimations();
-    
+
     // Navigation bar background on scroll
     initNavbarScroll();
-    
+
+    // Initialize logo animation separately
+    initLogoAnimation();
+
     // Form handling
     initFormHandling();
-    
+
     // Initialize counters animation
     initCounterAnimations();
 });
@@ -106,7 +109,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe all fade-in elements
-    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3');
     fadeElements.forEach(element => {
         observer.observe(element);
     });
@@ -116,20 +119,62 @@ function initScrollAnimations() {
 function initNavbarScroll() {
     const header = document.querySelector('header');
     let lastScrollY = window.scrollY;
-    
+
     window.addEventListener('scroll', function() {
         const currentScrollY = window.scrollY;
-        
+
         if (currentScrollY > 100) {
             header.classList.add('backdrop-blur-md');
             // Keep the black background, just add blur effect
         } else {
             header.classList.remove('backdrop-blur-md');
         }
-        
+
         lastScrollY = currentScrollY;
     });
 }
+
+// Logo Animation Effect
+function initLogoAnimation() {
+    const logo = document.getElementById('header-logo');
+
+    if (!logo) {
+        console.log('Logo not found');
+        return;
+    }
+
+    // Set initial scale at page load
+    logo.style.transform = 'scale(1.2)';
+
+    // Add scroll event listener for logo animation
+    function updateLogoScale() {
+        const currentScrollY = window.scrollY;
+        let scale;
+
+        if (currentScrollY === 0) {
+            scale = 1.2; // Enlarged when at top
+        } else if (currentScrollY <= 300) {
+            // Smooth transition from 1.2 to 1.0 over first 300px
+            scale = 1.2 - (currentScrollY / 300) * 0.2;
+        } else {
+            // Continue shrinking after 300px to minimum of 0.8
+            const additionalScroll = currentScrollY - 300;
+            scale = Math.max(0.8, 1.0 - (additionalScroll / 500) * 0.2);
+        }
+
+        // Apply the scaling transform
+        logo.style.transform = `scale(${scale})`;
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', updateLogoScale);
+
+    // Call once to set initial state
+    updateLogoScale();
+}
+
+// Make function available globally
+window.initLogoAnimation = initLogoAnimation;
 
 // Form Handling Functions
 function initFormHandling() {

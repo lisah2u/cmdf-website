@@ -1,7 +1,0 @@
-[project]
-name = "CMDF website"
-version = "0.1.0"
-description = "Cacapon Music and Dance Foundation website, Capon Bridge, WV"
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
