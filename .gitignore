@@ -1,10 +1,35 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Development directories
+.vincent/
+.playwright-mcp/
+.claude/
+
+# Build files
 build/
 dist/
-wheels/
-*.egg-info
+*.log
 
-# Virtual environments
-.venv
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
