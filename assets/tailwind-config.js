@@ -22,9 +22,17 @@ tailwind.config = {
                 'lion': '#B29251'
             },
             fontFamily: {
+                // Base font stacks
                 'sans': ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+
+                // Custom brand fonts with fallbacks
+                'gilroy': ['Gilroy', 'Inter', 'system-ui', 'sans-serif'],
+                'howards': ['Howards Eight', 'Georgia', 'Times New Roman', 'serif'],
+
+                // Specialized fonts
                 'hero': ['Elms Sans', 'sans-serif'],
                 'display': ['Fredericka the Great', 'cursive'],
+                'nav': ['Inter', 'system-ui', 'sans-serif'],
             },
             borderRadius: {
                 'xl': '12px',
