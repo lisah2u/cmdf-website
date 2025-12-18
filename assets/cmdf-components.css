@@ -206,7 +206,7 @@ header nav a:hover:not(.btn-nav-gold) {
 .bell-continuous {
     animation-delay: 0s;
     animation-iteration-count: infinite;
-    animation-duration: 3.8s; /* 3s pause + 0.8s animation */
+    animation-duration: 2.8s; /* 2s pause + 0.8s animation */
     color: #E7BB5F !important; /* Always gold, override hover states */
 }
 

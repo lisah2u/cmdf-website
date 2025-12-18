@@ -1,5 +1,8 @@
 🏠 HOME (/)
-│
+├── 📖 ── Hero Section
+│   ├── 🎯 Mission 
+│   ├── 👥 Our Team (/our-team/)
+│   └── 📋 Annual Report (/annual-report/) 
 ├── 📖 ABOUT
 │   ├── 🎯 Mission (/mission/)
 │   ├── 👥 Our Team (/our-team/)
