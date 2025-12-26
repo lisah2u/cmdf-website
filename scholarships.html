@@ -25,6 +25,15 @@
 
     <!-- CMDF Component Styles -->
     <link rel="stylesheet" href="assets/cmdf-components.css">
+    
+    <!-- Page-specific Styles -->
+    <style>
+        .scholarships-hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/kid_closeup_guitar.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="scroll-smooth">
     <!-- Header with centered logo on black background -->
@@ -80,12 +89,16 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16 bg-light-gray">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold text-cmdf-black mb-6 typography-heading">Dakota Karper Music Scholarship</h1>
-                <p class="text-xl text-medium-gray typography-body">
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] text-white scholarships-hero-bg">
+        <!-- Light overlay for readability -->
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <!-- Overlayed content -->
+        <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[70vh] fade-in">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Dakota Karper Music Scholarship</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto typography-body">
                     Enriching the lives of children and youth in Hampshire County through music education.
                 </p>
             </div>
@@ -104,7 +117,7 @@
                             The Dakota Karper Music Scholarship program is made possible through support from Cacapon Music and Dance Foundation. This scholarship is intended to enrich through music the lives of children and youth in Hampshire County and surrounding.
                         </p>
                         <p class="text-lg text-medium-gray mb-4 typography-body">
-                            Students applying for a Dakota Karper Music Scholarship for the first time must be in grades 3rd-10th. Students who have been awarded a Dakota Karper Music Scholarship are eligible to reapply at the end of each 30 week class period and remain in the program until they are 18 years old.
+                            Students applying for the first time must be in grades 3rd-10th. Students who have previously been awarded a scholarship are eligible to reapply at the end of each 30 week class period and remain in the program until they are 18 years old.
                         </p>
                         <p class="text-lg text-medium-gray typography-body">
                             Enrollment is open year round for new applicants. Applications are available at the link below, or can be picked up in-person during normal business hours at The Cat and The Fiddle.
@@ -154,7 +167,7 @@
                     </div>
                     <div class="card-cmdf p-8">
                         <p class="text-lg text-medium-gray mb-6 typography-body">
-                            Recipients of a Dakota Karper Youth Music Scholarship are expected to:
+                            Recipients of a Youth Music Scholarship are expected to:
                         </p>
                         <ul class="space-y-4 text-medium-gray typography-body">
                             <li class="flex items-start">

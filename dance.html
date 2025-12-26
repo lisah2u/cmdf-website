@@ -25,6 +25,15 @@
 
     <!-- CMDF Component Styles -->
     <link rel="stylesheet" href="assets/cmdf-components.css">
+    
+    <!-- Page-specific Styles -->
+    <style>
+        .dance-hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/poster-video.png');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="scroll-smooth">
     <!-- Header with centered logo on black background -->
@@ -80,26 +89,62 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16 bg-light-gray">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold text-cmdf-black mb-6">Square Dance!</h1>
-                <p class="text-xl text-medium-gray">
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] text-white dance-hero-bg">
+        <!-- Light overlay for readability -->
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <!-- Overlayed content -->
+        <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[70vh] fade-in">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Square Dance!</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto typography-body">
                     Celebrate an Appalachian tradition.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Dance Content Placeholder -->
+    <!-- Frequently Asked Questions Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 fade-in">
-                    <p class="text-lg text-medium-gray">
-                        Square Dance content will be added here.
-                    </p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Question 1 -->
+                    <div class="card-cmdf p-8 fade-in-delay-1">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Do I need to know how to dance?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            No! Our square dance welcomes dancers of all skill levels and all age groups. No experience is necessary to dance at a square dance. Prior to the start of each dance, the 'Caller' walks everyone through the steps of how to dance the next set, and then as the dance is going on, the caller continues to sing/call out directions for the dancers to follow along.
+                        </p>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="card-cmdf p-8 fade-in-delay-2">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Do I need to bring a partner?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Though in the dance you are often paired up with a partner, you don't need to bring one in order to dance. There are always lots of individuals in attendance looking for a partner to get out on the dance floor with. Come alone or bring a friend to this community event.
+                        </p>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="card-cmdf p-8 fade-in-delay-3">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">What should I wear?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            There is no required outfits at our square dance. Wear an outfit and shoes that you can move in, are comfortable and make you feel good!
+                        </p>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="card-cmdf p-8 fade-in-delay-3">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">What should I bring?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            You are likely to get hot dancing, so be sure to bring a water bottle so that you can stay hydrated. Also consider stopping by <a href="partners.html#square-dance-discounts" class="text-steel-blue hover:text-celestial-blue underline">one of our partners who offer square dance discounts</a> to pick up food or beverages.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
