@@ -1,13 +1,16 @@
 ## RECOGNITION
 
 ### SPONSORS
-- Bronze, Silver, Gold Sponsors
+- Bronze, Silver, Gold, Platinum Sponsors
 
-### PARTNERS:
-- Community
-    - Rebecca Keiver
-    Hampshire County Community Foundation
-    Mid-Atlantic Arts - Central Appalachian Living Traditions (CALT)
+Platinum Sponsor
+- Rebecca Keiver
+
+
+### PARTNERS (Financial Sponsorship):
+
+- Hampshire County Community Foundation
+- Mid-Atlantic Arts - Central Appalachian Living Traditions (CALT)
  
 - Corporate
     - SJ Morse

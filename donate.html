@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate - Cacapon Music and Dance Foundation</title>
-    <meta name="description" content="Learn about our partners and supporters who help make the Cacapon Music and Dance Foundation's mission possible.">
+    <meta name="description" content="Sponsor a child and transform a life through annual support of music education and community engagement programs in Hampshire County, WV.">
     
     <!-- Tailwind Config (must load before CDN) -->
     <script src="assets/tailwind-config.js"></script>
@@ -25,6 +25,15 @@
 
     <!-- CMDF Component Styles -->
     <link rel="stylesheet" href="assets/cmdf-components.css">
+    
+    <!-- Page-specific Styles -->
+    <style>
+        .donate-hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/kids_outdoor_recital2.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 <body class="scroll-smooth">
     <!-- Header with centered logo on black background -->
@@ -54,7 +63,10 @@
 
             <!-- Right Nav (desktop) -->
             <div class="hidden lg:flex items-center space-x-6 text-white">
-                <a href="donate.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">Donate</a>
+                <a href="donate.html" class="font-medium px-2 py-1 hover:text-gold transition-colors flex items-center gap-2">
+                    <i class="fas fa-bell text-sm text-gold bell-continuous"></i>
+                    Donate
+                </a>
                 <a href="scholarships.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">Scholarships</a>
                 <a href="dance.html" class="font-medium px-2 py-1 hover:text-gold transition-colors">Dance</a>
             </div>
@@ -67,33 +79,206 @@
                 <a href="programs.html" class="block text-white hover:text-gold font-medium">Programs</a>
                 <a href="events.html" class="block text-white hover:text-gold font-medium">Events</a>
                 <a href="partners.html" class="block text-white hover:text-gold font-medium">Partners</a>
-                <a href="donate.html" class="block text-white hover:text-gold font-medium">Donate</a>
+                <a href="donate.html" class="block text-white hover:text-gold font-medium flex items-center gap-2">
+                    <i class="fas fa-bell text-sm text-gold bell-continuous"></i>
+                    Donate
+                </a>
                 <a href="scholarships.html" class="block text-white hover:text-gold font-medium">Scholarships</a>
                 <a href="dance.html" class="block text-white hover:text-gold font-medium">Dance</a>
             </div>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16 bg-light-gray">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold text-cmdf-black mb-6">Donate</h1>
-                <p class="text-xl text-medium-gray">
-                    Learn how to join in.
+    <!-- Hero Section -->
+    <section class="relative min-h-[70vh] text-white donate-hero-bg">
+        <!-- Light overlay for readability -->
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <!-- Overlayed content -->
+        <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[70vh] fade-in">
+            <div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Sponsor a child and transform a life</h1>
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto typography-body">
+                    Your annual support provides year-round music education and community engagement opportunities for children in Hampshire County.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Partners Content -->
+    <!-- Impact Snapshot Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 fade-in">
-                    <p class="text-lg text-medium-gray">
-                        Donation content will be added here.
+                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Who We Serve</h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
+                        Your support directly impacts children and families in our community who need access to music education and cultural experiences.
                     </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="card-cmdf p-8 fade-in-delay-1">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-cmdf-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading text-center">Children in Need</h3>
+                        <p class="text-medium-gray typography-body text-center">
+                            Children from low-income families who cannot afford music lessons or instruments receive scholarships and access to our programs.
+                        </p>
+                    </div>
+
+                    <div class="card-cmdf p-8 fade-in-delay-2">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-cmdf-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading text-center">Home-Schooled Children</h3>
+                        <p class="text-medium-gray typography-body text-center">
+                            Home-schooled children who lack access to group music education and ensemble opportunities find community and musical growth through our programs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsorship Tiers Section -->
+    <section id="sponsorship-tiers" class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Choose Your Sponsorship Level</h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
+                        Annual sponsorship provides sustainable support for our programs. Higher tier sponsors receive direct connection with the children they support.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Bronze Tier -->
+                    <div class="card-cmdf p-6 text-center fade-in-delay-1 border-2 border-gold/30 flex flex-col">
+                        <div class="mb-4">
+                            <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-2xl">🥉</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Bronze</h3>
+                            <div class="text-3xl font-bold text-gold mb-4 typography-heading">$75<span class="text-lg text-medium-gray">/year</span></div>
+                        </div>
+                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Helps fund instrument care and jams</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Recognition in annual report</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-cmdf-secondary w-full text-center mt-auto">Choose Bronze</a>
+                    </div>
+
+                    <!-- Silver Tier -->
+                    <div class="card-cmdf p-6 text-center fade-in-delay-2 border-4 border-gray-300 shadow-lg relative flex flex-col">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-gray-300 text-cmdf-black px-3 py-1 rounded-full text-xs font-semibold">POPULAR</span>
+                        </div>
+                        <div class="mb-4 mt-2">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-2xl">🥈</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Silver</h3>
+                            <div class="text-3xl font-bold text-steel-blue mb-4 typography-heading">$350<span class="text-lg text-medium-gray">/year</span></div>
+                        </div>
+                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                            <li class="flex items-start">
+                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span>Funds half of a scholarship or a jam</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span>Matched with a child</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span>Receives annual progress card</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span>All Bronze benefits</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Choose Silver</a>
+                    </div>
+
+                    <!-- Gold Tier -->
+                    <div class="card-cmdf p-6 text-center fade-in-delay-3 border-4 border-gold shadow-xl relative transform scale-105 flex flex-col">
+                        <div class="mb-4">
+                            <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-2xl">🥇</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Gold</h3>
+                            <div class="text-3xl font-bold text-gold mb-4 typography-heading">$750<span class="text-lg text-medium-gray">/year</span></div>
+                        </div>
+                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Fully funds a scholarship</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Matched with a child</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Receives annual progress card</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Special recognition</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>All Silver benefits</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Choose Gold</a>
+                    </div>
+
+                    <!-- Platinum Tier -->
+                    <div class="card-cmdf p-6 text-center fade-in-delay-1 border-2 border-celestial-blue shadow-lg relative flex flex-col">
+                        <div class="mb-4">
+                            <div class="w-12 h-12 bg-celestial-blue rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-2xl">💎</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Platinum</h3>
+                            <div class="text-3xl font-bold text-celestial-blue mb-4 typography-heading">$1,500<span class="text-lg text-medium-gray">/year</span></div>
+                        </div>
+                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                            <li class="flex items-start">
+                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span>Supports multiple children</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span>Receives consolidated annual report</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span>Premium recognition</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span>Invitation to special events</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span>All Gold benefits</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto whitespace-nowrap">Choose Platinum</a>
+                    </div>
                 </div>
             </div>
         </div>
