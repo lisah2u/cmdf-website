@@ -429,6 +429,7 @@ function initFAQAccordion() {
                     const otherIcon = otherQuestion.querySelector('.faq-icon');
                     
                     otherQuestion.setAttribute('aria-expanded', 'false');
+                    otherQuestion.classList.remove('open');
                     otherAnswer.classList.add('hidden');
                     otherAnswer.style.maxHeight = '0';
                     otherAnswer.style.opacity = '0';
@@ -439,6 +440,7 @@ function initFAQAccordion() {
             // Toggle current FAQ
             if (isExpanded) {
                 this.setAttribute('aria-expanded', 'false');
+                this.classList.remove('open');
                 answer.style.maxHeight = '0';
                 answer.style.opacity = '0';
                 setTimeout(() => {
@@ -447,6 +449,7 @@ function initFAQAccordion() {
                 icon.style.transform = 'rotate(0deg)';
             } else {
                 this.setAttribute('aria-expanded', 'true');
+                this.classList.add('open');
                 answer.classList.remove('hidden');
                 // Force a reflow to ensure the element is visible before measuring
                 answer.offsetHeight;
