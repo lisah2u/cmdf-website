@@ -28,10 +28,30 @@
     
     <!-- Page-specific Styles -->
     <style>
-        .donate-hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/kids_outdoor_recital2.jpeg');
-            background-size: cover;
-            background-position: center;
+        /* FAQ Accordion Styles */
+        .faq-answer {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .faq-answer.hidden {
+            max-height: 0 !important;
+            opacity: 0 !important;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Sponsor Tier Card Hover Animation */
+        .sponsor-tier-card {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+
+        .sponsor-tier-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18) !important;
         }
     </style>
 </head>
@@ -90,18 +110,28 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[70vh] text-white donate-hero-bg">
-        <!-- Dark overlay for readability -->
-        <div class="absolute inset-0 bg-black/50"></div>
-        
-        <!-- Overlayed content -->
-        <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[70vh] fade-in">
-            <div>
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Sponsor a child and transform a life</h1>
-                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-4 typography-body">
-                    $750 fully funds one year of music lessons, instruments, and community events for a Hampshire County child. 20 scholarships have been awarded since 2023.
-                </p>
-
+    <section class="w-full py-20 md:py-24 bg-[#faf5f0]">
+        <div class="container mx-auto px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Text Content -->
+                    <div class="text-center md:text-left fade-in">
+                        <h1 class="text-[42px] md:text-[48px] font-bold text-cmdf-black mb-6 leading-tight" style="font-weight: 700;">
+                            Sponsor a child and transform a life
+                        </h1>
+                        <p class="text-[20px] md:text-[22px] text-medium-gray mb-6 max-w-[750px] mx-auto md:mx-0" style="line-height: 1.4;">
+                            $750 fully funds one year of music lessons, instruments, and community events for a Hampshire County child.
+                        </p>
+                        <p class="text-lg md:text-xl font-bold text-cmdf-black mb-0">
+                            20 scholarships have been awarded since 2023.
+                        </p>
+                    </div>
+                    
+                    <!-- Right: Image -->
+                    <div class="fade-in-delay-1">
+                        <img src="images/kids_group_photo.JPG" alt="Children participating in CMDF music programs" class="w-full h-auto rounded-lg shadow-xl object-cover">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -109,12 +139,16 @@
     <!-- Testimonial Section -->
     <section class="py-12 bg-white border-b border-gray-200">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gold/10 border-l-4 border-gold p-8 md:p-10 rounded-r-lg fade-in">
-                    <blockquote class="text-xl md:text-2xl text-cmdf-black italic typography-body leading-relaxed mb-4">
-                        "Before this program, my child wanted to learn Piano but we couldn't afford lessons. Now she can't wait for lessons every week — and has found a community that makes them feel seen, capable, and proud."
+            <div class="max-w-[750px] mx-auto mt-10 fade-in">
+                <div class="bg-white rounded-xl p-6 md:p-7 relative" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+                    <!-- Large quotation mark -->
+                    <div class="absolute top-6 left-6 text-gold opacity-30" style="font-size: 64px; line-height: 1; font-family: Georgia, serif;">
+                        "
+                    </div>
+                    <blockquote class="text-[18px] text-cmdf-black italic leading-relaxed mb-4 pl-8 relative z-10" style="font-size: 18px;">
+                        Before this program, my child wanted to learn Piano but we couldn't afford lessons. Now she can't wait for lessons every week — and has found a community that makes them feel seen, capable, and proud.
                     </blockquote>
-                    <p class="text-lg text-medium-gray font-medium typography-body">
+                    <p class="text-sm text-medium-gray pl-8 relative z-10">
                         — Parent Testimonial Placeholder
                     </p>
                 </div>
@@ -123,37 +157,29 @@
     </section>
 
     <!-- Impact Snapshot Section -->
-    <section class="py-20 bg-white">
+    <section class="py-[70px] md:py-[90px] bg-[#f6f6f6]">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Who We Serve</h2>
-                    <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-[32px] md:text-[36px] font-bold text-cmdf-black mb-4" style="font-weight: 700;">Who We Serve</h2>
+                    <p class="text-base text-medium-gray max-w-3xl mx-auto">
                         Your support directly impacts children and families in our community who need access to music education and cultural experiences.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <div class="card-cmdf p-8 fade-in-delay-1">
-                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-cmdf-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading text-center">Children in Need</h3>
-                        <p class="text-medium-gray typography-body text-center">
+                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <div class="bg-white rounded-[10px] md:rounded-[12px] p-6 fade-in-delay-1" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div class="text-4xl mb-4 text-center">👥</div>
+                        <h3 class="text-[20px] md:text-[22px] font-bold text-cmdf-black mb-3 text-center">Children in Need</h3>
+                        <p class="text-medium-gray text-center leading-relaxed">
                             Children from low-income families who cannot afford music lessons or instruments receive scholarships and access to our programs.
                         </p>
                     </div>
 
-                    <div class="card-cmdf p-8 fade-in-delay-2">
-                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-cmdf-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading text-center">Home-Schooled Children</h3>
-                        <p class="text-medium-gray typography-body text-center">
+                    <div class="bg-white rounded-[10px] md:rounded-[12px] p-6 fade-in-delay-2" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div class="text-4xl mb-4 text-center">📚</div>
+                        <h3 class="text-[20px] md:text-[22px] font-bold text-cmdf-black mb-3 text-center">Home-Schooled Children</h3>
+                        <p class="text-medium-gray text-center leading-relaxed">
                             Home-schooled children who lack access to group music education and ensemble opportunities find community and musical growth through our programs.
                         </p>
                     </div>
@@ -166,15 +192,19 @@
     <section class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <div class="card-cmdf p-8 md:p-12 fade-in">
-                    <div>
-                        <p class="text-lg text-medium-gray mb-6 typography-body">
-                            Cacapon Music and Dance Foundation is a registered nonprofit organization dedicated to ensuring all children in Hampshire County can experience the benefits, joy, and confidence that music brings.
-                        </p>
-                        <div class="space-y-2 text-medium-gray typography-body">
-                            <p><strong class="text-cmdf-black">501(c)(3) Status:</strong> Insert official language here</p>
-                            <p><strong class="text-cmdf-black">EIN:</strong> Insert EIN here</p>
-                        </div>
+                <div class="bg-[#fff8f1] rounded-[10px] p-7 md:p-8 text-center fade-in">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <h2 class="text-2xl md:text-3xl font-bold text-cmdf-black">We Are a Registered Nonprofit</h2>
+                    </div>
+                    <p class="text-lg text-medium-gray mb-6 max-w-2xl mx-auto">
+                        Cacapon Music and Dance Foundation is a registered nonprofit organization dedicated to ensuring all children in Hampshire County can experience the benefits, joy, and confidence that music brings.
+                    </p>
+                    <div class="space-y-3 text-medium-gray">
+                        <p class="text-base"><strong class="text-cmdf-black">501(c)(3) Status:</strong> Insert official language here</p>
+                        <p class="text-base font-bold text-cmdf-black">EIN: Insert EIN here</p>
                     </div>
                 </div>
             </div>
@@ -185,176 +215,236 @@
     <section id="sponsorship-tiers" class="py-20 bg-light-gray">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                    <div class="fade-in">
-                        <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Choose Your Sponsorship Level</h2>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Every sponsorship directly supports a Hampshire County child.
-                        </p>
-                    </div>
-                    <div class="fade-in-delay-1">
-                        <img src="images/kids_group_photo.JPG" alt="Children participating in CMDF music programs" class="w-full h-auto rounded-lg shadow-lg object-cover" style="max-height: 400px;">
-                    </div>
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Choose Your Sponsorship Level</h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
+                        Every sponsorship directly supports a Hampshire County child.
+                    </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid md:grid-cols-2 gap-6">
                     <!-- Bronze Tier -->
-                    <div class="card-cmdf p-6 text-center fade-in-delay-1 border-2 border-gold/30 flex flex-col">
-                        <div class="mb-4">
-                            <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-2xl">🥉</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Bronze</h3>
-                            <div class="text-3xl font-bold text-gold mb-4 typography-heading">$75<span class="text-lg text-medium-gray">/year</span></div>
+                    <div class="sponsor-tier-card bg-white rounded-[14px] p-8 fade-in-delay-1 flex flex-col relative" style="box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">🥉</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-cmdf-black mb-3">Bronze</h3>
+                            <div class="text-[36px] md:text-[42px] font-bold text-gold mb-2">$75<span class="text-lg text-medium-gray font-normal">/year</span></div>
                         </div>
-                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                        <p class="text-left text-cmdf-black font-medium mb-6 text-lg">
                             Help a child stay playing and feel supported.
                         </p>
-                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                        <ul class="text-left space-y-3 mb-8 text-medium-gray flex-grow">
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Supports instrument care, kid jams, and program supplies</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Helps ensure no child is turned away due to cost</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Recognition in our annual report</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-secondary w-full text-center mt-auto">Sponsor at Bronze</a>
+                        <div class="mt-auto">
+                            <a href="#" class="block w-full font-bold py-4 px-6 rounded-lg text-center transition-colors flex items-center justify-center" style="height: 52px; background-color: #E7BB5F; color: #07070A; text-align: center;">Sponsor at Bronze</a>
+                            <p class="text-xs text-medium-gray text-center mt-2">Takes 60 seconds • Secure donation</p>
+                            <!-- Trust badges -->
+                            <div class="flex flex-wrap justify-center gap-2 mt-3">
+                                <div class="flex items-center gap-1.5 bg-[#f0f9ff] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#2f6bed]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#2f6bed]">100% local</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#f0fdf4] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#16a34a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#16a34a]">Secure</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#fef3c7] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#d97706]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#d97706]">Tax-deductible</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Silver Tier -->
-                    <div class="card-cmdf p-6 text-center fade-in-delay-2 border-4 border-gray-300 shadow-lg relative flex flex-col">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                            <span class="bg-gray-300 text-cmdf-black px-3 py-1 rounded-full text-xs font-semibold">MOST POPULAR</span>
+                    <!-- Silver Tier (Most Popular) -->
+                    <div class="sponsor-tier-card bg-white rounded-[14px] p-8 fade-in-delay-2 flex flex-col relative" style="box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                        <!-- Badge in top right corner -->
+                        <div class="absolute top-4 right-4 bg-[#2f6bed] text-white px-4 py-1.5 rounded-full text-xs font-bold">
+                            MOST POPULAR
                         </div>
-                        <div class="mb-4 mt-2">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-2xl">🥈</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Silver</h3>
-                            <div class="text-3xl font-bold text-steel-blue mb-4 typography-heading">$350<span class="text-lg text-medium-gray">/year</span></div>
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">🥈</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-cmdf-black mb-3">Silver</h3>
+                            <div class="text-[36px] md:text-[42px] font-bold text-steel-blue mb-2">$350<span class="text-lg text-medium-gray font-normal">/year</span></div>
                         </div>
-                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                        <p class="text-left text-cmdf-black font-medium mb-6 text-lg">
                             Give a child meaningful access to music education.
                         </p>
-                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                        <ul class="text-left space-y-3 mb-8 text-medium-gray flex-grow">
                             <li class="flex items-start">
-                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span class="text-steel-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Funds half of a year of lessons or community programming</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span class="text-steel-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>You'll be matched with a child you're helping support</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span class="text-steel-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Receive a simple yearly "progress card" sharing their journey</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-steel-blue mr-2 mt-1">✓</span>
+                                <span class="text-steel-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Includes all Bronze-recognition benefits</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Sponsor at Silver</a>
+                        <div class="mt-auto">
+                            <a href="#" class="block w-full font-bold py-4 px-6 rounded-lg text-center transition-colors flex items-center justify-center" style="height: 52px; background-color: #E7BB5F; color: #07070A; text-align: center;">Sponsor at Silver</a>
+                            <p class="text-xs text-medium-gray text-center mt-2">Takes 60 seconds • Secure donation</p>
+                            <!-- Trust badges -->
+                            <div class="flex flex-wrap justify-center gap-2 mt-3">
+                                <div class="flex items-center gap-1.5 bg-[#f0f9ff] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#2f6bed]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#2f6bed]">100% local</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#f0fdf4] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#16a34a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#16a34a]">Secure</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#fef3c7] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#d97706]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#d97706]">Tax-deductible</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Gold Tier -->
-                    <div class="card-cmdf p-6 text-center fade-in-delay-3 border-4 border-gold shadow-xl relative transform scale-105 flex flex-col">
-                        <div class="mb-4">
-                            <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-2xl">🥇</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Gold</h3>
-                            <div class="text-3xl font-bold text-gold mb-2 typography-heading">$750<span class="text-lg text-medium-gray">/year</span></div>
-                            <div class="text-lg font-semibold text-cmdf-black mb-4 typography-body">Just $63/month fully funds a child</div>
+                    <div class="sponsor-tier-card bg-white rounded-[14px] p-8 fade-in-delay-3 flex flex-col relative" style="box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">🥇</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-cmdf-black mb-3">Gold</h3>
+                            <div class="text-[36px] md:text-[42px] font-bold text-gold mb-2">$750<span class="text-lg text-medium-gray font-normal">/year</span></div>
+                            <div class="text-base font-semibold text-cmdf-black mt-2">Just $63/month fully funds a child</div>
                         </div>
-                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                        <p class="text-left text-cmdf-black font-medium mb-6 text-lg">
                             Fully sponsor a child for the year. Transform their experience.
                         </p>
-                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                        <ul class="text-left space-y-3 mb-8 text-medium-gray flex-grow">
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Covers a full scholarship including lessons, instrument access, and programming</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Personal child match and annual progress update</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Special recognition for your generosity</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span class="text-gold mr-3 mt-1 text-xl">✓</span>
                                 <span>Includes all Silver benefits</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Fully Sponsor a Child</a>
+                        <div class="mt-auto">
+                            <a href="#" class="block w-full font-bold py-4 px-6 rounded-lg text-center transition-colors flex items-center justify-center" style="height: 52px; background-color: #E7BB5F; color: #07070A; text-align: center;">Fully Sponsor a Child</a>
+                            <p class="text-xs text-medium-gray text-center mt-2">Takes 60 seconds • Secure donation</p>
+                            <!-- Trust badges -->
+                            <div class="flex flex-wrap justify-center gap-2 mt-3">
+                                <div class="flex items-center gap-1.5 bg-[#f0f9ff] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#2f6bed]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#2f6bed]">100% local</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#f0fdf4] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#16a34a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#16a34a]">Secure</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#fef3c7] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#d97706]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#d97706]">Tax-deductible</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Platinum Tier -->
-                    <div class="card-cmdf p-6 text-center fade-in-delay-1 border-2 border-celestial-blue shadow-lg relative flex flex-col">
-                        <div class="mb-4">
-                            <div class="w-12 h-12 bg-celestial-blue rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-2xl">💎</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Platinum</h3>
-                            <div class="text-3xl font-bold text-celestial-blue mb-4 typography-heading">$1,500<span class="text-lg text-medium-gray">/year</span></div>
+                    <div class="sponsor-tier-card bg-white rounded-[14px] p-8 fade-in-delay-1 flex flex-col relative" style="box-shadow: 0 10px 25px rgba(0,0,0,0.12);">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl mb-4">💎</div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-cmdf-black mb-3">Platinum</h3>
+                            <div class="text-[36px] md:text-[42px] font-bold text-celestial-blue mb-2">$1,500<span class="text-lg text-medium-gray font-normal">/year</span></div>
                         </div>
-                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                        <p class="text-left text-cmdf-black font-medium mb-6 text-lg">
                             Create a lasting ripple of opportunity. Support multiple children.
                         </p>
-                        <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
+                        <ul class="text-left space-y-3 mb-8 text-medium-gray flex-grow">
                             <li class="flex items-start">
-                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span class="text-celestial-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Supports more than one child for the full program year</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span class="text-celestial-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Consolidated annual impact report</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span class="text-celestial-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Premium recognition within our community</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span class="text-celestial-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Invitation to special events</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-celestial-blue mr-2 mt-1">✓</span>
+                                <span class="text-celestial-blue mr-3 mt-1 text-xl">✓</span>
                                 <span>Includes all Gold benefits</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto whitespace-nowrap">Become a Platinum Sponsor</a>
-                    </div>
-                </div>
-
-                <!-- Reassurance Bar -->
-                <div class="mt-12 pt-8 border-t border-gray-200">
-                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 text-center">
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span class="text-medium-gray typography-body font-medium">100% local impact</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                            <span class="text-medium-gray typography-body font-medium">Secure processing</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                            <span class="text-medium-gray typography-body font-medium">Tax-deductible</span>
+                        <div class="mt-auto">
+                            <a href="#" class="block w-full font-bold py-4 px-6 rounded-lg text-center transition-colors flex items-center justify-center" style="height: 52px; background-color: #E7BB5F; color: #07070A; text-align: center;">Become a Platinum Sponsor</a>
+                            <p class="text-xs text-medium-gray text-center mt-2">Takes 60 seconds • Secure donation</p>
+                            <!-- Trust badges -->
+                            <div class="flex flex-wrap justify-center gap-2 mt-3">
+                                <div class="flex items-center gap-1.5 bg-[#f0f9ff] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#2f6bed]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#2f6bed]">100% local</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#f0fdf4] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#16a34a]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#16a34a]">Secure</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 bg-[#fef3c7] px-3 py-1.5 rounded-full">
+                                    <svg class="w-4 h-4 text-[#d97706]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                    <span class="text-xs font-medium text-[#d97706]">Tax-deductible</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -370,61 +460,124 @@
                     <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Frequently Asked Questions</h2>
                 </div>
 
-                <div class="space-y-6">
+                <div class="space-y-4">
                     <!-- Question 1: Where does my donation go? -->
-                    <div class="card-cmdf p-8 fade-in-delay-1">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Where does my donation go?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Your sponsorship supports instruments, lessons, kid jams, youth mentorship, and year-round educational programming. Every dollar directly benefits children in Hampshire County.
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-1">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-1">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">Where does my donation go?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-1" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Your sponsorship supports instruments, lessons, kid jams, youth mentorship, and year-round educational programming. Every dollar directly benefits children in Hampshire County.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Question 2: Is my donation tax deductible? -->
-                    <div class="card-cmdf p-8 fade-in-delay-2">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Is my donation tax deductible?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Yes. The Cacapon Music and Dance Foundation is a registered 501(c)(3) nonprofit organization. (Insert official wording + EIN here once finalized.)
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-2">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-2">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">Is my donation tax deductible?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-2" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Yes. The Cacapon Music and Dance Foundation is a registered 501(c)(3) nonprofit organization. (Insert official wording + EIN here once finalized.)
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Question 3: Will I know who I'm sponsoring? -->
-                    <div class="card-cmdf p-8 fade-in-delay-3">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Will I know who I'm sponsoring?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Silver, Gold, and Platinum sponsors are matched with a child and receive a simple annual update celebrating their progress. We respect every family's privacy and always communicate with care.
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-3">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-3">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">Will I know who I'm sponsoring?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-3" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Silver, Gold, and Platinum sponsors are matched with a child and receive a simple annual update celebrating their progress. We respect every family's privacy and always communicate with care.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Question 4: Can I sponsor anonymously? -->
-                    <div class="card-cmdf p-8 fade-in-delay-1">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Can I sponsor anonymously?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Absolutely. You can request anonymity at checkout.
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-1">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-4">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">Can I sponsor anonymously?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-4" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Absolutely. You can request anonymity at checkout.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Question 5: Can I make a one-time donation instead? -->
-                    <div class="card-cmdf p-8 fade-in-delay-2">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Can I make a one-time donation instead?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Yes. If sponsorship isn't right for you now, one-time gifts of any amount still make a meaningful difference. If you'd prefer your contribution pays for a square dance, please let us know and we'll match you with a dance!
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-2">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-5">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">Can I make a one-time donation instead?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-5" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Yes. If sponsorship isn't right for you now, one-time gifts of any amount still make a meaningful difference. If you'd prefer your contribution pays for a square dance, please let us know and we'll match you with a dance!
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Question 6: Do donations stay local? -->
-                    <div class="card-cmdf p-8 fade-in-delay-3">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Do donations stay local?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Yes. Every sponsorship supports children and families right here in our community.
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-3">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-6">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">Do donations stay local?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-6" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Yes. Every sponsorship supports children and families right here in our community.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Question 7: What if I want to sponsor as a family, group, or business? -->
-                    <div class="card-cmdf p-8 fade-in-delay-1">
-                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">What if I want to sponsor as a family, group, or business?</h3>
-                        <p class="text-lg text-medium-gray typography-body">
-                            Wonderful! Shared or corporate sponsorships are welcome. Contact us and we'll make it easy.
-                        </p>
+                    <div class="card-cmdf overflow-hidden fade-in-delay-1">
+                        <button class="faq-question w-full text-left p-6 md:p-8 flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-inset" aria-expanded="false" aria-controls="faq-answer-7">
+                            <h3 class="text-xl md:text-2xl font-bold text-cmdf-black pr-4 typography-heading">What if I want to sponsor as a family, group, or business?</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="faq-answer-7" class="faq-answer hidden overflow-hidden">
+                            <div class="px-6 md:px-8 pb-6 md:pb-8">
+                                <p class="text-lg text-medium-gray typography-body">
+                                    Wonderful! Shared or corporate sponsorships are welcome. Contact us and we'll make it easy.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

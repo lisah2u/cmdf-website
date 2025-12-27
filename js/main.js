@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize counters animation
     initCounterAnimations();
+
+    // Initialize FAQ accordion
+    initFAQAccordion();
 });
 
 // Mobile Menu Functions
@@ -406,6 +409,64 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// FAQ Accordion Functions
+function initFAQAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const answerId = this.getAttribute('aria-controls');
+            const answer = document.getElementById(answerId);
+            const icon = this.querySelector('.faq-icon');
+            
+            // Close all other FAQs (optional - remove if you want multiple open)
+            faqQuestions.forEach(otherQuestion => {
+                if (otherQuestion !== this) {
+                    const otherAnswerId = otherQuestion.getAttribute('aria-controls');
+                    const otherAnswer = document.getElementById(otherAnswerId);
+                    const otherIcon = otherQuestion.querySelector('.faq-icon');
+                    
+                    otherQuestion.setAttribute('aria-expanded', 'false');
+                    otherAnswer.classList.add('hidden');
+                    otherAnswer.style.maxHeight = '0';
+                    otherAnswer.style.opacity = '0';
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            if (isExpanded) {
+                this.setAttribute('aria-expanded', 'false');
+                answer.style.maxHeight = '0';
+                answer.style.opacity = '0';
+                setTimeout(() => {
+                    answer.classList.add('hidden');
+                }, 300); // Wait for transition to complete
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+                answer.classList.remove('hidden');
+                // Force a reflow to ensure the element is visible before measuring
+                answer.offsetHeight;
+                // Set max-height to a large value for smooth transition
+                const height = answer.scrollHeight;
+                answer.style.maxHeight = height + 'px';
+                answer.style.opacity = '1';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+        
+        // Keyboard support
+        question.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+}
 
 // Resize handler
 window.addEventListener('resize', function() {
