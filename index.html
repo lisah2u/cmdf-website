@@ -225,145 +225,31 @@
             </div>
         </div>
     </section>
-    <!-- Contact Information & Form -->
-    <section id="contact" class="py-20 bg-white">
-
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-display-lg text-cmdf-black mb-6">Get Involved</h2>
-            <p class="text-body-lg text-medium-gray max-w-3xl mx-auto">
-                Apply for a youth scholarship or join a square dance! We welcome your support and involvement in our programs whether you are a student, parent, or community member.
+    <!-- Footer Email Signup -->
+    <section class="footer-strip">
+        <div class="footer-strip-inner">
+            <h3>Join Our Community Email List</h3>
+            <p>
+                Stay connected with local music, student stories, community dances, and program news.
             </p>
-        </div>
 
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Contact Information -->
-                    <div class="fade-in-delay-1">
-                        <h3 class="text-heading-xl text-cmdf-black mb-6">Contact</h3>
+            <form name="footer-signup" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="footer-signup">
+                <p class="hidden">
+                    <label>Don't fill this out if you're human:
+                        <input name="bot-field" />
+                    </label>
+                </p>
 
-                        <div class="space-y-6">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-sm">📍</span>
-                                </div>
-                                <div>
-                                    <p class="text-body text-medium-gray">
-                                        152 Capon School St<br>
-                                        Capon Bridge, WV 26711
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-sm">📞</span>
-                                </div>
-                                <div>
-                                    <p class="text-body text-medium-gray">
-                                        (304) 555-CMDF
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-dark-gray text-sm">📧</span>
-                                </div>
-                                <div>
-                                    <p class="text-body text-medium-gray">
-                                        info@cmdf.org
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center space-x-3 mt-8">
-                                <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fab fa-facebook-f text-dark-gray text-sm"></i>
-                                </div>
-                                <div>
-                                    <a href="https://www.facebook.com/profile.php?id=61557988342761"
-                                        class="text-body text-medium-gray hover:text-cmdf-black transition-colors"
-                                        target="_blank" rel="noopener noreferrer">
-                                        Facebook
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact Form -->
-                    <div class="fade-in-delay-2">
-                        <h3 class="text-heading-xl text-cmdf-black mb-6">Send Message</h3>
-                        <div class="bg-light-gray p-6 rounded-lg">
-    
-                            <form name="contact" method="POST" data-netlify="true" action="/contact-success.html" class="space-y-6">
-                                <input type="hidden" name="form-name" value="contact" />
-                                <div class="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label for="firstName" class="text-caption text-cmdf-black mb-2 block font-medium">First
-                                            Name *</label>
-                                        <input type="text" id="firstName" name="firstName" required class="input-cmdf">
-                                    </div>
-                                    <div>
-                                        <label for="lastName" class="text-caption text-cmdf-black mb-2 block font-medium">Last
-                                            Name *</label>
-                                        <input type="text" id="lastName" name="lastName" required class="input-cmdf">
-                                    </div>
-                                </div>
-    
-                                <div>
-                                    <label for="email" class="text-caption text-cmdf-black mb-2 block font-medium">Email Address
-                                        *</label>
-                                    <input type="email" id="email" name="email" required class="input-cmdf">
-                                </div>
-    
-                                <div>
-                                    <label for="phone" class="text-caption text-cmdf-black mb-2 block font-medium">Phone
-                                        Number</label>
-                                    <input type="tel" id="phone" name="phone" class="input-cmdf">
-                                </div>
-    
-                                <div>
-                                    <label for="subject" class="text-caption text-cmdf-black mb-2 block font-medium">Subject
-                                        *</label>
-                                    <select id="subject" name="subject" required class="text-body input-cmdf">
-                                        <option value="">Please select a subject</option>
-                                        <option value="enrollment">Program Enrollment</option>
-                                        <option value="volunteer">Volunteer Opportunities</option>
-                                        <option value="donation">Donations & Giving</option>
-                                        <option value="partnership">Partnership Inquiry</option>
-                                        <option value="media">Media & Press</option>
-                                        <option value="general">General Information</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-    
-                                <div>
-                                    <label for="message" class="text-caption text-cmdf-black mb-2 block font-medium">Message
-                                        *</label>
-                                    <textarea id="message" name="message" rows="5" required
-                                        placeholder="Tell us how we can help you..."
-                                        class="text-body input-cmdf min-h-[120px] resize-y"></textarea>
-                                </div>
-    
-                                <div class="flex items-start space-x-3">
-                                    <input type="checkbox" id="newsletter" name="newsletter"
-                                        class="mt-1 w-4 h-4 text-gold border-gray-300 rounded focus:ring-gold">
-                                    <label for="newsletter" class="text-caption text-medium-gray">
-                                        I would like to receive newsletters and updates about the Cacapon Music and Dance
-                                        Foundation programs and events.
-                                    </label>
-                                </div>
-    
-                                <button type="submit" class="text-body-lg btn-nav-gold w-full px-8 py-4">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="footer-form-row">
+                    <input type="email" name="email" placeholder="Email address" required>
+                    <button type="submit">Stay Connected</button>
                 </div>
-            </div>
+
+                <small class="privacy-note">
+                    We respect your inbox — just occasional updates and good news.
+                </small>
+            </form>
         </div>
     </section>
 

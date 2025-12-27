@@ -713,6 +713,54 @@
         </div>
     </section>
 
+    <!-- Contact/Newsletter Section -->
+    <section class="contact-newsletter">
+        <div class="contact-wrapper">
+            <h2>Questions? Would you like a more tailored donation? Volunteer options?</h2>
+            <p class="contact-intro">
+                We'd love to hear from you! Whether you have a question, want to learn more about our programs,
+                or simply discuss options. We're also thrilled to accept help at square dances and events!
+            </p>
+
+            <form name="contact-newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
+                <input type="hidden" name="form-name" value="contact-newsletter">
+
+                <!-- Honeypot -->
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="form-grid">
+                    <label>
+                        Your Name
+                        <input type="text" name="name" placeholder="First & Last Name" required>
+                    </label>
+
+                    <label>
+                        Email Address
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </label>
+                </div>
+
+                <label class="checkbox-row">
+                    <input type="checkbox" name="newsletter">
+                    I'd like to receive occasional email updates and community news
+                </label>
+
+                <label>
+                    Message (optional)
+                    <textarea name="message" rows="4" placeholder="Ask a question, share your interest, or just say hello!"></textarea>
+                </label>
+
+                <button type="submit" class="contact-btn">Send</button>
+
+                <p class="contact-note">
+                    We respect your privacy and will not share your email address or content. We'll respond to you shortly!
+                </p>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-black py-6">
         <div class="container mx-auto px-6 text-center">
