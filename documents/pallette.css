@@ -43,3 +43,160 @@ $gradient-bottom-right: linear-gradient(135deg, #437CA5ff, #E7BB5Fff, #B29251ff,
 $gradient-top-left: linear-gradient(225deg, #437CA5ff, #E7BB5Fff, #B29251ff, #549ED2ff, #07070Aff);
 $gradient-bottom-left: linear-gradient(315deg, #437CA5ff, #E7BB5Fff, #B29251ff, #549ED2ff, #07070Aff);
 $gradient-radial: radial-gradient(#437CA5ff, #E7BB5Fff, #B29251ff, #549ED2ff, #07070Aff);
+
+/* Base spacing + typography harmony */
+.section-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.section-lead {
+    max-width: 750px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.events-intro,
+.events-schedule,
+.events-location,
+.events-year {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+
+/* ===== TYPICAL SCHEDULE ===== */
+.events-schedule {
+    background: #FFF7E3;
+    /* Hunyadi Yellow tint */
+    border-radius: 18px;
+}
+
+.schedule-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+}
+
+.schedule-item {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.schedule-time {
+    font-weight: 800;
+    color: #437CA5;
+    margin-bottom: 6px;
+}
+
+.free-pill {
+    background: #437CA5;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+}
+
+
+/* ===== LOCATION CARD ===== */
+.location-card {
+    background: rgba(84, 158, 210, 0.12);
+    /* Celestial Blue tint */
+    border-radius: 18px;
+    padding: 28px;
+    max-width: 500px;
+}
+
+.location-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.location-address {
+    margin: 10px 0 16px;
+    line-height: 1.5;
+}
+
+.btn-blue {
+    display: inline-block;
+    background: #437CA5;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+.btn-blue:hover {
+    background: #549ED2;
+}
+
+
+/* ===== YEAR SECTIONS ===== */
+.year-heading {
+    font-size: 2rem;
+    font-weight: 900;
+    border-bottom: 4px solid #437CA5;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+}
+
+.year-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px 24px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.coming-soon {
+    font-style: italic;
+    color: #444;
+}
+
+
+/* ===== EVENT LIST ===== */
+.event-list {
+    margin-top: 20px;
+    display: grid;
+    gap: 24px;
+}
+
+.event-card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px 22px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+.event-date {
+    text-align: center;
+    color: #437CA5;
+}
+
+.event-month {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: block;
+}
+
+.event-day {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.event-details p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.event-details a {
+    color: #437CA5;
+    text-decoration: underline;
