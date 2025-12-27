@@ -91,16 +91,33 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-[70vh] text-white donate-hero-bg">
-        <!-- Light overlay for readability -->
-        <div class="absolute inset-0 bg-black/20"></div>
+        <!-- Dark overlay for readability -->
+        <div class="absolute inset-0 bg-black/50"></div>
         
         <!-- Overlayed content -->
         <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[70vh] fade-in">
             <div>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Sponsor a child and transform a life</h1>
-                <p class="text-xl md:text-2xl max-w-3xl mx-auto typography-body">
-                    Your annual support provides year-round music education and community engagement opportunities for children in Hampshire County.
+                <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-4 typography-body">
+                    $750 fully funds one year of music lessons, instruments, and community events for a Hampshire County child. 20 scholarships have been awarded since 2023.
                 </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-12 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gold/10 border-l-4 border-gold p-8 md:p-10 rounded-r-lg fade-in">
+                    <blockquote class="text-xl md:text-2xl text-cmdf-black italic typography-body leading-relaxed mb-4">
+                        "Before this program, my child wanted to learn Piano but we couldn't afford lessons. Now she can't wait for lessons every week — and has found a community that makes them feel seen, capable, and proud."
+                    </blockquote>
+                    <p class="text-lg text-medium-gray font-medium typography-body">
+                        — Parent Testimonial Placeholder
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -145,15 +162,39 @@
         </div>
     </section>
 
+    <!-- Trust Block Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="card-cmdf p-8 md:p-12 fade-in">
+                    <div>
+                        <p class="text-lg text-medium-gray mb-6 typography-body">
+                            Cacapon Music and Dance Foundation is a registered nonprofit organization dedicated to ensuring all children in Hampshire County can experience the benefits, joy, and confidence that music brings.
+                        </p>
+                        <div class="space-y-2 text-medium-gray typography-body">
+                            <p><strong class="text-cmdf-black">501(c)(3) Status:</strong> Insert official language here</p>
+                            <p><strong class="text-cmdf-black">EIN:</strong> Insert EIN here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Sponsorship Tiers Section -->
     <section id="sponsorship-tiers" class="py-20 bg-light-gray">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Choose Your Sponsorship Level</h2>
-                    <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
-                        Annual sponsorship provides sustainable support for our programs. Higher tier sponsors receive direct connection with the children they support.
-                    </p>
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Choose Your Sponsorship Level</h2>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Every sponsorship directly supports a Hampshire County child.
+                        </p>
+                    </div>
+                    <div class="fade-in-delay-1">
+                        <img src="images/kids_group_photo.JPG" alt="Children participating in CMDF music programs" class="w-full h-auto rounded-lg shadow-lg object-cover" style="max-height: 400px;">
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -166,23 +207,30 @@
                             <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Bronze</h3>
                             <div class="text-3xl font-bold text-gold mb-4 typography-heading">$75<span class="text-lg text-medium-gray">/year</span></div>
                         </div>
+                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                            Help a child stay playing and feel supported.
+                        </p>
                         <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
                             <li class="flex items-start">
                                 <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>Helps fund instrument care and jams</span>
+                                <span>Supports instrument care, kid jams, and program supplies</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>Recognition in annual report</span>
+                                <span>Helps ensure no child is turned away due to cost</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2 mt-1">✓</span>
+                                <span>Recognition in our annual report</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-secondary w-full text-center mt-auto">Choose Bronze</a>
+                        <a href="#" class="btn-cmdf-secondary w-full text-center mt-auto">Sponsor at Bronze</a>
                     </div>
 
                     <!-- Silver Tier -->
                     <div class="card-cmdf p-6 text-center fade-in-delay-2 border-4 border-gray-300 shadow-lg relative flex flex-col">
                         <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                            <span class="bg-gray-300 text-cmdf-black px-3 py-1 rounded-full text-xs font-semibold">POPULAR</span>
+                            <span class="bg-gray-300 text-cmdf-black px-3 py-1 rounded-full text-xs font-semibold">MOST POPULAR</span>
                         </div>
                         <div class="mb-4 mt-2">
                             <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -191,25 +239,28 @@
                             <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Silver</h3>
                             <div class="text-3xl font-bold text-steel-blue mb-4 typography-heading">$350<span class="text-lg text-medium-gray">/year</span></div>
                         </div>
+                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                            Give a child meaningful access to music education.
+                        </p>
                         <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
                             <li class="flex items-start">
                                 <span class="text-steel-blue mr-2 mt-1">✓</span>
-                                <span>Funds half of a scholarship or a jam</span>
+                                <span>Funds half of a year of lessons or community programming</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-steel-blue mr-2 mt-1">✓</span>
-                                <span>Matched with a child</span>
+                                <span>You'll be matched with a child you're helping support</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-steel-blue mr-2 mt-1">✓</span>
-                                <span>Receives annual progress card</span>
+                                <span>Receive a simple yearly "progress card" sharing their journey</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-steel-blue mr-2 mt-1">✓</span>
-                                <span>All Bronze benefits</span>
+                                <span>Includes all Bronze-recognition benefits</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Choose Silver</a>
+                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Sponsor at Silver</a>
                     </div>
 
                     <!-- Gold Tier -->
@@ -219,31 +270,31 @@
                                 <span class="text-2xl">🥇</span>
                             </div>
                             <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Gold</h3>
-                            <div class="text-3xl font-bold text-gold mb-4 typography-heading">$750<span class="text-lg text-medium-gray">/year</span></div>
+                            <div class="text-3xl font-bold text-gold mb-2 typography-heading">$750<span class="text-lg text-medium-gray">/year</span></div>
+                            <div class="text-lg font-semibold text-cmdf-black mb-4 typography-body">Just $63/month fully funds a child</div>
                         </div>
+                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                            Fully sponsor a child for the year. Transform their experience.
+                        </p>
                         <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
                             <li class="flex items-start">
                                 <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>Fully funds a scholarship</span>
+                                <span>Covers a full scholarship including lessons, instrument access, and programming</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>Matched with a child</span>
+                                <span>Personal child match and annual progress update</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>Receives annual progress card</span>
+                                <span>Special recognition for your generosity</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>Special recognition</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gold mr-2 mt-1">✓</span>
-                                <span>All Silver benefits</span>
+                                <span>Includes all Silver benefits</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Choose Gold</a>
+                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto">Fully Sponsor a Child</a>
                     </div>
 
                     <!-- Platinum Tier -->
@@ -255,18 +306,21 @@
                             <h3 class="text-2xl font-bold text-cmdf-black mb-2 typography-heading">Platinum</h3>
                             <div class="text-3xl font-bold text-celestial-blue mb-4 typography-heading">$1,500<span class="text-lg text-medium-gray">/year</span></div>
                         </div>
+                        <p class="text-left text-cmdf-black font-medium mb-4 typography-body">
+                            Create a lasting ripple of opportunity. Support multiple children.
+                        </p>
                         <ul class="text-left space-y-3 mb-6 typography-body text-medium-gray flex-grow">
                             <li class="flex items-start">
                                 <span class="text-celestial-blue mr-2 mt-1">✓</span>
-                                <span>Supports multiple children</span>
+                                <span>Supports more than one child for the full program year</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-celestial-blue mr-2 mt-1">✓</span>
-                                <span>Receives consolidated annual report</span>
+                                <span>Consolidated annual impact report</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-celestial-blue mr-2 mt-1">✓</span>
-                                <span>Premium recognition</span>
+                                <span>Premium recognition within our community</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-celestial-blue mr-2 mt-1">✓</span>
@@ -274,10 +328,103 @@
                             </li>
                             <li class="flex items-start">
                                 <span class="text-celestial-blue mr-2 mt-1">✓</span>
-                                <span>All Gold benefits</span>
+                                <span>Includes all Gold benefits</span>
                             </li>
                         </ul>
-                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto whitespace-nowrap">Choose Platinum</a>
+                        <a href="#" class="btn-cmdf-primary w-full text-center mt-auto whitespace-nowrap">Become a Platinum Sponsor</a>
+                    </div>
+                </div>
+
+                <!-- Reassurance Bar -->
+                <div class="mt-12 pt-8 border-t border-gray-200">
+                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 text-center">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="text-medium-gray typography-body font-medium">100% local impact</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            <span class="text-medium-gray typography-body font-medium">Secure processing</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span class="text-medium-gray typography-body font-medium">Tax-deductible</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Question 1: Where does my donation go? -->
+                    <div class="card-cmdf p-8 fade-in-delay-1">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Where does my donation go?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Your sponsorship supports instruments, lessons, kid jams, youth mentorship, and year-round educational programming. Every dollar directly benefits children in Hampshire County.
+                        </p>
+                    </div>
+
+                    <!-- Question 2: Is my donation tax deductible? -->
+                    <div class="card-cmdf p-8 fade-in-delay-2">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Is my donation tax deductible?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Yes. The Cacapon Music and Dance Foundation is a registered 501(c)(3) nonprofit organization. (Insert official wording + EIN here once finalized.)
+                        </p>
+                    </div>
+
+                    <!-- Question 3: Will I know who I'm sponsoring? -->
+                    <div class="card-cmdf p-8 fade-in-delay-3">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Will I know who I'm sponsoring?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Silver, Gold, and Platinum sponsors are matched with a child and receive a simple annual update celebrating their progress. We respect every family's privacy and always communicate with care.
+                        </p>
+                    </div>
+
+                    <!-- Question 4: Can I sponsor anonymously? -->
+                    <div class="card-cmdf p-8 fade-in-delay-1">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Can I sponsor anonymously?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Absolutely. You can request anonymity at checkout.
+                        </p>
+                    </div>
+
+                    <!-- Question 5: Can I make a one-time donation instead? -->
+                    <div class="card-cmdf p-8 fade-in-delay-2">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Can I make a one-time donation instead?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Yes. If sponsorship isn't right for you now, one-time gifts of any amount still make a meaningful difference. If you'd prefer your contribution pays for a square dance, please let us know and we'll match you with a dance!
+                        </p>
+                    </div>
+
+                    <!-- Question 6: Do donations stay local? -->
+                    <div class="card-cmdf p-8 fade-in-delay-3">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Do donations stay local?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Yes. Every sponsorship supports children and families right here in our community.
+                        </p>
+                    </div>
+
+                    <!-- Question 7: What if I want to sponsor as a family, group, or business? -->
+                    <div class="card-cmdf p-8 fade-in-delay-1">
+                        <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">What if I want to sponsor as a family, group, or business?</h3>
+                        <p class="text-lg text-medium-gray typography-body">
+                            Wonderful! Shared or corporate sponsorships are welcome. Contact us and we'll make it easy.
+                        </p>
                     </div>
                 </div>
             </div>
