@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize FAQ accordion
     initFAQAccordion();
+
+    // Initialize testimonial carousel
+    initTestimonialCarousel();
 });
 
 // Mobile Menu Functions
@@ -469,6 +472,61 @@ function initFAQAccordion() {
             }
         });
     });
+}
+
+// Testimonial Carousel
+function initTestimonialCarousel() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const prevBtn = document.getElementById('testimonial-prev');
+    const nextBtn = document.getElementById('testimonial-next');
+
+    if (!slides.length) return;
+
+    let current = 0;
+    let autoplayTimer = null;
+
+    function showSlide(index) {
+        slides.forEach(function(slide) { slide.classList.add('hidden'); });
+        dots.forEach(function(dot) {
+            dot.classList.remove('bg-steel-blue');
+            dot.classList.add('bg-gray-300');
+        });
+
+        slides[index].classList.remove('hidden');
+        dots[index].classList.remove('bg-gray-300');
+        dots[index].classList.add('bg-steel-blue');
+        current = index;
+    }
+
+    function nextSlide() {
+        showSlide((current + 1) % slides.length);
+    }
+
+    function prevSlide() {
+        showSlide((current - 1 + slides.length) % slides.length);
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(nextSlide, 6000);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) clearInterval(autoplayTimer);
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', function() { nextSlide(); startAutoplay(); });
+    if (prevBtn) prevBtn.addEventListener('click', function() { prevSlide(); startAutoplay(); });
+
+    dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+            showSlide(parseInt(this.getAttribute('data-dot')));
+            startAutoplay();
+        });
+    });
+
+    startAutoplay();
 }
 
 // Resize handler
