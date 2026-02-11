@@ -5,6 +5,8 @@
 ### Logo & Mission
 The Cacapon Music and Dance Foundation logo features a circular design with golden figures dancing in a circle, symbolizing community, connection, and cultural preservation. The logo represents our mission to nurture West Virginia's cultural heritage through music and dance education.
 
+Logo file: `images/CMDF_LOGO_COLOR_8_x8_300_dpi.png`
+
 ### Brand Voice
 - Warm and welcoming
 - Community-focused
@@ -12,411 +14,469 @@ The Cacapon Music and Dance Foundation logo features a circular design with gold
 - Inspiring and uplifting
 - Professional yet approachable
 
+---
+
 ## Color Palette
 
-Based on the CMDF logo and defined in `assets/palette.css`:
+Defined in `assets/palette.css` and `assets/tailwind-config.js`.
 
-### Primary Colors
-- **Steel Blue**: `#437CA5` - Primary brand color, conveys trust and stability
-- **Celestial Blue**: `#549ED2` - Lighter accent, represents hope and aspiration
-- **Hunyadi Yellow** (Gold): `#E7BB5F` - Gold accent from logo, warmth and energy
-- **Lion**: `#B29251` - Deeper gold, heritage and tradition
-- **CMDF Black**: `#07070A` - Text and emphasis
+### Primary Brand Colors
+
+| Name | Hex | Tailwind Class | Usage |
+|---|---|---|---|
+| Steel Blue | `#437CA5` | `text-steel-blue`, `bg-steel-blue` | Headers, navigation, primary elements, form buttons |
+| Celestial Blue | `#549ED2` | `text-celestial-blue`, `bg-celestial-blue` | Secondary buttons, links, highlights, focus rings |
+| Gold (Hunyadi Yellow) | `#E7BB5F` | `text-gold`, `bg-gold` | CTAs, branded buttons, accents, nav bell icon |
+| Gold Light | `#F3D9A3` | `text-gold-light`, `bg-gold-light` | Subtle gold highlights |
+| Gold Dark (Lion) | `#B29251` | `text-gold-dark`, `bg-gold-dark` | Hover states, borders, gradient endpoints |
+| CMDF Black | `#07070A` | `text-cmdf-black`, `bg-cmdf-black` | Body text, headings, header, footer |
 
 ### Utility Colors
-- **Light Gray**: `#f5f5f5` - Background and neutral tones
-- **Medium Gray**: `#666666` - Secondary text and subtle elements
 
-### Color Usage Guidelines
-- **Steel Blue**: Headers, navigation, primary elements
-- **Celestial Blue**: Secondary buttons, links, highlights
-- **Gold (Hunyadi Yellow)**: Call-to-action accents, featured elements, branded buttons
-- **Lion**: Hover states, borders, subtle accents
-- **CMDF Black**: Body text, headings, important content
+| Name | Hex | Tailwind Class | Usage |
+|---|---|---|---|
+| Light Gray | `#f5f5f5` | `bg-light-gray` | Alternating section backgrounds |
+| Medium Gray | `#666666` | `text-medium-gray` | Secondary text, descriptions |
+
+### Background Colors
+
+| Name | Hex/Class | Usage |
+|---|---|---|
+| White | `bg-white` | Default content sections |
+| Light Gray | `bg-light-gray` | Alternating sections for visual rhythm |
+| Linen Texture | `bg-linen-texture` | Earthy textured sections (values, sponsors) |
+| Black | `bg-black` | Header, footer, impact ribbon |
+| Warm Cream | `#FBF5E6` | Hero backgrounds, thank-you page |
+| Soft Warm | `#FFF8E9` | Email signup strip, event hover, calendar highlights |
+
+### Section Background Pattern
+Sections alternate backgrounds to create visual rhythm:
+```
+White → Light Gray → White → Linen Texture → White → Black (impact) → ...
+```
+Full-width backgrounds must be on `<section>` elements, not nested containers.
 
 ### Accessibility
 All color combinations maintain WCAG 2.1 AA contrast ratios:
 - Black text on light backgrounds: 21:1 contrast
 - Steel Blue on white: 4.8:1 contrast
-- Gold provides sufficient contrast when used appropriately
+- Gold provides sufficient contrast when used on dark backgrounds
 - Ensure sufficient contrast for all interactive elements
+
+---
 
 ## Typography System
 
-### Font Architecture
-The CMDF website uses a sophisticated typography hierarchy with custom brand fonts:
+### Font Families
 
-#### Primary Font Families
-```css
-/* Custom Brand Fonts */
-'Howards Eight'    /* Display and headings - serif, elegant */
-'Gilroy'          /* Body text and UI - sans-serif, clean */
+| Font | Type | Usage |
+|---|---|---|
+| Howards Eight | Local TTF, serif | Display headings, section titles, calendar day headers |
+| Gilroy | Local TTF, sans-serif | Body text, descriptions, UI content |
+| Inter | Google Fonts, sans-serif | Navigation, buttons, UI labels |
+| Fredericka the Great | Google Fonts, cursive | Hero page titles |
+| Elms Sans | Google Fonts, sans-serif | Hero body text |
+| Roboto | Google Fonts, sans-serif | System fallback |
 
-/* Web Fonts */
-'Fredericka the Great'  /* Hero titles - decorative */
-'Inter'                 /* Navigation - modern sans-serif */
-'Roboto'               /* Fallback font */
-```
-
-#### Font Stack Strategy
-- **Display/Headings**: Howards Eight → Georgia → Times New Roman → serif
-- **Body Text**: Gilroy → Inter → system-ui → sans-serif
-- **Navigation**: Inter → system-ui → sans-serif
-- **Hero Titles**: Fredericka the Great → cursive
-- **System Fallback**: Roboto → Apple/Windows system fonts
+### Font Stacks
+- **Display/Headings**: Howards Eight > Georgia > Times New Roman > serif
+- **Body Text**: Gilroy > Inter > system-ui > sans-serif
+- **Navigation**: Inter > system-ui > sans-serif
+- **Hero Titles**: Fredericka the Great > cursive
+- **Hero Body**: Gilroy / Elms Sans > sans-serif
+- **System Fallback**: Roboto > Apple/Windows system fonts
 
 ### Semantic Typography Classes
 
-#### Display Text (Howards Eight - Large Headings)
+All heading classes use `clamp()` for fluid responsive scaling.
+
+#### Display Text (Howards Eight)
 ```css
-.text-display-xl    /* Hero headings: 2.5rem-4rem, fluid responsive */
-.text-display-lg    /* Section headings: 2rem-3rem, fluid responsive */
+.text-display-xl    /* 2.5rem-4rem, line-height 1.1 — Hero headings */
+.text-display-lg    /* 2rem-3rem, line-height 1.15 — Section headings */
 ```
 
-#### Content Headings (Howards Eight - Content Structure)
+#### Content Headings (Howards Eight)
 ```css
-.text-heading-xl    /* Main headings: 1.75rem-2.25rem */
-.text-heading-lg    /* Sub headings: 1.5rem-1.875rem */
-.text-heading-md    /* Small headings: 1.25rem-1.5rem */
+.text-heading-xl    /* 1.75rem-2.25rem, line-height 1.2 */
+.text-heading-lg    /* 1.5rem-1.875rem, line-height 1.25 */
+.text-heading-md    /* 1.25rem-1.5rem, line-height 1.3 */
 ```
 
-#### Body Text (Gilroy - Readable Content)
+#### Body Text (Gilroy)
 ```css
-.text-body-xl       /* Large body text: 1.125rem-1.25rem */
-.text-body-lg       /* Standard body text: 1rem-1.125rem */
-.text-body          /* Regular body text: 1rem */
-.text-caption       /* Labels/small text: 0.875rem */
+.text-body-xl       /* 1.125rem-1.25rem, line-height 1.6 */
+.text-body-lg       /* 1rem-1.125rem, line-height 1.6 */
+.text-body          /* 1rem, line-height 1.6 */
+.text-caption       /* 0.875rem, line-height 1.4 */
 ```
 
-### Typography Features
-- **Fluid Responsive**: Uses `clamp()` for automatic scaling across devices
-- **Optimized Line Heights**: 1.1-1.6 based on text purpose
-- **Letter Spacing**: Negative for large headings, optimized for readability
-- **Font Loading**: Efficient fallbacks prevent layout shift
+#### Legacy Classes (still in use across pages)
+```css
+.typography-display     /* Howards Eight, line-height 1.1 */
+.typography-heading     /* Howards Eight, line-height 1.2 */
+.typography-body        /* Gilroy, line-height 1.6 */
+.typography-caption     /* Gilroy, 0.875rem */
+```
 
-### Usage Examples
+### Typography Usage
 ```html
-<!-- Large hero headings -->
+<!-- Hero heading -->
 <h1 class="text-display-xl text-cmdf-black">
 
-<!-- Section headings -->
-<h2 class="text-display-lg text-cmdf-black">
+<!-- Section heading -->
+<h2 class="text-4xl font-bold text-cmdf-black mb-6 typography-heading">
 
-<!-- Content headings -->
-<h3 class="text-heading-xl text-cmdf-black">
+<!-- Body paragraph -->
+<p class="text-lg text-medium-gray typography-body">
 
-<!-- Body content -->
-<p class="text-body-lg text-medium-gray">
-
-<!-- Form labels -->
+<!-- Caption / label -->
 <label class="text-caption text-cmdf-black block font-medium">
 ```
 
-## Spacing System
-
-### Base Unit: 1rem = 16px
-
-#### Spacing Scale (Tailwind)
-- **xs**: 0.25rem (4px)
-- **sm**: 0.5rem (8px)
-- **md**: 1rem (16px)
-- **lg**: 1.5rem (24px)
-- **xl**: 2rem (32px)
-- **2xl**: 3rem (48px)
-- **3xl**: 4rem (64px)
-- **4xl**: 6rem (96px)
-
-#### Layout Spacing
-- **Section padding**: 4xl (96px) desktop, 2xl (48px) mobile
-- **Container max-width**: 1200px
-- **Container padding**: xl (32px) desktop, lg (24px) mobile
-- **Grid gaps**: lg (24px) desktop, md (16px) mobile
+---
 
 ## Component Styles
 
 ### Buttons
 
-#### Primary Button (CMDF Gold)
-```css
-.btn-cmdf-primary {
-  background: linear-gradient(to right, #E7BB5F, #B29251);
-  color: #07070A;
-  border: 3px solid #E7BB5F;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.btn-cmdf-primary:hover {
-  background: linear-gradient(to right, #B29251, #A08245);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
+#### Primary Button (Gold Gradient)
+```html
+<a href="#" class="btn-cmdf-primary">Get Involved</a>
 ```
+Gold-to-dark-gold gradient, black text, 3px border, rounded-lg, shadow, lifts on hover.
 
-#### Secondary Button
-```css
-.btn-cmdf-secondary {
-  background: #E7BB5F;
-  color: #07070A;
-  border: 3px solid #E7BB5F;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.btn-cmdf-secondary:hover {
-  background: #B29251;
-  border-color: #B29251;
-  transform: translateY(-2px);
-}
+#### Secondary Button (Solid Gold)
+```html
+<a href="#" class="btn-cmdf-secondary">Learn More</a>
 ```
+Solid gold background, black text, darkens on hover.
 
-#### Navigation Gold Button
-```css
-.btn-nav-gold {
-  background-color: #E7BB5F;
-  color: #07070A;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s ease;
-}
+#### Navigation Gold Pill
+```html
+<a href="donate.html" class="btn-nav-gold">Donate</a>
+```
+Gold pill button (border-radius 9999px), shadow, used in navbar for branded CTAs.
 
-.btn-nav-gold:hover {
-  background-color: #B29251;
-  color: white;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-}
+#### Outline Button
+```html
+<a href="#" class="btn-cmdf-outline">Details</a>
+```
+Transparent with celestial-blue border, fills on hover.
+
+#### Generic Button (Steel Blue)
+```html
+<a href="#" class="btn">Return Home</a>
+```
+Steel blue, rounded, used on utility pages (thank-you, contact-success).
+
+#### Gold Pill CTA (inline Tailwind)
+Used for CTAs like "View Our Full 2025 Annual Report":
+```html
+<a href="#" class="inline-flex items-center gap-3 bg-gold hover:bg-dark-gold text-cmdf-black font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:-translate-y-1 shadow-lg" style="font-family: 'Inter', sans-serif;">
+    <i class="fas fa-file-pdf text-lg"></i>
+    View Our Full 2025 Annual Report
+</a>
 ```
 
 ### Cards
 
-#### Standard Card (CMDF Style)
-```css
-.card-cmdf {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  border: 1px solid rgba(67, 124, 165, 0.1);
-  transition: all 0.2s ease;
-}
-
-.card-cmdf:hover {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transform: translateY(-4px);
-}
+#### Standard Card
+```html
+<div class="card-cmdf">
 ```
+White, rounded-xl (12px), padding 1.5rem, subtle border, shadow, lifts on hover (-4px).
+
+#### Leadership Photo
+```html
+<img class="leadership-photo rounded-full" src="..." alt="...">
+```
+Scales to 1.08x on hover with gold-tinted shadow.
 
 ### Forms
 
-#### Input Fields (CMDF Style)
-```css
-.input-cmdf {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 2px solid rgba(67, 124, 165, 0.2);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background: white;
-  transition: all 0.2s ease;
-  font-family: 'Gilroy', sans-serif;
-}
+#### Input Fields
+```html
+<input class="input-cmdf" type="text">
+```
+Full-width, 2px border (steel-blue tint), rounded-lg, celestial-blue focus ring.
 
-.input-cmdf:focus {
-  outline: none;
-  border-color: #549ED2;
-  box-shadow: 0 0 0 2px rgba(84, 158, 210, 0.2);
-}
+#### Footer Signup Strip
+```html
+<section class="footer-strip">
+    <div class="footer-strip-inner">
+```
+Soft warm background (#FFF8E9), centered layout, pill-shaped email input and steel-blue submit button. Used on most pages.
+
+#### Contact/Newsletter Form
+```html
+<section class="contact-newsletter">
+    <div class="contact-wrapper">
+```
+Warm cream background (#FBF5E6), white card with shadow, 2-column grid layout, steel-blue submit button. Used on donate page.
+
+### FAQ Accordion
+```html
+<button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+    <span>Question text</span>
+    <span class="faq-icon">...</span>
+</button>
+<div id="faq-1" class="faq-answer hidden">
+    <p>Answer text</p>
+</div>
+```
+Expand/collapse with smooth max-height transition. Icon rotates 180deg when open. Only one FAQ open at a time. Used on donate and dance pages.
+
+### Testimonial Carousel
+```html
+<div class="testimonial-slide" data-slide="0">
+```
+Slides with opacity transition, prev/next arrows, dot navigation, 6-second autoplay. Large decorative quote mark (Georgia, 64px, gold, 30% opacity). Used on donate page.
+
+---
+
+## Layout Patterns
+
+### Page Structure
+```
+Header (fixed, black, z-50)
+  └── Nav: left links | centered logo | right branded links
+Hero Section (page-specific background)
+Content Sections (alternating backgrounds)
+Footer Email Signup (.footer-strip)
+Footer (black, copyright + EIN + annual report link)
 ```
 
-## Layout Guidelines
+### Header
+- Fixed position, black background, full-width
+- Centered logo overlaps header bottom edge (`top-full -translate-y-[55%]`)
+- Logo: `h-20 md:h-24`, scales on scroll via JS (1.2x at top, shrinks to 0.8x)
+- Left nav: About, Programs, Events, Partners
+- Right nav: Donate (with gold bell icon), Scholarships, Dance
+- Mobile: Hamburger toggle, links stacked vertically
 
-### CSS Architecture
-The website uses a hybrid approach combining Tailwind CSS with custom brand components:
-
-- **Tailwind CSS**: Layout, spacing, responsive utilities
-- **Custom CSS**: Brand typography, colors, animations
-- **Components**: Branded buttons, forms, cards with CMDF styling
-
-### Grid System & Breakpoints
-- **Container**: max-width 1200px, centered with padding
-- **Tailwind Responsive**:
-  - Mobile: Default (0-768px)
-  - `md:`: Tablet (768px+)
-  - `lg:`: Desktop (1024px+)
-  - `xl:`: Large screens (1280px+)
-
-### Section Structure
+### Standard Section
 ```html
-<!-- Standard section with semantic typography -->
 <section class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-display-lg text-cmdf-black mb-6">Section Title</h2>
-        <p class="text-body-lg text-medium-gray max-w-3xl mx-auto">
-          Section description using semantic typography.
-        </p>
-      </div>
+    <div class="container mx-auto px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-cmdf-black mb-6 typography-heading">Section Title</h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">Description.</p>
+            </div>
+            <!-- Grid content -->
+        </div>
     </div>
-  </div>
 </section>
 ```
 
-## Interactive Elements
+### Hero Sections
+Two patterns used across the site:
 
-### Animations & Effects
-```css
-/* Fade-in animations with staggered delays */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.fade-in-delay-1 { transition-delay: 0.1s; }
-.fade-in-delay-2 { transition-delay: 0.3s; }
-.fade-in-delay-3 { transition-delay: 0.5s; }
+#### Full background image hero
+```html
+<section class="relative min-h-[50vh] text-white">
+    <!-- Background set via page-specific CSS class -->
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[50vh] fade-in">
+        <div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Page Title</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto typography-body">Subtitle.</p>
+        </div>
+    </div>
+</section>
 ```
+Background images use CSS gradient overlays: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('...')`
+
+#### Light hero band (programs page)
+```html
+<section class="programs-hero-band pt-32 pb-16 text-center">
+```
+Light blue tinted background, no image.
+
+### Footer
+```html
+<footer class="bg-black py-6">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-white font-medium">
+            &copy; 2025 Cacapon Music and Dance Foundation. All rights reserved.
+        </p>
+        <p class="text-white/60 text-sm mt-2" style="font-family: 'Gilroy', sans-serif;">
+            501(c)(3) Nonprofit Organization &middot; EIN: 93-3118214 &middot;
+            <a href="2025%20Annual%20Report.pdf" class="text-gold hover:underline">2025 Annual Report</a>
+        </p>
+    </div>
+</footer>
+```
+
+### Grid Patterns
+- 2-column: `grid md:grid-cols-2 gap-12` (mission, what we do)
+- 3-column: `grid md:grid-cols-2 lg:grid-cols-3 gap-8` (values, programs)
+- 4-column: `grid md:grid-cols-2 lg:grid-cols-4 gap-8` (leadership, sponsors)
+- 5-column: `grid grid-cols-2 md:grid-cols-5 gap-8` (impact stats)
+
+---
+
+## Animations & Effects
+
+### Fade-In on Scroll
+Triggered by IntersectionObserver in `js/main.js`:
+```html
+<div class="fade-in">          <!-- 0.6s ease-out -->
+<div class="fade-in-delay-1">  <!-- +0.1s delay -->
+<div class="fade-in-delay-2">  <!-- +0.3s delay -->
+<div class="fade-in-delay-3">  <!-- +0.5s delay -->
+<div class="fade-in-delay-4">  <!-- +0.7s delay -->
+```
+Elements start at `opacity: 0; translateY(30px)` and animate to visible when scrolled into view.
+
+### Bell Animation
+```html
+<i class="fas fa-bell text-sm text-gold bell-continuous"></i>
+```
+Continuous bell ringing animation on the Donate nav link. Gold color always.
 
 ### Hover Effects
-- **Cards**: `translateY(-4px)` with enhanced shadow
-- **Buttons**: `translateY(-2px)` with color transitions
-- **Links**: Color change to brand colors
-- **Images**: Subtle scale or overlay effects
+- **Cards** (`card-cmdf`): `translateY(-4px)` with enhanced shadow
+- **Buttons** (`btn-cmdf-primary`, `btn-cmdf-secondary`): `translateY(-2px)` with color transition
+- **Leadership photos**: `scale(1.08)` with gold-tinted shadow
+- **Nav links**: Gold underline grows from left (`width: 0 → 100%`)
+- **Links**: Color transition to brand gold on hover
 
 ### Transitions
-- **Standard**: `transition: all 0.2s ease`
-- **Slow**: `transition: all 0.3s ease` for larger elements
-- **Fast**: `transition: all 0.15s ease` for small interactions
+- **Standard**: `transition: all 0.2s ease` (buttons, cards)
+- **Slow**: `transition: all 0.3s ease` (nav links, larger elements)
+- **Animations**: `transition: 0.6s-0.8s ease-out` (fade-ins, bell)
 
-## CSS Custom Properties
+---
 
-### Brand Color Variables
-```css
-:root {
-  /* Primary Brand Colors */
-  --steel-blue: #437CA5;
-  --celestial-blue: #549ED2;
-  --hunyadi-yellow: #E7BB5F;
-  --lion: #B29251;
-  --cmdf-black: #07070A;
+## Responsive Design
 
-  /* Utility Colors */
-  --light-gray: #f5f5f5;
-  --medium-gray: #666666;
+### Breakpoints (mobile-first)
+- Base: Mobile (0–767px)
+- `md:`: Tablet (768px+)
+- `lg:`: Desktop (1024px+)
+- `xl:`: Large screens (1280px+)
+- `700px`: Custom breakpoint for forms (in `palette.css`)
 
-  /* Semantic Aliases */
-  --color-primary: var(--steel-blue);
-  --color-secondary: var(--celestial-blue);
-  --color-accent: var(--hunyadi-yellow);
-  --color-accent-dark: var(--lion);
-  --color-dark: var(--cmdf-black);
-}
-```
+### Responsive Patterns
+- **Typography**: Fluid scaling via `clamp()` — no breakpoint-specific font sizes needed
+- **Grids**: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` (progressive columns)
+- **Navigation**: `hidden lg:flex` for desktop nav, `lg:hidden` for mobile toggle
+- **Container**: `container mx-auto px-6` (consistent margins)
+- **Line length**: `max-w-3xl mx-auto` for readable paragraph widths
+- **Touch targets**: Minimum 44px for interactive elements
 
-### Tailwind Integration
-Colors are mapped to Tailwind utilities for easy use:
-```html
-<div class="bg-gold text-cmdf-black">
-<h2 class="text-steel-blue">
-<button class="border-celestial-blue">
-```
+---
+
+## Spacing System
+
+### Base Unit: 1rem = 16px
+
+| Token | Size | Usage |
+|---|---|---|
+| xs | 0.25rem (4px) | Tight spacing |
+| sm | 0.5rem (8px) | Icon gaps |
+| md | 1rem (16px) | Standard gaps |
+| lg | 1.5rem (24px) | Card padding, grid gaps |
+| xl | 2rem (32px) | Container padding |
+| 2xl | 3rem (48px) | Section padding (mobile) |
+| 3xl | 4rem (64px) | Large spacing |
+| 4xl | 6rem (96px) | Section padding (desktop) |
+
+### Layout Spacing
+- **Section padding**: `py-20` (5rem/80px)
+- **Container max-width**: 1200px (`max-w-6xl` or `max-w-7xl`)
+- **Container padding**: `px-6` (1.5rem/24px)
+- **Grid gaps**: `gap-8` (2rem/32px) desktop, `gap-4` mobile
+- **Heading margin-bottom**: `mb-6` (1.5rem) for headings, `mb-16` (4rem) for section intros
+
+---
 
 ## Images & Media
 
 ### Image Guidelines
 - Use high-quality, authentic photos of music and dance activities
 - Maintain consistent color grading that complements the brand palette
-- Optimize for web (WebP format when possible)
-- Provide alt text for all images
+- Provide descriptive alt text for all images
+- Use local images from `images/` directory (not stock photo URLs where possible)
+
+### Hero Background Pattern
+```css
+.page-hero-bg {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/photo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+```
+Dark gradient overlay ensures text readability over images.
 
 ### Image Treatments
-```css
-.image-rounded {
-  border-radius: 12px;
-  overflow: hidden;
-}
+- **Rounded corners**: `rounded-lg` (8px) for content images, `rounded-full` for portraits
+- **Shadow**: `shadow-xl` for standalone images
+- **Object fit**: `object-cover` with fixed height (`h-96`, `h-32`) for consistent sizing
+- **Gold overlay**: Used on about page images (`bg-gold opacity-60 mix-blend-multiply`)
 
-.hero-bg {
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('image.jpg');
-  background-size: cover;
-  background-position: center;
-}
-```
+### Video
+- Homepage uses local video background: `square-dance-trimmed.mp4`
+- YouTube embeds on dance page: responsive `aspect-video` with `rounded-lg`
 
-## Responsive Design
+---
 
-### Mobile-First Approach
-- Design for mobile first, enhance for larger screens
-- Touch-friendly button sizes (minimum 44px)
-- Readable font sizes on small screens (fluid scaling)
-- Semantic typography automatically scales
-
-### Responsive Typography Usage
-```html
-<!-- Automatically responsive with clamp() -->
-<h1 class="text-display-xl">   <!-- Scales from 2.5rem to 4rem -->
-<h2 class="text-display-lg">   <!-- Scales from 2rem to 3rem -->
-<p class="text-body-lg">       <!-- Scales from 1rem to 1.125rem -->
-```
-
-## Accessibility Standards
+## Accessibility
 
 ### WCAG 2.1 AA Compliance
 - Minimum contrast ratio of 4.5:1 for normal text
 - Minimum contrast ratio of 3:1 for large text
 - All interactive elements keyboard accessible
-- Proper heading hierarchy using semantic classes
+- Proper heading hierarchy (one H1 per page)
 - Alt text for all meaningful images
-
-### Screen Reader Considerations
-- Use semantic HTML elements
-- Provide skip links for navigation
-- Use ARIA labels when necessary
-- Ensure focus management in dynamic content
 
 ### Focus States
 ```css
-.input-cmdf:focus,
-.btn-cmdf-primary:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(84, 158, 210, 0.3);
+.input-cmdf:focus {
+    outline: none;
+    border-color: #549ED2;
+    box-shadow: 0 0 0 2px rgba(84, 158, 210, 0.2);
 }
 ```
 
-## Implementation Best Practices
+### Keyboard Support
+- ESC closes mobile menu
+- FAQ accordions support Enter and Space keys
+- All navigation links are focusable
+- Testimonial carousel has prev/next buttons (not swipe-only)
 
-### CSS Architecture Files
-1. **`assets/palette.css`** - Brand colors (CSS custom properties)
-2. **`assets/tailwind-config.js`** - Tailwind extensions (colors, fonts)
-3. **`assets/cmdf-components.css`** - Typography, components, animations
-
-### Performance Considerations
-- Custom fonts with efficient fallbacks prevent layout shift
-- Tailwind CDN with selective custom CSS
-- Optimized images and modern formats
-- Critical CSS for above-the-fold content
-
-### Development Workflow
-1. Use semantic typography classes for all text
-2. Apply Tailwind utilities for layout and spacing
-3. Use CMDF components for branded elements
-4. Test across devices and browsers
-5. Validate accessibility compliance
+### Screen Reader
+- Semantic HTML elements throughout
+- `aria-expanded` and `aria-controls` on FAQ accordions
+- External links use `target="_blank" rel="noopener noreferrer"`
+- Form labels associated with inputs
 
 ---
 
-*This style guide ensures the CMDF website maintains visual consistency while honoring West Virginia's cultural heritage through thoughtful design choices that leverage professional typography and brand-focused components.*
+## CSS Architecture Reference
+
+For detailed technical documentation of CSS files, loading order, and class definitions, see `documents/CSS-Architecture-Overview.md`.
+
+### File Summary
+```
+assets/
+├── palette.css           # Brand colors (CSS vars) + form/footer components
+├── tailwind-config.js    # Tailwind theme extensions (colors, fonts, shadows)
+├── cmdf-components.css   # Custom fonts, typography, buttons, cards, animations
+├── Gilroy-Regular.ttf    # Brand body font
+└── howards-eight.ttf     # Brand display font
+```
+
+### Three Ways to Apply Colors
+```html
+<!-- 1. Tailwind utility -->
+<div class="bg-gold text-cmdf-black">
+
+<!-- 2. Custom component class -->
+<button class="btn-cmdf-primary">
+
+<!-- 3. CSS custom property -->
+<div style="color: var(--steel-blue)">
+```

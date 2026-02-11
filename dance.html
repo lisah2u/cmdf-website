@@ -6,11 +6,11 @@
     <title>Dance - Cacapon Music and Dance Foundation</title>
     <meta name="description" content="Discover CMDF's dance programs, events, and community activities in Capon Bridge, WV.">
     
-    <!-- Tailwind Config (must load before CDN) -->
-    <script src="assets/tailwind-config.js"></script>
-
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN (must load before config) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script src="assets/tailwind-config.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,6 +105,195 @@
         </div>
     </section>
 
+    <!-- SCHEDULE -->
+    <section class="events-schedule py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-12 typography-heading text-center">Typical Square Dance Schedule</h2>
+
+                <div class="schedule-grid grid gap-6 md:grid-cols-3">
+                    <div class="schedule-item bg-white rounded-lg p-6 border border-gray-200">
+                        <div class="schedule-time text-lg font-bold text-cmdf-black mb-2">4:00 – 5:00 PM</div>
+                        <div class="schedule-text text-medium-gray">Kids Barn Dance <span class="free-pill inline-block bg-gold text-cmdf-black text-xs font-bold px-2 py-1 rounded-full ml-2">Free</span></div>
+                    </div>
+
+                    <div class="schedule-item bg-white rounded-lg p-6 border border-gray-200">
+                        <div class="schedule-time text-lg font-bold text-cmdf-black mb-2">5:30 – 6:00 PM</div>
+                        <div class="schedule-text text-medium-gray">New Dancer Crash Course</div>
+                    </div>
+
+                    <div class="schedule-item bg-white rounded-lg p-6 border border-gray-200">
+                        <div class="schedule-time text-lg font-bold text-cmdf-black mb-2">6:00 – 9:00 PM</div>
+                        <div class="schedule-text text-medium-gray">Community Square Dance (Main Event)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="events-location py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-12 typography-heading text-center">Location</h2>
+
+                <div class="location-card bg-white rounded-lg p-8 shadow-lg max-w-md mx-auto text-center">
+                    <h3 class="location-name text-2xl font-bold text-cmdf-black mb-4">Capon Bridge Firehall</h3>
+                    <p class="location-address text-medium-gray mb-6">
+                        2766 Northwestern Pike<br>
+                        Capon Bridge, WV
+                    </p>
+
+                    <a class="btn-blue inline-block bg-[#437CA5] text-white font-bold py-3 px-6 rounded-full hover:bg-[#549ED2] transition-colors" href="https://maps.google.com?q=2766+Northwestern+Pike,+Capon+Bridge,+WV" target="_blank">
+                        Get Directions →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2026 EVENTS -->
+    <section class="events-year py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="year-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading text-center">2026 Square Dances</h2>
+                <p class="year-text text-lg text-medium-gray max-w-3xl mx-auto mb-12 text-center">
+                    Join us throughout the year for community square dances featuring talented callers and bands.
+                </p>
+
+                <div class="year-card bg-[#F4F8FC] rounded-lg p-8 text-center">
+                    <p class="coming-soon text-medium-gray italic">Check back soon for 2026 dance dates and details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2025 EVENTS -->
+    <section class="events-year py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="year-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading text-center">2025 Square Dances</h2>
+                <p class="year-text text-lg text-medium-gray max-w-3xl mx-auto mb-12 text-center">
+                    Join us throughout the year for community square dances featuring talented callers and bands.
+                </p>
+
+                <div class="event-list space-y-6">
+                    <!-- EVENT 1 -->
+                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <div class="event-date flex-shrink-0">
+                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">February</span>
+                                <span class="event-day text-4xl font-bold text-cmdf-black">1</span>
+                            </div>
+
+                            <div class="event-details flex-grow">
+                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Janine Smith</span></p>
+                                <p><strong class="text-medium-gray">Band:</strong>
+                                    <a href="https://www.emmyandjesse.com/" target="_blank" class="text-[#549ED2] hover:text-[#437CA5] hover:underline">
+                                        Jesse Milnes and Emily Miller Band
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- EVENT 2 -->
+                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <div class="event-date flex-shrink-0">
+                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">April</span>
+                                <span class="event-day text-4xl font-bold text-cmdf-black">4</span>
+                            </div>
+
+                            <div class="event-details flex-grow">
+                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Becky Hill</span></p>
+                                <p><strong class="text-medium-gray">Band:</strong> <span class="text-cmdf-black">Gerry Milnes and the Tygart Valley Boys</span></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- EVENT 3 -->
+                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <div class="event-date flex-shrink-0">
+                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">September</span>
+                                <span class="event-day text-4xl font-bold text-cmdf-black">13</span>
+                            </div>
+
+                            <div class="event-details flex-grow">
+                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Janine Smith</span></p>
+                                <p><strong class="text-medium-gray">Band:</strong>
+                                    <a href="http://crittonhollow.com/" target="_blank" class="text-[#549ED2] hover:text-[#437CA5] hover:underline">
+                                        Critton Hollow Stringband
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- EVENT 4 -->
+                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center gap-6">
+                            <div class="event-date flex-shrink-0">
+                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">November</span>
+                                <span class="event-day text-4xl font-bold text-cmdf-black">29</span>
+                            </div>
+
+                            <div class="event-details flex-grow">
+                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Kim Forry</span></p>
+                                <p><strong class="text-medium-gray">Band:</strong> <span class="text-cmdf-black">Adam Hurt, Beth Harness, David McLaughlin, Marshall Wilborn</span></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO GALLERY -->
+    <section class="video-gallery py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading text-center">2025 Video Gallery</h2>
+                <p class="text-lg text-medium-gray max-w-3xl mx-auto mb-12 text-center">
+                    Enjoy clips from the bands supporting our square dances.
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- February 1 Video -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/n4EYTUAK_y4" title="Jesse Milnes and Emily Miller Band - February 1, 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-cmdf-black font-medium">Jesse Milnes and Emily Miller Band</p>
+                        </div>
+                    </div>
+
+                    <!-- September 13 Video -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/A3cElJn34lM" title="Critton Hollow Stringband - September 13, 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-cmdf-black font-medium">Critton Hollow Stringband</p>
+                        </div>
+                    </div>
+
+                    <!-- November 29 Video -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="aspect-video w-full">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/3ZubrqT_jo0" title="Adam Hurt, Beth Harness, David McLaughlin, Marshall Wilborn - November 29, 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-cmdf-black font-medium">Adam Hurt, Beth Harness, David McLaughlin, Marshall Wilborn</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Frequently Asked Questions Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
@@ -149,7 +338,7 @@
                     <div class="card-cmdf p-8 fade-in-delay-3">
                         <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">When are the dances held?</h3>
                         <p class="text-lg text-medium-gray typography-body">
-                            Visit our <a href="events.html" class="text-steel-blue hover:text-celestial-blue underline"> events page</a> to find out when the next Capon Bridge Square Dance is happening
+                            Check out our schedule and upcoming dates above, or visit our <a href="events.html" class="text-steel-blue hover:text-celestial-blue underline">events calendar</a> for the latest updates.
                         </p>
                     </div>
 </div>
@@ -191,11 +380,17 @@
             <p class="text-white font-medium">
                 © 2025 Cacapon Music and Dance Foundation. All rights reserved.
             </p>
+            <p class="text-white/60 text-sm mt-2" style="font-family: 'Gilroy', sans-serif;">
+                501(c)(3) Nonprofit Organization · EIN: 93-3118214 ·
+                <a href="2025%20Annual%20Report.pdf" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">2025 Annual Report</a>
+            </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <!-- Instagram Embed Script -->
+    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
 

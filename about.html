@@ -6,11 +6,11 @@
     <title>About Us - Cacapon Music and Dance Foundation</title>
     <meta name="description" content="Learn about the Cacapon Music and Dance Foundation (CMDF), our mission, history, and impact on Capon Bridge, WV through music and dance education and community engagement.">
     
-    <!-- Tailwind Config (must load before CDN) -->
-    <script src="assets/tailwind-config.js"></script>
-
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN (must load before config) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script src="assets/tailwind-config.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
     <!-- CMDF Tailwind Configuration (already loaded above) -->
 
     <!-- CMDF Component Styles -->
-    <link rel="stylesheet" href="assets/cmdf-components.css">
+    <link rel="stylesheet" href="assets/cmdf-components.css?v=2">
 </head>
 <body class="scroll-smooth">
     <!-- Header with centered logo on black background -->
@@ -80,12 +80,14 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16 bg-light-gray">
-        <div class="container mx-auto px-6">
+    <!-- Page Header / Hero -->
+    <section class="pt-32 pb-16 relative bg-cover bg-center" style="background-image: url('images/recital.jpg');">
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-5xl md:text-6xl font-bold text-cmdf-black mb-6 typography-heading">About Us</h1>
-                <p class="text-xl text-medium-gray typography-body">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 typography-heading">About Us</h1>
+                <p class="text-xl text-white/80 typography-body">
                     Learn about our mission, history, and impact on local community and West Virginia cultural heritage through music and dance education.
                 </p>
             </div>
@@ -100,17 +102,16 @@
                     <div class="fade-in">
                         <h2 class="text-4xl font-bold text-cmdf-black mb-6 typography-heading">Our Mission</h2>
                         <p class="text-lg text-medium-gray mb-6 leading-relaxed typography-body">
-                            1. Foster an environment where children and youth can access music education, with priority given to students with
-                            financial needs.
+                            1. Empower children and youth via access to high-quality music education, break down aspirational and social barriers to
+                            music education, cultivate a diverse community of passionate, young musicians, and foster creativity, discipline and
+                            self-confidence.
     
                         </p>
                         <p class="text-lg text-medium-gray mb-6 leading-relaxed typography-body">
-                            2. Perpetuate folk life traditions and expand community via instruction in multi-generational folk dance.
+                            2. Celebrate the rich cultural heritage of our community through the promotion of and education in participatory folk dance
+                            with the intention of nurturing social unity, preserving cultural identity, and providing transformative experiences to
+                            individuals across multiple generations.
                         
-                        </p>
-                        <p class="text-lg text-medium-gray mb-6 leading-relaxed typography-body">
-                            3. Inspire a lifelong love for music and dance while nurturing the next generation of talented artists and leaders who
-                            will enrich our world with their unique voices and contributions.
                         </p>
                     </div>
                     <div class="fade-in">
@@ -138,14 +139,14 @@
                                 <!-- Gold overlay on right side -->
                                 <div class="absolute top-0 right-0 w-1/3 h-full bg-gold opacity-60 mix-blend-multiply"></div>
                             </div>
-                            
+
                             <!-- Inset Image (bottom-left) -->
-                            <div class="absolute bottom-8 left-8 w-48 h-48 rounded-lg overflow-hidden shadow-lg border-4 border-white">
+                            <div class="absolute bottom-8 left-8 w-48 h-48 rounded-lg overflow-hidden shadow-lg border-4" style="border-color: var(--hunyadi-yellow)">
                                 <img src="images/kid_closeup_guitar.jpg" alt="Student playing guitar" class="w-full h-full object-cover">
                                 <!-- Gold overlay on bottom-left of inset -->
                                 <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gold opacity-50 mix-blend-multiply"></div>
                             </div>
-                            
+
                             <!-- Decorative Golden Dots (confetti-like) -->
                             <div class="absolute -bottom-4 -left-4 w-24 h-24 opacity-30">
                                 <div class="absolute top-0 left-0 w-3 h-3 bg-gold rounded-full"></div>
@@ -155,7 +156,7 @@
                                 <div class="absolute top-16 left-3 w-3 h-3 bg-gold rounded-full"></div>
                                 <div class="absolute top-20 left-8 w-2 h-2 bg-gold rounded-full"></div>
                             </div>
-                            
+
                             <!-- Decorative Spark Graphics -->
                             <div class="absolute top-8 right-12 w-8 h-8 opacity-40">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-gold">
@@ -169,7 +170,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Right Column: Text Content -->
                     <div class="fade-in">
                         <!-- Heading with Gold Underline -->
@@ -178,62 +179,86 @@
                                 <span class="absolute bottom-0 left-0 right-0 h-3 bg-gold opacity-40 -z-10" style="transform: translateY(4px);"></span>
                             </span>
                         </h2>
-                        
+
                         <!-- Program Description -->
-                        <p class="text-lg text-medium-gray mb-8 typography-body leading-relaxed">
-                            Our program provides music education and instrumental instruction as well as community square dance events. 
-                            We serve children and youth ages 8-18 from low-income households, providing scholarships for music lessons 
-                            and creating opportunities for multi-generational community engagement through traditional folk dance.
+                        <p class="text-lg text-medium-gray mb-4 typography-body leading-relaxed">
+                            Our program <strong>supports music education</strong> and instrumental instruction as well as community square dance events. We serve
+                            children and youth ages 8-18 from low-income households, providing scholarships for music lessons and <strong>create
+                            opportunities</strong> for multi-generational community engagement through traditional folk dance.
                         </p>
-                        
-                        <!-- Subheading -->
-                        <h3 class="text-xl md:text-2xl font-bold text-cmdf-black mb-6 typography-heading uppercase tracking-wide">
-                            Through our programs, we annually:
-                        </h3>
-                        
-                        <!-- Impact List -->
-                        <ul class="space-y-4 text-lg text-cmdf-black typography-body">
-                            <li class="flex items-start">
-                                <span class="text-gold mr-3 mt-1 flex-shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                                <span class="uppercase">deliver over <strong class="font-bold">500 hours</strong> of music education and instrumental instruction</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gold mr-3 mt-1 flex-shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                                <span class="uppercase">support over <strong class="font-bold">20 students</strong> through our scholarship program</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gold mr-3 mt-1 flex-shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                                <span class="uppercase">host <strong class="font-bold">quarterly community square dances</strong> bringing together families and neighbors</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gold mr-3 mt-1 flex-shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                </span>
-                                <span class="uppercase">provide daily access to <strong class="font-bold">music instruments</strong> and learning resources for student use</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Impact Ribbon -->
+    <section class="py-16 relative" style="background-color: var(--cmdf-black);">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(231, 187, 95, 0.05) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none;"></div>
+        <div class="container mx-auto px-6 relative">
+            <div class="max-w-7xl mx-auto fade-in">
+                <h3 class="text-center text-xl md:text-2xl font-bold text-white mb-10 typography-heading uppercase tracking-wide">
+                    Through our programs, we annually provide:
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4">
+                    <!-- Stat: Music Education Hours -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-music text-3xl" style="color: var(--hunyadi-yellow)"></i>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 typography-heading" style="color: var(--hunyadi-yellow)">300+</div>
+                        <p class="text-white/70 text-sm uppercase tracking-wide typography-body">Hours of Music Education</p>
+                    </div>
+
+                    <!-- Stat: Practice Hours -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-guitar text-3xl" style="color: var(--hunyadi-yellow)"></i>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 typography-heading" style="color: var(--hunyadi-yellow)">3,650+</div>
+                        <p class="text-white/70 text-sm uppercase tracking-wide typography-body">Hours of Practice Inspired</p>
+                    </div>
+
+                    <!-- Stat: Scholarship Students -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-user-graduate text-3xl" style="color: var(--hunyadi-yellow)"></i>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 typography-heading" style="color: var(--hunyadi-yellow)">20+</div>
+                        <p class="text-white/70 text-sm uppercase tracking-wide typography-body">Scholarship Students</p>
+                    </div>
+
+                    <!-- Stat: Community Dances -->
+                    <div class="text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-people-group text-3xl" style="color: var(--hunyadi-yellow)"></i>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 typography-heading" style="color: var(--hunyadi-yellow)">4</div>
+                        <p class="text-white/70 text-sm uppercase tracking-wide typography-body">Quarterly Community Dances</p>
+                    </div>
+
+                    <!-- Stat: Instrument Access -->
+                    <div class="text-center col-span-2 md:col-span-1">
+                        <div class="mb-3">
+                            <i class="fas fa-drum text-3xl" style="color: var(--hunyadi-yellow)"></i>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 typography-heading" style="color: var(--hunyadi-yellow)">Daily</div>
+                        <p class="text-white/70 text-sm uppercase tracking-wide typography-body">Access to Instruments & Resources</p>
+                    </div>
+                </div>
+                <!-- Annual Report CTA -->
+                <div class="text-center mt-12 fade-in">
+                    <a href="2025%20Annual%20Report.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-gold hover:bg-dark-gold text-cmdf-black font-semibold py-3 px-8 rounded-full transition-all duration-200 hover:-translate-y-1 shadow-lg" style="font-family: 'Inter', -apple-system, sans-serif;">
+                        <i class="fas fa-file-pdf text-lg"></i>
+                        View Our Full 2025 Annual Report
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Values Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-linen-texture">
         <div class="container mx-auto px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 fade-in">
@@ -320,10 +345,10 @@
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card-cmdf text-center fade-in">
-                        <img src="images/dakota-wide.jpg"
+                    <div class="card-cmdf text-center fade-in-delay-1">
+                        <img src="images/dakota-headshot.jpg"
                              alt="Dakota Karper"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Dakota Karper</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Executive Director</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -334,10 +359,10 @@
                         </p>
                     </div>
                     
-                    <div class="card-cmdf text-center fade-in">
+                    <div class="card-cmdf text-center fade-in-delay-2">
                         <img src="images/booth.jpg"
                              alt="Booth Dyess"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Booth Dyess</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Board President</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -345,10 +370,10 @@
                         </p>
                     </div>
                     
-                    <div class="card-cmdf text-center fade-in">
+                    <div class="card-cmdf text-center fade-in-delay-3">
                         <img src="images/steve.png"
                              alt="Steve Bailes"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Steve Bailes</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Member at Large</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -356,10 +381,10 @@
                         </p>
                     </div>
                     
-                    <div class="card-cmdf text-center fade-in">
+                    <div class="card-cmdf text-center fade-in-delay-4">
                         <img src="images/lisa.png"
                              alt="Lisa Harper"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Lisa Harper</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Secretary</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -404,6 +429,10 @@
         <div class="container mx-auto px-6 text-center">
             <p class="text-white font-medium">
                 © 2025 Cacapon Music and Dance Foundation. All rights reserved.
+            </p>
+            <p class="text-white/60 text-sm mt-2" style="font-family: 'Gilroy', sans-serif;">
+                501(c)(3) Nonprofit Organization · EIN: 93-3118214 ·
+                <a href="2025%20Annual%20Report.pdf" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">2025 Annual Report</a>
             </p>
         </div>
     </footer>

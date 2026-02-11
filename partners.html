@@ -6,11 +6,11 @@
     <title>Partners - Cacapon Music and Dance Foundation</title>
     <meta name="description" content="Learn about our partners and supporters who help make the Cacapon Music and Dance Foundation's mission possible.">
     
-    <!-- Tailwind Config (must load before CDN) -->
-    <script src="assets/tailwind-config.js"></script>
-
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN (must load before config) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script src="assets/tailwind-config.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
     <!-- CMDF Tailwind Configuration (already loaded above) -->
 
     <!-- CMDF Component Styles -->
-    <link rel="stylesheet" href="assets/cmdf-components.css">
+    <link rel="stylesheet" href="assets/cmdf-components.css?v=2">
 </head>
 <body class="scroll-smooth">
     <!-- Header with centered logo on black background -->
@@ -136,68 +136,72 @@
         </div>
     </section>
 
-    <!-- Partners Content -->
-    <section class="py-20 bg-light-gray">
+    <!-- Our Sponsors Section -->
+    <section class="py-20 bg-linen-texture">
         <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                
-                <!-- Sponsors Section -->
-                <div class="mb-20 fade-in" style="background: #FFF8E9; padding: 60px 40px; border-radius: 12px;">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Our Sponsors</h2>
-                        <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
-                            These generous sponsors help make our programs possible.
+            <div class="max-w-6xl mx-auto fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Our Sponsors</h2>
+                    <p class="text-lg text-medium-gray max-w-3xl mx-auto typography-body">
+                        These generous sponsors help ensure children in Hampshire County and adjacent communities can experience the joy and confidence that music brings.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Bronze Sponsor -->
+                    <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+                        <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Bronze Sponsor</h3>
+                        <p class="text-sm text-medium-gray mb-6 leading-relaxed">
+                            Supports instrument care, kids jams, and program supplies for children.
                         </p>
+                        <div class="sponsor-names min-h-[60px] flex items-center justify-center">
+                            <p class="text-medium-gray italic text-sm">Join us as a Bronze Sponsor ❤️</p>
+                        </div>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- Bronze Sponsor -->
-                        <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
-                            <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Bronze Sponsor</h3>
-                            <p class="text-sm text-medium-gray mb-6 leading-relaxed">
-                                Supports instrument care and program supplies for children.
-                            </p>
-                            <div class="sponsor-names min-h-[60px] flex items-center justify-center">
-                                <p class="text-medium-gray italic text-sm">Join us as a Bronze Sponsor ❤️</p>
-                            </div>
-                        </div>
 
-                        <!-- Silver Sponsor -->
-                        <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
-                            <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Silver Sponsor</h3>
-                            <p class="text-sm text-medium-gray mb-6 leading-relaxed">
-                                Funds half a year of lessons and connects you with a child.
-                            </p>
-                            <div class="sponsor-names min-h-[60px] flex items-center justify-center">
-                                <p class="text-medium-gray italic text-sm">This spot is waiting for our next sponsor</p>
-                            </div>
+                    <!-- Silver Sponsor -->
+                    <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+                        <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Silver Sponsor</h3>
+                        <p class="text-sm text-medium-gray mb-6 leading-relaxed">
+                            Funds half a year of lessons or community programming.
+                        </p>
+                        <div class="sponsor-names min-h-[60px] flex items-center justify-center">
+                            <p class="text-medium-gray italic text-sm">This spot is waiting for our next sponsor</p>
                         </div>
+                    </div>
 
-                        <!-- Gold Sponsor -->
-                        <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
-                            <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Gold Sponsor</h3>
-                            <p class="text-sm text-medium-gray mb-6 leading-relaxed">
-                                Fully sponsors a child for the year with personal connection.
-                            </p>
-                            <div class="sponsor-names min-h-[60px] flex items-center justify-center">
-                                <p class="text-medium-gray italic text-sm">This spot is waiting for our next sponsor</p>
-                            </div>
+                    <!-- Gold Sponsor -->
+                    <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+                        <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Gold Sponsor</h3>
+                        <p class="text-sm text-medium-gray mb-6 leading-relaxed">
+                            Fully sponsors a child for the year with personal connection.
+                        </p>
+                        <div class="sponsor-names min-h-[60px] flex items-center justify-center">
+                            <p class="text-medium-gray italic text-sm">This spot is waiting for our next sponsor</p>
                         </div>
+                    </div>
 
-                        <!-- Platinum Sponsor -->
-                        <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
-                            <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Platinum Sponsor</h3>
-                            <p class="text-sm text-medium-gray mb-6 leading-relaxed">
-                                Supports multiple children and creates lasting community impact.
-                            </p>
-                            <div class="sponsor-names min-h-[60px] flex flex-col items-center justify-center">
-                                <p class="text-sm font-bold text-cmdf-black mb-2">Thank you to our Platinum Sponsor:</p>
-                                <p class="text-lg font-bold text-cmdf-black">Rebecca Keiver</p>
-                            </div>
+                    <!-- Platinum Sponsor -->
+                    <div class="bg-white rounded-[14px] p-6 text-center" style="box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+                        <h3 class="text-xl font-bold text-cmdf-black mb-3 typography-heading">Platinum Sponsor</h3>
+                        <p class="text-sm text-medium-gray mb-6 leading-relaxed">
+                            Supports multiple children and creates lasting community impact.
+                        </p>
+                        <div class="sponsor-names min-h-[60px] flex flex-col items-center justify-center">
+                            <p class="text-sm font-bold text-cmdf-black mb-2">Thank you to our Platinum Sponsor:</p>
+                            <p class="text-lg font-bold text-cmdf-black">Rebecca Keiver</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Partners Section -->
+    <!-- Financial Sponsors & Local Businesses -->
+    <section class="py-20 bg-light-gray">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Financial Sponsors -->
                 <div class="mb-20 fade-in-delay-1">
                     <div class="text-center mb-12">
                         <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading">Financial Sponsors</h2>
@@ -209,7 +213,7 @@
                         <!-- Hampshire County Community Foundation -->
                         <div class="partner-logo-card bg-white rounded-lg p-8 text-center" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
                             <div class="flex justify-center items-center mb-6" style="min-height: 120px;">
-                                <img src="images/hampshire-county-community-foundation.jpg" alt="Hampshire County Community Foundation Logo" class="max-w-full h-auto object-contain" style="max-height: 100px;">
+                                <a href="https://www.ewvcf.org/hampshireccf/" target="_blank" rel="noopener noreferrer"><img src="images/hampshire-county-community-foundation.jpg" alt="Hampshire County Community Foundation Logo" class="max-w-full h-auto object-contain" style="max-height: 100px;"></a>
                             </div>
                             <h3 class="text-lg font-bold text-cmdf-black mb-2 typography-heading">Hampshire County Community Foundation</h3>
                             <p class="text-sm text-medium-gray leading-relaxed">
@@ -220,7 +224,7 @@
                         <!-- Mid-Atlantic Arts - CALT -->
                         <div class="partner-logo-card bg-white rounded-lg p-8 text-center" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
                             <div class="flex justify-center items-center mb-6" style="min-height: 120px;">
-                                <img src="images/CALT_logo.png" alt="CALT Logo" class="max-w-full h-auto object-contain" style="max-height: 100px;">
+                                <a href="https://www.midatlanticarts.org/opportunity/folk-and-traditional-arts/" target="_blank" rel="noopener noreferrer"><img src="images/CALT_logo.png" alt="CALT Logo" class="max-w-full h-auto object-contain" style="max-height: 100px;"></a>
                             </div>
                             <h3 class="text-lg font-bold text-cmdf-black mb-2 typography-heading">Mid-Atlantic Arts</h3>
                             <p class="text-sm text-medium-gray leading-relaxed">
@@ -231,7 +235,7 @@
                         <!-- SJ Morse Corporate -->
                         <div class="partner-logo-card bg-white rounded-lg p-8 text-center" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
                             <div class="flex justify-center items-center mb-6" style="min-height: 120px;">
-                                <img src="images/SJMorse_Logo.jpg" alt="SJ Morse Logo" class="max-w-full h-auto object-contain" style="max-height: 100px;">
+                                <a href="https://sjmorse.com/" target="_blank" rel="noopener noreferrer"><img src="images/SJMorse_Logo.jpg" alt="SJ Morse Logo" class="max-w-full h-auto object-contain" style="max-height: 100px;"></a>
                             </div>
                             <h3 class="text-lg font-bold text-cmdf-black mb-2 typography-heading">SJ Morse</h3>
                             <p class="text-sm text-medium-gray leading-relaxed">
@@ -253,7 +257,7 @@
                         <!-- The Kettle Stop -->
                         <div class="bg-white rounded-lg p-6 text-center" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(67,124,165,0.1);">
                             <div class="flex justify-center items-center mb-4" style="min-height: 100px;">
-                                <img src="images/The-kettle-stop.jpg" alt="The Kettle Stop Logo" class="max-w-full h-auto object-contain rounded-lg" style="max-height: 80px;">
+                                <a href="https://www.facebook.com/p/The-Kettle-Stop-100057823592798/" target="_blank" rel="noopener noreferrer"><img src="images/The-kettle-stop.jpg" alt="The Kettle Stop Logo" class="max-w-full h-auto object-contain rounded-lg" style="max-height: 80px;"></a>
                             </div>
                             <h3 class="text-lg font-bold text-cmdf-black mb-2 typography-heading">The Kettle Stop</h3>
                             <p class="text-sm text-medium-gray leading-relaxed">
@@ -264,7 +268,7 @@
                         <!-- El Puente Mexican Restaurant -->
                         <div class="bg-white rounded-lg p-6 text-center" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(67,124,165,0.1);">
                             <div class="flex justify-center items-center mb-4" style="min-height: 100px;">
-                                <img src="images/El_puente_rough_logo.png" alt="El Puente Mexican Restaurant Logo" class="max-w-full h-auto object-contain" style="max-height: 80px;">
+                                <a href="https://www.facebook.com/elpuentewva/" target="_blank" rel="noopener noreferrer"><img src="images/El_puente_rough_logo.png" alt="El Puente Mexican Restaurant Logo" class="max-w-full h-auto object-contain" style="max-height: 80px;"></a>
                             </div>
                             <h3 class="text-lg font-bold text-cmdf-black mb-2 typography-heading">El Puente Mexican Restaurant</h3>
                             <p class="text-sm text-medium-gray leading-relaxed">
@@ -275,7 +279,7 @@
                         <!-- Nino's Pizzarama -->
                         <div class="bg-white rounded-lg p-6 text-center" style="box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(67,124,165,0.1);">
                             <div class="flex justify-center items-center mb-4" style="min-height: 100px;">
-                                <img src="images/ninos_logo.png" alt="Nino's Pizzarama Logo" class="max-w-full h-auto object-contain" style="max-height: 80px;">
+                                <a href="http://ninos-pizzarama.com/" target="_blank" rel="noopener noreferrer"><img src="images/ninos_logo.png" alt="Nino's Pizzarama Logo" class="max-w-full h-auto object-contain" style="max-height: 80px;"></a>
                             </div>
                             <h3 class="text-lg font-bold text-cmdf-black mb-2 typography-heading">Nino's Pizzarama</h3>
                             <p class="text-sm text-medium-gray leading-relaxed">
@@ -290,19 +294,21 @@
                     </div>
                 </div>
 
-                <!-- Partnership Invitation -->
-                <div class="mt-16 mb-8 fade-in" style="background: #FBF5E6; padding: 50px 40px; border-radius: 14px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <div class="text-center">
-                        <h2 class="text-3xl md:text-4xl font-bold text-cmdf-black mb-4 typography-heading">Want to partner with us?</h2>
-                        <p class="text-lg text-medium-gray max-w-2xl mx-auto mb-8 leading-relaxed">
-                            We'd love to talk with you about sponsorships, collaboration, or community partnerships.
-                        </p>
-                        <a href="mailto:info@cmdf.org" class="inline-block bg-[#437CA5] text-white font-bold py-4 px-8 rounded-full text-lg transition-colors hover:bg-[#549ED2]" style="background-color: #437CA5; color: white;">
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Partnership Invitation -->
+    <section class="py-20 bg-linen-texture">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-cmdf-black mb-4 typography-heading">Want to partner with us?</h2>
+                <p class="text-lg text-medium-gray max-w-2xl mx-auto mb-8 leading-relaxed">
+                    We'd love to talk with you about sponsorships, collaboration, or community partnerships.
+                </p>
+                <a href="mailto:cacaponmusicanddancefoundation@gmail.com" class="inline-block bg-[#437CA5] text-white font-bold py-4 px-8 rounded-full text-lg transition-colors hover:bg-[#549ED2]" style="background-color: #437CA5; color: white;">
+                    Contact Us
+                </a>
             </div>
         </div>
     </section>
@@ -312,6 +318,10 @@
         <div class="container mx-auto px-6 text-center">
             <p class="text-white font-medium">
                 © 2025 Cacapon Music and Dance Foundation. All rights reserved.
+            </p>
+            <p class="text-white/60 text-sm mt-2" style="font-family: 'Gilroy', sans-serif;">
+                501(c)(3) Nonprofit Organization · EIN: 93-3118214 ·
+                <a href="2025%20Annual%20Report.pdf" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">2025 Annual Report</a>
             </p>
         </div>
     </footer>

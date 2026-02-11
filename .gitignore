@@ -33,6 +33,8 @@ node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+*.json
 
-# web dev
+# Local dev servers
+main.py
 server.py

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - Cacapon Music and Dance Foundation</title>
-    <meta name="description" content="Stay up to date on the latest concerts, performances, benefits, and more with the Cacapon Music and Dance Foundation events calendar.">
-    
-    <!-- Tailwind Config (must load before CDN) -->
-    <script src="assets/tailwind-config.js"></script>
+    <title>Events Calendar - Cacapon Music and Dance Foundation</title>
+    <meta name="description" content="Stay up to date on the latest concerts, performances, square dances, and more with the Cacapon Music and Dance Foundation events calendar.">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN (must load before config) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script src="assets/tailwind-config.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,17 +21,180 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/palette.css">
 
-    <!-- CMDF Tailwind Configuration (already loaded above) -->
-
     <!-- CMDF Component Styles -->
-    <link rel="stylesheet" href="assets/cmdf-components.css">
-    
+    <link rel="stylesheet" href="assets/cmdf-components.css?v=2">
+
+    <!-- EventCalendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@event-calendar/build/dist/event-calendar.min.css">
+
     <!-- Page-specific Styles -->
     <style>
         .events-hero-bg {
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('images/square-dance-caller-janine.jpg');
             background-size: cover;
             background-position: center;
+        }
+
+        /* EventCalendar CMDF theme — override library defaults via .ec */
+        #events-calendar .ec {
+            --ec-border-color: #e5e7eb;
+            --ec-today-bg-color: #FFF8E9;
+            --ec-highlight-color: #FFF8E9;
+            --ec-button-bg-color: #437CA5;
+            --ec-button-active-bg-color: #E7BB5F;
+            --ec-button-active-text-color: #07070A;
+            --ec-event-bg-color: #E7BB5F;
+            --ec-event-color: #07070A;
+            --ec-bg-color: #fff;
+            --ec-text-color: #07070A;
+
+            font-family: 'Gilroy', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            border: none;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Toolbar container */
+        #events-calendar .ec-toolbar {
+            padding: 16px 24px;
+            background: #07070A;
+            border-bottom: none;
+        }
+
+        /* Title in toolbar — Howards Eight, white on dark */
+        #events-calendar .ec-toolbar .ec-title {
+            font-family: 'Howards Eight', serif;
+            font-size: 1.5rem;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+
+        /* Navigation & view buttons */
+        #events-calendar .ec-button {
+            border-radius: 9999px !important;
+            padding: 6px 16px !important;
+            font-family: 'Inter', -apple-system, sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 0.8rem !important;
+            border: 2px solid rgba(255,255,255,0.2) !important;
+            background: transparent !important;
+            color: #ffffff !important;
+            transition: all 0.2s ease !important;
+            cursor: pointer !important;
+        }
+
+        #events-calendar .ec-button:hover {
+            background: rgba(231, 187, 95, 0.15) !important;
+            border-color: #E7BB5F !important;
+            color: #E7BB5F !important;
+        }
+
+        /* Active view button (e.g. "Month" when selected) */
+        #events-calendar .ec-button.ec-active {
+            background: #E7BB5F !important;
+            border-color: #E7BB5F !important;
+            color: #07070A !important;
+        }
+
+        /* Prev/next arrow icons */
+        #events-calendar .ec-button .ec-icon {
+            filter: brightness(0) invert(1);
+        }
+
+        #events-calendar .ec-button:hover .ec-icon {
+            filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(15deg);
+        }
+
+        /* Day headers in list view */
+        #events-calendar .ec-day-head {
+            font-family: 'Howards Eight', serif;
+            font-size: 1.05rem;
+            padding: 14px 24px;
+            background: #f9fafb;
+            color: #07070A;
+            border-bottom: 2px solid #E7BB5F;
+        }
+
+        /* Day name (e.g. SATURDAY) */
+        #events-calendar .ec-day-head .ec-day {
+            font-weight: 700;
+        }
+
+        /* Date side (e.g. FEBRUARY 7, 2026) */
+        #events-calendar .ec-day-head .ec-day-side {
+            color: #6b7280;
+            font-family: 'Gilroy', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        /* Event rows */
+        #events-calendar .ec-event {
+            padding: 14px 24px;
+            margin: 0;
+            border-radius: 0;
+            background: white;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.2s ease;
+        }
+
+        #events-calendar .ec-event:hover {
+            background: #FFF8E9;
+        }
+
+        /* Event color tag/bar */
+        #events-calendar .ec-event .ec-event-tag {
+            background-color: #E7BB5F !important;
+            width: 4px;
+            border-radius: 2px;
+        }
+
+        /* Event body text */
+        #events-calendar .ec-event .ec-event-body {
+            font-family: 'Gilroy', sans-serif;
+            font-size: 0.95rem;
+            color: #07070A;
+        }
+
+        /* No events message */
+        #events-calendar .ec-no-events {
+            padding: 40px 24px;
+            text-align: center;
+            color: #6b7280;
+            font-style: italic;
+            font-family: 'Gilroy', sans-serif;
+        }
+
+        /* Loading state */
+        .calendar-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            color: #6b7280;
+        }
+
+        .calendar-loading .spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #E7BB5F;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Setup notice styling */
+        .setup-notice {
+            background: #FFF8E9;
+            border: 2px dashed #E7BB5F;
+            border-radius: 12px;
+            padding: 40px;
         }
     </style>
 </head>
@@ -90,206 +253,45 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[70vh] text-white events-hero-bg">
+    <section class="relative min-h-[50vh] text-white events-hero-bg">
         <!-- Light overlay for readability -->
         <div class="absolute inset-0 bg-black/20"></div>
-        
+
         <!-- Overlayed content -->
-        <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[70vh] fade-in">
+        <div class="relative z-10 container mx-auto px-6 text-center flex items-center justify-center min-h-[50vh] fade-in">
             <div>
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Events</h1>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 typography-heading">Events Calendar</h1>
                 <p class="text-xl md:text-2xl max-w-3xl mx-auto typography-body">
-                    Join us for community square dances featuring local callers and bands. All skill levels welcome!
+                    Stay up to date with square dances, concerts, and community gatherings.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- SCHEDULE -->
-    <section class="events-schedule py-20 bg-white">
+    <!-- Calendar Section -->
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="section-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-12 typography-heading text-center">Typical Square Dance Schedule</h2>
+            <div class="max-w-5xl mx-auto">
 
-                <div class="schedule-grid grid gap-6 md:grid-cols-3">
-                    <div class="schedule-item bg-white rounded-lg p-6 border border-gray-200">
-                        <div class="schedule-time text-lg font-bold text-cmdf-black mb-2">4:00 – 5:00 PM</div>
-                        <div class="schedule-text text-medium-gray">Kids Barn Dance <span class="free-pill inline-block bg-gold text-cmdf-black text-xs font-bold px-2 py-1 rounded-full ml-2">Free</span></div>
-                    </div>
-
-                    <div class="schedule-item bg-white rounded-lg p-6 border border-gray-200">
-                        <div class="schedule-time text-lg font-bold text-cmdf-black mb-2">5:30 – 6:00 PM</div>
-                        <div class="schedule-text text-medium-gray">New Dancer Crash Course</div>
-                    </div>
-
-                    <div class="schedule-item bg-white rounded-lg p-6 border border-gray-200">
-                        <div class="schedule-time text-lg font-bold text-cmdf-black mb-2">6:00 – 9:00 PM</div>
-                        <div class="schedule-text text-medium-gray">Community Square Dance (Main Event)</div>
+                <!-- Calendar Container -->
+                <div id="events-calendar">
+                    <div class="calendar-loading">
+                        <div class="spinner"></div>
+                        <span>Loading events...</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- LOCATION -->
-    <section class="events-location py-20 bg-light-gray">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="section-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-12 typography-heading text-center">Location</h2>
-
-                <div class="location-card bg-white rounded-lg p-8 shadow-lg max-w-md mx-auto text-center">
-                    <h3 class="location-name text-2xl font-bold text-cmdf-black mb-4">Capon Bridge Firehall</h3>
-                    <p class="location-address text-medium-gray mb-6">
-                        2766 Northwestern Pike<br>
-                        Capon Bridge, WV
+                <!-- Setup notice (shown when Google Calendar is not configured) -->
+                <div id="calendar-setup-notice" class="setup-notice text-center hidden">
+                    <div class="text-4xl mb-4">📅</div>
+                    <h3 class="text-2xl font-bold text-cmdf-black mb-4 typography-heading">Calendar Coming Soon</h3>
+                    <p class="text-lg text-medium-gray mb-6 typography-body max-w-xl mx-auto">
+                        Our events calendar is being set up. In the meantime, visit our
+                        <a href="dance.html" class="text-steel-blue hover:text-celestial-blue underline">dance page</a>
+                        for upcoming square dance dates and details.
                     </p>
-
-                    <a class="btn-blue inline-block bg-[#437CA5] text-white font-bold py-3 px-6 rounded-full hover:bg-[#549ED2] transition-colors" href="https://maps.google.com?q=2766+Northwestern+Pike,+Capon+Bridge,+WV" target="_blank">
-                        Get Directions →
-                    </a>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 2026 EVENTS -->
-    <section class="events-year py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="year-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading text-center">2026 Square Dances</h2>
-                <p class="year-text text-lg text-medium-gray max-w-3xl mx-auto mb-12 text-center">
-                    Join us throughout the year for community square dances featuring talented callers and bands.
-                </p>
-
-                <div class="year-card bg-[#F4F8FC] rounded-lg p-8 text-center">
-                    <p class="coming-soon text-medium-gray italic">Check back soon for 2026 dance dates and details.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2025 EVENTS -->
-    <section class="events-year py-20 bg-light-gray">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="year-heading text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading text-center">2025 Square Dances</h2>
-                <p class="year-text text-lg text-medium-gray max-w-3xl mx-auto mb-12 text-center">
-                    Join us throughout the year for community square dances featuring talented callers and bands.
-                </p>
-
-                <div class="event-list space-y-6">
-                    <!-- EVENT 1 -->
-                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
-                        <div class="flex flex-col md:flex-row md:items-center gap-6">
-                            <div class="event-date flex-shrink-0">
-                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">February</span>
-                                <span class="event-day text-4xl font-bold text-cmdf-black">1</span>
-                            </div>
-
-                            <div class="event-details flex-grow">
-                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Janine Smith</span></p>
-                                <p><strong class="text-medium-gray">Band:</strong> 
-                                    <a href="https://www.emmyandjesse.com/" target="_blank" class="text-[#549ED2] hover:text-[#437CA5] hover:underline">
-                                        Jesse Milnes and Emily Miller Band
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- EVENT 2 -->
-                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
-                        <div class="flex flex-col md:flex-row md:items-center gap-6">
-                            <div class="event-date flex-shrink-0">
-                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">April</span>
-                                <span class="event-day text-4xl font-bold text-cmdf-black">4</span>
-                            </div>
-
-                            <div class="event-details flex-grow">
-                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Becky Hill</span></p>
-                                <p><strong class="text-medium-gray">Band:</strong> <span class="text-cmdf-black">Gerry Milnes and the Tygart Valley Boys</span></p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- EVENT 3 -->
-                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
-                        <div class="flex flex-col md:flex-row md:items-center gap-6">
-                            <div class="event-date flex-shrink-0">
-                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">September</span>
-                                <span class="event-day text-4xl font-bold text-cmdf-black">13</span>
-                            </div>
-
-                            <div class="event-details flex-grow">
-                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Janine Smith</span></p>
-                                <p><strong class="text-medium-gray">Band:</strong> 
-                                    <a href="http://crittonhollow.com/" target="_blank" class="text-[#549ED2] hover:text-[#437CA5] hover:underline">
-                                        Critton Hollow Stringband
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- EVENT 4 -->
-                    <article class="event-card bg-white rounded-lg p-6 shadow-md">
-                        <div class="flex flex-col md:flex-row md:items-center gap-6">
-                            <div class="event-date flex-shrink-0">
-                                <span class="event-month block text-gold font-bold text-sm uppercase mb-1">November</span>
-                                <span class="event-day text-4xl font-bold text-cmdf-black">29</span>
-                            </div>
-
-                            <div class="event-details flex-grow">
-                                <p class="mb-2"><strong class="text-medium-gray">Caller:</strong> <span class="text-cmdf-black">Kim Forry</span></p>
-                                <p><strong class="text-medium-gray">Band:</strong> <span class="text-cmdf-black">Adam Hurt, Beth Harness, David McLaughlin, Marshall Wilborn</span></p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIDEO GALLERY -->
-    <section class="video-gallery py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold text-cmdf-black mb-6 typography-heading text-center">2025 Video Gallery</h2>
-                <p class="text-lg text-medium-gray max-w-3xl mx-auto mb-12 text-center">
-                    Enjoy clips from the bands supporting our square dances.
-                </p>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- February 1 Video -->
-                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="aspect-video w-full">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/n4EYTUAK_y4" title="Jesse Milnes and Emily Miller Band - February 1, 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-cmdf-black font-medium">Jesse Milnes and Emily Miller Band</p>
-                        </div>
-                    </div>
-
-                    <!-- September 13 Video -->
-                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="aspect-video w-full">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/A3cElJn34lM" title="Critton Hollow Stringband - September 13, 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-cmdf-black font-medium">Critton Hollow Stringband</p>
-                        </div>
-                    </div>
-
-                    <!-- November 29 Video -->
-                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="aspect-video w-full">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/3ZubrqT_jo0" title="Adam Hurt, Beth Harness, David McLaughlin, Marshall Wilborn - November 29, 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-cmdf-black font-medium">Adam Hurt, Beth Harness, David McLaughlin, Marshall Wilborn</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -326,15 +328,149 @@
     <footer class="bg-black py-6">
         <div class="container mx-auto px-6 text-center">
             <p class="text-white font-medium">
-                © 2025 Cacapon Music and Dance Foundation. All rights reserved.
+                &copy; 2025 Cacapon Music and Dance Foundation. All rights reserved.
+            </p>
+            <p class="text-white/60 text-sm mt-2" style="font-family: 'Gilroy', sans-serif;">
+                501(c)(3) Nonprofit Organization &middot; EIN: 93-3118214 &middot;
+                <a href="2025%20Annual%20Report.pdf" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">2025 Annual Report</a>
             </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
-    <!-- Instagram Embed Script -->
-    <script async src="//www.instagram.com/embed.js"></script>
+
+    <!-- EventCalendar -->
+    <script src="https://cdn.jsdelivr.net/npm/@event-calendar/build/dist/event-calendar.min.js"></script>
+
+    <script>
+    (function() {
+        // ============================================================
+        // CONFIGURATION — Update these values to connect Google Calendar
+        // ============================================================
+        // 1. Create a Google Cloud project at https://console.cloud.google.com
+        // 2. Enable the Google Calendar API
+        // 3. Create an API key (restrict to Google Calendar API + your domain)
+        // 4. Make the Google Calendar public (Settings > Access permissions)
+        // 5. Copy the Calendar ID from Settings > Integrate calendar
+        // ============================================================
+        var GOOGLE_CALENDAR_ID = 'cacaponmusicanddancefoundation@gmail.com';
+        var GOOGLE_API_KEY = 'REDACTED';
+        // ============================================================
+
+        var calendarEl = document.getElementById('events-calendar');
+        var setupNotice = document.getElementById('calendar-setup-notice');
+
+        // Sanitize text to prevent XSS when building DOM elements
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.textContent = str;
+            return div.textContent;
+        }
+
+        // If Google Calendar is not configured, show the setup notice
+        if (!GOOGLE_CALENDAR_ID || !GOOGLE_API_KEY) {
+            // Clear loading state safely
+            while (calendarEl.firstChild) {
+                calendarEl.removeChild(calendarEl.firstChild);
+            }
+            setupNotice.classList.remove('hidden');
+            return;
+        }
+
+        // Fetch events from Google Calendar API and transform to EventCalendar format
+        function fetchGoogleCalendarEvents(fetchInfo, successCallback, failureCallback) {
+            var timeMin = fetchInfo.start.toISOString();
+            var timeMax = fetchInfo.end.toISOString();
+            var url = 'https://www.googleapis.com/calendar/v3/calendars/'
+                + encodeURIComponent(GOOGLE_CALENDAR_ID)
+                + '/events?key=' + encodeURIComponent(GOOGLE_API_KEY)
+                + '&timeMin=' + encodeURIComponent(timeMin)
+                + '&timeMax=' + encodeURIComponent(timeMax)
+                + '&singleEvents=true'
+                + '&orderBy=startTime'
+                + '&maxResults=250';
+
+            fetch(url)
+                .then(function(response) {
+                    if (!response.ok) throw new Error('Google Calendar API error: ' + response.status);
+                    return response.json();
+                })
+                .then(function(data) {
+                    var events = (data.items || []).map(function(item) {
+                        return {
+                            id: item.id,
+                            title: item.summary || 'Untitled Event',
+                            start: item.start.dateTime || item.start.date,
+                            end: item.end.dateTime || item.end.date,
+                            allDay: !item.start.dateTime,
+                            extendedProps: {
+                                description: item.description || '',
+                                location: item.location || ''
+                            }
+                        };
+                    });
+                    successCallback(events);
+                })
+                .catch(function(error) {
+                    console.error('Failed to fetch Google Calendar events:', error);
+                    failureCallback(error);
+                });
+        }
+
+        // Build event content using safe DOM methods
+        function buildEventContent(info) {
+            var container = document.createElement('div');
+            container.style.padding = '4px 0';
+
+            var titleEl = document.createElement('strong');
+            titleEl.style.color = '#07070A';
+            titleEl.textContent = info.event.title;
+            container.appendChild(titleEl);
+
+            var location = info.event.extendedProps && info.event.extendedProps.location;
+            if (location) {
+                container.appendChild(document.createElement('br'));
+                var locationEl = document.createElement('span');
+                locationEl.style.color = '#6b7280';
+                locationEl.style.fontSize = '0.85em';
+                var icon = document.createElement('i');
+                icon.className = 'fas fa-map-marker-alt';
+                icon.style.marginRight = '4px';
+                locationEl.appendChild(icon);
+                locationEl.appendChild(document.createTextNode(escapeHtml(location)));
+                container.appendChild(locationEl);
+            }
+
+            return { domNodes: [container] };
+        }
+
+        // Clear loading spinner before initializing calendar
+        while (calendarEl.firstChild) {
+            calendarEl.removeChild(calendarEl.firstChild);
+        }
+
+        // Initialize EventCalendar in list (agenda) view
+        // CDN build includes all plugins; use flat options (no nested plugins/options)
+        var ec = EventCalendar.create(calendarEl, {
+            view: 'listMonth',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'listMonth,listYear'
+            },
+            buttonText: {
+                today: 'Today',
+                listMonth: 'Month',
+                listYear: 'Year'
+            },
+            noEventsContent: 'No upcoming events this period.',
+            eventSources: [{
+                events: fetchGoogleCalendarEvents
+            }],
+            eventContent: buildEventContent
+        });
+    })();
+    </script>
 </body>
 </html>
-

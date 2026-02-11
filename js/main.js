@@ -1,4 +1,4 @@
-// The Roots of Music - Main JavaScript File
+// CMDF Main JavaScript File
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu functionality
@@ -115,7 +115,7 @@ function initScrollAnimations() {
     }, observerOptions);
     
     // Observe all fade-in elements
-    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3');
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3, .fade-in-delay-4');
     fadeElements.forEach(element => {
         observer.observe(element);
     });

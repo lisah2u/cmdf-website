@@ -237,11 +237,35 @@ header nav a:hover:not(.btn-nav-gold) {
     transition-delay: 0.5s;
 }
 
+.fade-in-delay-4 {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition-delay: 0.7s;
+}
+
 .fade-in-delay-1.visible,
 .fade-in-delay-2.visible,
-.fade-in-delay-3.visible {
+.fade-in-delay-3.visible,
+.fade-in-delay-4.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Earthy linen texture background - evokes folk/handcraft aesthetic */
+.bg-linen-texture {
+    background-color: #f0ebe3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23f0ebe3'/%3E%3Crect width='1' height='1' fill='%23e6dfd4'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23ebe5db'/%3E%3C/svg%3E");
+}
+
+/* Leadership photo hover effect */
+.leadership-photo {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.leadership-photo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(231, 187, 95, 0.3);
 }
 
 .nav-link {

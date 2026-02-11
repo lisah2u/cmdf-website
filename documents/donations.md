@@ -1,1 +1,0 @@
-Link to donations site at Zeffy: https://www.zeffy.com/en-US/donation-form/d70e4f92-3254-472b-8654-1b74554fb122
