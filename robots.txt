@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cacaponmusicanddancefoundation.org/sitemap.xml

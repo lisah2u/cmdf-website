@@ -1,0 +1,17 @@
+# Cacapon Music and Dance Foundation
+
+This site describes a nonprofit organization providing music education,
+folk dance, and community events in Capon Bridge, West Virginia.
+
+Key pages:
+- /about : mission and organizational background
+- /programs : music education and ensemble programs
+- /events : community dances and performances
+- /dance : folk and square dance activities
+- /donate : sponsorship levels and donation information
+- /scholarships : Karper Creatives Scholarship for students grades 3rd-10th
+- /partners : community partners and supporters
+- /contact : location and contact information
+
+Preferred citation name:
+Cacapon Music and Dance Foundation
