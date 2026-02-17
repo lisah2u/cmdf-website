@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="images/CMDF_LOGO_COLOR_8_x8_300_dpi.webp">
+
     <title>About Us - Cacapon Music and Dance Foundation</title>
     <meta name="description" content="Learn about the Cacapon Music and Dance Foundation (CMDF), our mission, history, and impact on Capon Bridge, WV through music and dance education and community engagement.">
 
@@ -31,10 +33,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fredericka+the+Great&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fredericka+the+Great&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="assets/palette.css">
 
     <!-- CMDF Tailwind Configuration (already loaded above) -->
@@ -55,7 +57,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white">
+            <button id="mobile-menu-btn" class="lg:hidden text-white" aria-label="Toggle navigation menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -64,7 +66,7 @@
             <!-- Centered Logo -->
             <div class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-[55%]">
                 <a href="index.html" class="inline-block">
-                    <img src="images/CMDF_LOGO_COLOR_8_x8_300_dpi.png" alt="Cacapon Music and Dance Foundation logo" class="h-20 md:h-24 w-auto object-contain" />
+                    <img src="images/CMDF_LOGO_COLOR_8_x8_300_dpi.webp" alt="Cacapon Music and Dance Foundation logo" class="h-20 md:h-24 w-auto object-contain" width="192" height="188" fetchpriority="high" />
                 </a>
             </div>
 
@@ -131,9 +133,9 @@
                         </p>
                     </div>
                     <div class="fade-in">
-                        <img src="images/kids-performing.jpg" 
+                        <img src="images/kids-performing.webp" 
                              alt="Students and instructors" 
-                             class="rounded-lg shadow-xl w-full h-96 object-cover">
+                             class="rounded-lg shadow-xl w-full h-96 object-cover" loading="lazy" decoding="async" width="1200" height="489">
                     </div>
                 </div>
             </div>
@@ -151,14 +153,14 @@
                         <div class="relative">
                             <!-- Main Image with Gold Overlay -->
                             <div class="relative overflow-hidden rounded-lg">
-                                <img src="images/kids_outdoor_recital.JPG" alt="CMDF students performing music" class="w-full h-auto object-cover grayscale">
+                                <img src="images/kids_outdoor_recital.webp" alt="CMDF students performing music" class="w-full h-auto object-cover grayscale" loading="lazy" decoding="async" width="1200" height="800">
                                 <!-- Gold overlay on right side -->
                                 <div class="absolute top-0 right-0 w-1/3 h-full bg-gold opacity-60 mix-blend-multiply"></div>
                             </div>
 
                             <!-- Inset Image (bottom-left) -->
                             <div class="absolute bottom-8 left-8 w-48 h-48 rounded-lg overflow-hidden shadow-lg border-4" style="border-color: var(--hunyadi-yellow)">
-                                <img src="images/kid_closeup_guitar.jpg" alt="Student playing guitar" class="w-full h-full object-cover">
+                                <img src="images/kid_closeup_guitar.webp" alt="Student playing guitar" class="w-full h-full object-cover" loading="lazy" decoding="async" width="1200" height="800">
                                 <!-- Gold overlay on bottom-left of inset -->
                                 <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gold opacity-50 mix-blend-multiply"></div>
                             </div>
@@ -357,7 +359,7 @@
                     <div class="card-cmdf text-center fade-in-delay-1">
                         <img src="images/dakota-headshot.jpg"
                              alt="Dakota Karper"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo" loading="lazy" decoding="async" width="1024" height="683">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Dakota Karper</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Executive Director</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -371,7 +373,7 @@
                     <div class="card-cmdf text-center fade-in-delay-2">
                         <img src="images/booth.jpg"
                              alt="Booth Dyess"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo" loading="lazy" decoding="async" width="549" height="266">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Booth Dyess</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Board President</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -382,7 +384,7 @@
                     <div class="card-cmdf text-center fade-in-delay-3">
                         <img src="images/steve.png"
                              alt="Steve Bailes"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo" loading="lazy" decoding="async" width="279" height="142">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Steve Bailes</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Member at Large</p>
                         <p class="text-medium-gray text-sm typography-body">
@@ -393,7 +395,7 @@
                     <div class="card-cmdf text-center fade-in-delay-4">
                         <img src="images/lisa.png"
                              alt="Lisa Harper"
-                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo">
+                             class="w-32 h-32 rounded-full mx-auto mb-6 object-cover leadership-photo" loading="lazy" decoding="async" width="450" height="229">
                         <h3 class="text-xl font-bold text-cmdf-black mb-2 typography-heading">Lisa Harper</h3>
                         <p class="text-gold font-semibold mb-4 typography-body">Secretary</p>
                         <p class="text-medium-gray text-sm typography-body">

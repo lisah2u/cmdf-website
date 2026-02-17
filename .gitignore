@@ -38,3 +38,5 @@ node_modules/
 # Local dev servers
 main.py
 server.py
+# Local Netlify folder
+.netlify
