@@ -23,21 +23,14 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://cacaponmusicanddancefoundation.netlify.app/contact" />
-
-    <!-- Tailwind CSS CDN (must load before config) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Config -->
-    <script src="assets/tailwind-config.js"></script>
+    <!-- Tailwind CSS (built) -->
+    <link rel="stylesheet" href="assets/tailwind-built.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="assets/palette.css">
-
-    <!-- CMDF Tailwind Configuration (already loaded above) -->
-
+    <link rel="stylesheet" href="assets/palette.css" media="print" onload="this.media='all'">
     <!-- CMDF Component Styles -->
     <link rel="stylesheet" href="assets/cmdf-components.css?v=2">
 </head>
@@ -228,6 +221,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
