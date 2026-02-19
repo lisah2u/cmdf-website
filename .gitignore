@@ -25,7 +25,6 @@ dist/
 *.log
 tailwindcss-macos-arm64
 assets/tailwind-built.css
-assets/tailwind-input.css
 
 # Lighthouse reports
 lighthouse-*
