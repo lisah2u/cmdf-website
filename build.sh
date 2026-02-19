@@ -21,7 +21,7 @@ fi
 # Build Tailwind CSS from source (tree-shaken + minified)
 if command -v npx &> /dev/null; then
   echo "Building Tailwind CSS..."
-  npx --yes tailwindcss -i assets/tailwind-input.css -o assets/tailwind-built.css --minify
+  npx --yes tailwindcss@3 -i assets/tailwind-input.css -o assets/tailwind-built.css --minify
   echo "Built assets/tailwind-built.css"
 fi
 
