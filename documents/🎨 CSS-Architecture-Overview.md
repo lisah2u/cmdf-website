@@ -6,43 +6,39 @@ The CMDF website uses a **hybrid approach** combining Tailwind CSS with custom C
 
 Every page loads stylesheets in this order:
 
-### 1. Tailwind CSS CDN
+### 1. Tailwind CSS (Static Build)
 ```html
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/tailwind-built.css">
 ```
-Provides the utility class framework.
+Pre-generated utility class CSS, produced at deploy time by the Netlify build process. Contains only the classes actually used in HTML files (not the full Tailwind library). See [Build Pipeline](#build-pipeline) for details.
 
-### 2. Tailwind Configuration
-```html
-<script src="assets/tailwind-config.js"></script>
-```
-Extends Tailwind with CMDF brand colors, fonts, and design tokens. Loads *after* the CDN so it can reference `tailwind.config`.
+> **Historical note**: Before commit `7b3b7d5`/`6d77c73`, the site used `<script src="https://cdn.tailwindcss.com">` + `<script src="assets/tailwind-config.js">`. The CDN approach generated classes dynamically in the browser using JIT. The static build generates classes at deploy time — see [Migration from CDN to Static Build](#migration-from-cdn-to-static-build) for the full story.
 
-### 3. Google Fonts
+### 2. Google Fonts
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fredericka+the+Great&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 ```
 Fonts loaded: Roboto (fallback body), Fredericka the Great (hero display), Elms Sans, Inter (navigation/UI).
 
-### 4. Font Awesome
+### 3. Font Awesome
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 ```
 Icons for UI elements, social media, forms, and decorative accents.
 
-### 5. Brand Color Palette
+### 4. Brand Color Palette
 ```html
 <link rel="stylesheet" href="assets/palette.css">
 ```
 CSS custom properties for brand colors, plus form/footer/thank-you component styles.
 
-### 6. Component Styles
+### 5. Component Styles
 ```html
-<link rel="stylesheet" href="assets/cmdf-components.css?v=2">
+<link rel="stylesheet" href="assets/cmdf-components.css">
 ```
-Custom fonts, semantic typography, animations, branded buttons, cards, and textures. Cache-busted with `?v=2` on pages that need the latest version.
+Custom fonts, semantic typography, animations, branded buttons, cards, and textures. Loads **after** `tailwind-built.css`, making it the correct place for any Tailwind overrides.
 
-### 7. Page-Specific Styles
+### 6. Page-Specific Styles
 Several pages include inline `<style>` blocks for page-only CSS:
 - `index.html` — Hero background, video overlay
 - `donate.html` — FAQ accordion, testimonial carousel, sponsorship cards
@@ -51,6 +47,65 @@ Several pages include inline `<style>` blocks for page-only CSS:
 - `scholarships.html` — Hero background
 - `programs.html` — Hero band, program card stripes
 - `contact-success.html` — Success background
+
+---
+
+## Build Pipeline
+
+The site uses a Netlify build that runs `build.sh` before deploying static files.
+
+### How Tailwind CSS is generated
+
+```
+tailwind-input.css  +  tailwind.config.js  +  *.html files
+        ↓
+  npx tailwindcss@3 --minify
+        ↓
+  assets/tailwind-built.css   (deployed, not committed to git)
+```
+
+**Key files:**
+
+| File | Committed? | Purpose |
+|---|---|---|
+| `tailwind-input.css` | **Yes** | Source directives (`@tailwind base/components/utilities`) |
+| `tailwind.config.js` | **Yes** | CLI config: brand colors, fonts, content paths |
+| `assets/tailwind-built.css` | **No** (gitignored) | Generated output, produced by Netlify at deploy time |
+
+### `build.sh` — what it does
+
+```bash
+# Generate Tailwind CSS from HTML files
+npx --yes tailwindcss@3 -i assets/tailwind-input.css -o assets/tailwind-built.css --minify
+
+# Minify JS and custom CSS in-place
+npx --yes terser assets/js/main.js -o assets/js/main.js --compress --mangle
+npx --yes clean-css-cli assets/cmdf-components.css -o assets/cmdf-components.css
+npx --yes clean-css-cli assets/palette.css -o assets/palette.css
+```
+
+> **Important**: `tailwindcss@3` is pinned to v3. Without the `@3` version pin, `npx --yes tailwindcss` installs whatever is current-latest — which is now v4. Tailwind v4 completely removed `@tailwind base/components/utilities` directives, so the build would fail silently with exit code 1.
+
+### `tailwind.config.js` — CLI format
+
+```javascript
+// Node.js module format (NOT the browser global "tailwind.config = {...}" format)
+module.exports = {
+    content: ['./*.html'],   // scan all HTML files for class names
+    theme: {
+        extend: {
+            colors: {
+                'steel-blue': '#437CA5',
+                'celestial-blue': '#549ED2',
+                'gold': '#E7BB5F',
+                // ... etc
+            }
+        }
+    }
+}
+```
+
+The `content` array tells the CLI which files to scan. Only classes found in those files are included in the output CSS. If a class is added to a new file type (e.g., a `.js` template), add that pattern to `content`.
 
 ---
 
@@ -88,44 +143,6 @@ Several pages include inline `<style>` blocks for page-only CSS:
 - `.btn` — Generic button style (steel blue, rounded)
 - Mobile breakpoint at `700px` for form/footer responsiveness
 
-### `assets/tailwind-config.js` — Tailwind Extensions
-
-```javascript
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                'steel-blue': '#437CA5',
-                'celestial-blue': '#549ED2',
-                'gold': '#E7BB5F',
-                'gold-light': '#F3D9A3',
-                'gold-dark': '#B29251',
-                'cmdf-black': '#07070A',
-                'medium-gray': '#666666',
-                'light-gray': '#f5f5f5',
-                'dark-gray': '#07070A',     // legacy alias
-                'brand-steel': '#437CA5',   // legacy alias
-                'brand-celestial': '#549ED2', // legacy alias
-                'lion': '#B29251'
-            },
-            fontFamily: {
-                'sans': ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-                'gilroy': ['Gilroy', 'Inter', 'system-ui', 'sans-serif'],
-                'howards': ['Howards Eight', 'Georgia', 'Times New Roman', 'serif'],
-                'hero': ['Elms Sans', 'sans-serif'],
-                'display': ['Fredericka the Great', 'cursive'],
-                'nav': ['Inter', 'system-ui', 'sans-serif'],
-            },
-            borderRadius: { 'xl': '12px', '2xl': '16px' },
-            boxShadow: {
-                'cmdf': '0 4px 6px -1px rgba(67, 124, 165, 0.1), ...',
-                'cmdf-lg': '0 10px 15px -3px rgba(67, 124, 165, 0.1), ...'
-            }
-        }
-    }
-}
-```
-
 ### `assets/cmdf-components.css` — Typography, Components & Animations
 
 **Custom Font Declarations**:
@@ -154,22 +171,10 @@ tailwind.config = {
 | `.text-body` | Gilroy | 1rem | 1.6 |
 | `.text-caption` | Gilroy | 0.875rem | 1.4 |
 
-**Legacy Typography Classes** (used via Tailwind-style class names):
-- `.typography-display` — Howards Eight, line-height 1.1
-- `.typography-heading` — Howards Eight, line-height 1.2
-- `.typography-body` — Gilroy, line-height 1.6
-- `.typography-caption` — Gilroy, 0.875rem
-
 **Branded Button Classes**:
 - `.btn-cmdf-primary` — Gold gradient background, black text, rounded, shadow, hover lift
 - `.btn-cmdf-secondary` — Solid gold background, black text, hover darkens
-- `.btn-cmdf-outline` — Transparent with celestial-blue border (uses `@apply`)
 - `.btn-nav-gold` — Gold pill button for navbar (pill-shaped, shadow, hover to dark gold)
-
-**Card & Input Components**:
-- `.card-cmdf` — White, rounded-xl, shadow, border, hover lift (`@apply`)
-- `.input-cmdf` — Full-width, border, rounded-lg, focus ring (`@apply`)
-- `.icon-circle-gold` — Small gold circle for inline icons (`@apply`)
 
 **Animation Classes**:
 - `.fade-in` — Opacity 0 → 1, translateY(30px) → 0 on `.visible`
@@ -183,6 +188,15 @@ tailwind.config = {
 **Navigation Styles**:
 - `.nav-link` — Underline grow-on-hover effect (gold, 2px, expands from left)
 - Header nav link hover — Gold color on hover
+
+**Desktop Nav Visibility Override** (bottom of file):
+```css
+@media (min-width:1024px) {
+  header nav > div.hidden { display: flex !important; }
+  #mobile-menu-btn { display: none !important; }
+}
+```
+This explicit override ensures desktop nav is visible regardless of Tailwind cascade issues. See [Troubleshooting](#troubleshooting) for why this exists.
 
 ---
 
@@ -260,11 +274,15 @@ tailwind.config = {
 
 ```
 assets/
-├── palette.css           # Brand colors (CSS vars) + form/footer/thank-you components
-├── tailwind-config.js    # Tailwind theme extensions (colors, fonts, shadows)
-├── cmdf-components.css   # Custom fonts, typography, buttons, cards, animations, textures
-├── Gilroy-Regular.ttf    # Custom brand body font (145KB)
-└── howards-eight.ttf     # Custom display/heading font (56KB)
+├── palette.css              # Brand colors (CSS vars) + form/footer/thank-you components
+├── cmdf-components.css      # Custom fonts, typography, buttons, cards, animations, textures
+├── tailwind-built.css       # GENERATED at deploy — do not edit, gitignored
+├── Gilroy-Regular.ttf       # Custom brand body font (145KB)
+└── howards-eight.ttf        # Custom display/heading font (56KB)
+
+(project root)
+├── tailwind-input.css       # Tailwind source directives — committed to git
+└── tailwind.config.js       # Tailwind CLI config — committed to git
 ```
 
 ---
@@ -273,7 +291,164 @@ assets/
 
 | Library | Source | Used For |
 |---|---|---|
-| Tailwind CSS | CDN (`cdn.tailwindcss.com`) | Utility-first CSS framework |
+| Tailwind CSS | CLI build (v3) | Utility-first CSS framework |
 | Google Fonts | CDN | Roboto, Fredericka the Great, Elms Sans, Inter |
 | Font Awesome 6.5.1 | CDN (cdnjs) | Icons throughout site |
 | EventCalendar | CDN (jsDelivr) | Calendar component on events.html (CSS + JS) |
+
+---
+
+## Migration from CDN to Static Build
+
+### What changed
+
+**Before (CDN approach, pre-commit `7b3b7d5`):**
+```html
+<!-- Tailwind loaded as JS CDN — generates classes in the browser at runtime -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Config used browser global format -->
+<script src="assets/tailwind-config.js"></script>
+<!-- tailwind-config.js content: tailwind.config = { theme: { extend: {...} } } -->
+```
+
+**After (static build, current):**
+```html
+<!-- Tailwind loaded as pre-built CSS — no runtime class generation -->
+<link rel="stylesheet" href="assets/tailwind-built.css">
+<!-- tailwind-config.js removed; tailwind.config.js (Node format) used by CLI -->
+```
+
+### Why the migration happened
+
+The CDN approach has several production drawbacks:
+- **Performance**: Tailwind CDN downloads ~300KB of JS, then generates CSS on the client. The static CSS file is ~30-50KB and loads instantly.
+- **No build control**: CDN version updates automatically. Pinning to a specific version requires workarounds.
+- **Hydration flash**: Page may render briefly without styles before the CDN script parses all classes.
+
+### Key differences to understand
+
+| Aspect | CDN | Static Build |
+|---|---|---|
+| When CSS is generated | In the browser, on every page load | At deploy time, once |
+| Config file format | `tailwind.config = {...}` (browser global) | `module.exports = {...}` (Node.js) |
+| Unused class removal | No — CDN generates all possible classes | Yes — only scanned classes included |
+| Adding new classes | Works immediately | Must rebuild (Netlify handles this) |
+| Version control | Auto-updates to latest | Pinned with `tailwindcss@3` |
+
+### What to watch out for
+
+**Dynamic class names**: If you build class names with string concatenation in JS, the Tailwind CLI won't find them during the content scan. Use complete class names:
+```javascript
+// Bad — CLI can't detect these:
+const color = 'blue';
+el.className = `text-${color}-500`;
+
+// Good — full class names are scannable:
+el.className = condtion ? 'text-blue-500' : 'text-red-500';
+```
+
+**New HTML files**: If you add a new `.html` file, its Tailwind classes will be found automatically because `tailwind.config.js` scans `./*.html`. If you add templates in a subdirectory, add that path to `content` in `tailwind.config.js`.
+
+---
+
+## Troubleshooting
+
+### "Specified input file assets/tailwind-input.css does not exist"
+
+**Cause**: `assets/tailwind-input.css` was missing from the git repository (was gitignored).
+
+**Fix**: Ensure `tailwind-input.css` is committed. It should contain:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+Check `.gitignore` — only `assets/tailwind-built.css` should be ignored, not `tailwind-input.css`.
+
+---
+
+### Tailwind build fails with exit code 1 (no useful error message)
+
+**Most likely cause**: Tailwind v4 was installed instead of v3.
+
+Tailwind v4 (released 2025) completely removed `@tailwind base/components/utilities` directives. If `npx --yes tailwindcss` runs without a version pin, it installs the latest — which is now v4.
+
+**Fix**: Pin the version in `build.sh`:
+```bash
+# Wrong — installs latest (currently v4):
+npx --yes tailwindcss -i ...
+
+# Correct — pins to v3:
+npx --yes tailwindcss@3 -i ...
+```
+
+**To check which version is running locally**:
+```bash
+npx tailwindcss@3 --version
+# Should output: tailwindcss v3.x.x
+```
+
+---
+
+### A Tailwind class exists in HTML but has no effect on the live site
+
+Several possible causes:
+
+**1. Class name is dynamically constructed (not scannable)**
+The Tailwind CLI scans HTML as text. If a class is built with string concatenation in JS, it won't be included in the build. Use complete, literal class names in HTML.
+
+**2. CSS cache serving stale file**
+The `netlify.toml` sets `Cache-Control: public, max-age=31536000, immutable` for CSS files. If a browser or CDN edge cached the old version with `immutable`, it will never re-fetch.
+
+To force cache-bust, add or change a query string on the `<link>` tag:
+```html
+<link rel="stylesheet" href="assets/tailwind-built.css?v=2">
+```
+
+**3. Class conflicts with `cmdf-components.css`**
+`cmdf-components.css` uses `!important` on many font and color rules. If a Tailwind utility isn't applying, check if `cmdf-components.css` has a conflicting `!important` rule.
+
+---
+
+### Desktop navigation disappears (hidden lg:flex not working)
+
+This was an actual production issue encountered in February 2025. The root cause was a combination of Netlify CDN edge caching (`immutable`) and a cascade order problem.
+
+**How `hidden lg:flex` is supposed to work:**
+```css
+/* From tailwind-built.css: */
+.hidden { display: none; }          /* specificity: 0-1-0 */
+
+@media (min-width: 1024px) {
+  .lg\:flex { display: flex; }      /* specificity: 0-1-0, but LATER in file = wins */
+}
+```
+
+The mobile-first pattern requires `.lg:flex` to appear **after** `.hidden` in the stylesheet. Tailwind's CLI output always does this correctly.
+
+**Why it can fail in production:**
+- Netlify CDN edge nodes may serve a stale `tailwind-built.css` from before the build that generates the correct output
+- The `immutable` cache directive prevents browsers from revalidating
+
+**The fix applied**: An explicit, higher-specificity override was added to `cmdf-components.css` (which loads after `tailwind-built.css` and is always delivered fresh):
+```css
+@media (min-width: 1024px) {
+  header nav > div.hidden { display: flex !important; }  /* specificity: 0-1-1 */
+  #mobile-menu-btn { display: none !important; }
+}
+```
+
+This is intentional — `cmdf-components.css` loads after `tailwind-built.css` and serves as the reliable override layer.
+
+---
+
+### A class works in development but not in the Netlify build
+
+**Check 1**: Does the class appear as a complete string in a `.html` file? The CLI only scans `*.html` files (per `tailwind.config.js` `content`).
+
+**Check 2**: Is the HTML file in the project root? The scan is `./*.html` — subdirectory HTML files are not scanned.
+
+**Check 3**: Is the class a Tailwind core class or a custom extension? Custom colors like `bg-gold` and `text-steel-blue` are defined in `tailwind.config.js`. If `tailwind.config.js` isn't committed or is malformed, custom classes won't appear in the output.
+
+**Check 4**: Look at the Netlify build log for the actual `npx tailwindcss@3` output — it will show how many classes were generated and any warnings.

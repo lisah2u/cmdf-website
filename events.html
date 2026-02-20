@@ -381,19 +381,6 @@
 
     <script>
     (function() {
-        // ============================================================
-        // CONFIGURATION — Update these values to connect Google Calendar
-        // ============================================================
-        // 1. Create a Google Cloud project at https://console.cloud.google.com
-        // 2. Enable the Google Calendar API
-        // 3. Create an API key (restrict to Google Calendar API + your domain)
-        // 4. Make the Google Calendar public (Settings > Access permissions)
-        // 5. Copy the Calendar ID from Settings > Integrate calendar
-        // ============================================================
-        var GOOGLE_CALENDAR_ID = 'cacaponmusicanddancefoundation@gmail.com';
-        var GOOGLE_API_KEY = 'AIzaSyBkKjxbxbd36IPEm1mE-2f5MAcH7cD0GbQ';
-        // ============================================================
-
         var calendarEl = document.getElementById('events-calendar');
         var setupNotice = document.getElementById('calendar-setup-notice');
 
@@ -404,24 +391,12 @@
             return div.textContent;
         }
 
-        // If Google Calendar is not configured, show the setup notice
-        if (!GOOGLE_CALENDAR_ID || !GOOGLE_API_KEY) {
-            // Clear loading state safely
-            while (calendarEl.firstChild) {
-                calendarEl.removeChild(calendarEl.firstChild);
-            }
-            setupNotice.classList.remove('hidden');
-            return;
-        }
-
-        // Fetch events from Google Calendar API and transform to EventCalendar format
+        // Fetch events via the Netlify Function (keeps the API key server-side)
         function fetchGoogleCalendarEvents(fetchInfo, successCallback, failureCallback) {
             var timeMin = fetchInfo.start.toISOString();
             var timeMax = fetchInfo.end.toISOString();
-            var url = 'https://www.googleapis.com/calendar/v3/calendars/'
-                + encodeURIComponent(GOOGLE_CALENDAR_ID)
-                + '/events?key=' + encodeURIComponent(GOOGLE_API_KEY)
-                + '&timeMin=' + encodeURIComponent(timeMin)
+            var url = '/.netlify/functions/get-calendar'
+                + '?timeMin=' + encodeURIComponent(timeMin)
                 + '&timeMax=' + encodeURIComponent(timeMax)
                 + '&singleEvents=true'
                 + '&orderBy=startTime'

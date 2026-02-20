@@ -60,6 +60,11 @@ Static website for the [Cacapon Music and Dance Foundation](https://cacaponmusic
 ├── documents/                  # Content source docs, style guides, architecture docs
 ├── 2025 Annual Report.pdf      # Linked from About page and site-wide footer
 │
+├── netlify/
+│   └── functions/
+│       └── get-calendar.js     # Serverless proxy: fetches Google Calendar events
+│                               #   server-side so the API key is never in the browser
+│
 ├── netlify.toml                # Netlify build config, security headers, caching
 ├── _redirects                  # Netlify URL redirects (trailing slashes, aliases)
 ├── CLAUDE.md                   # AI assistant project instructions
@@ -78,23 +83,33 @@ Then visit `http://localhost:8000`.
 
 ## Events Calendar
 
-The events page (`events.html`) displays a live calendar powered by the [EventCalendar](https://github.com/vkurko/calendar) library connected to Google Calendar via the Google Calendar API.
+The events page (`events.html`) displays a live calendar powered by the [EventCalendar](https://github.com/vkurko/calendar) library, connected to Google Calendar via a server-side Netlify Function proxy. The Google API key is stored as a Netlify environment variable and is never exposed to the browser.
 
 ### How It Works
 
 1. EventCalendar loads in list/agenda view with Month and Year toggles
-2. On each view change, it calls the Google Calendar API to fetch events for the visible date range
-3. Events render with title, time, and location in CMDF brand styling
-4. A fallback "Calendar Coming Soon" notice displays if the API credentials are missing
+2. On each view change, it calls `/.netlify/functions/get-calendar` with the visible date range
+3. The Netlify Function reads `GOOGLE_API_KEY` from the server environment, fetches from Google Calendar API, and returns the events
+4. Events render with title, time, and location in CMDF brand styling
 
-### Calendar Configuration
+### Architecture: API Key Security
 
-The calendar is configured inline in `events.html` at the bottom of the file. Key settings:
-
-```javascript
-var GOOGLE_CALENDAR_ID = 'your-calendar-id@gmail.com';
-var GOOGLE_API_KEY = 'your-api-key';
 ```
+Browser                    Netlify (server)           Google
+  │                              │                       │
+  │  GET /.netlify/functions/    │                       │
+  │       get-calendar?timeMin=… │                       │
+  │ ──────────────────────────▶  │                       │
+  │                              │  GET /calendar/v3/…   │
+  │                              │       ?key=SECRET     │
+  │                              │ ─────────────────────▶│
+  │                              │                       │
+  │                              │  ◀─ events JSON ──────│
+  │  ◀─── events JSON ───────────│                       │
+  │  (API key never appears here)│                       │
+```
+
+The API key lives only in Netlify's environment — it is absent from the browser, the page source, and network logs visible to visitors.
 
 ### Google Calendar Setup
 
@@ -104,8 +119,16 @@ To connect a new Google Calendar:
 2. Enable the **Google Calendar API**
 3. Create an API key (restrict to Google Calendar API and your domain)
 4. Make the Google Calendar **public** (Settings > Access permissions)
-5. Copy the **Calendar ID** from Settings > Integrate calendar
-6. Update the two variables in `events.html`
+5. Set `GOOGLE_API_KEY` in Netlify → Site configuration → Environment variables
+6. The Calendar ID (`cacaponmusicanddancefoundation@gmail.com`) is hardcoded in `netlify/functions/get-calendar.js` — update it there if it ever changes
+
+### Netlify Function: `get-calendar.js`
+
+- **Location**: `netlify/functions/get-calendar.js`
+- **Endpoint**: `/.netlify/functions/get-calendar`
+- **Environment variable required**: `GOOGLE_API_KEY`
+- **Query params forwarded to Google**: `timeMin`, `timeMax`, `singleEvents`, `orderBy`, `maxResults`
+- **Runtime**: Node.js 18 (set in `netlify.toml`)
 
 ### CMDF Theme
 
@@ -162,9 +185,18 @@ All forms use [Netlify Forms](https://docs.netlify.com/forms/setup/) with the `d
 The site deploys to Netlify from the `main` branch. No build command — Netlify serves the static files directly from the repo root.
 
 - **Publish directory**: `.` (repo root)
+- **Functions directory**: `netlify/functions/` (auto-detected by Netlify)
 - **Security headers**: X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, Referrer-Policy
 - **Caching**: Static assets cached with 1-year `max-age`
 - **HTTPS**: Forced via redirect rule
+
+### Environment Variables
+
+Set these in Netlify → Site configuration → Environment variables:
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GOOGLE_API_KEY` | Yes | Google Calendar API key (restricted to Calendar API + your domain) |
 
 ## Documentation
 
