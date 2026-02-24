@@ -354,6 +354,13 @@
                     We respect your inbox — just occasional updates and good news.
                 </small>
             </form>
+            <p style="margin-top: 8px; font-size: smaller; font-family: 'Gilroy', sans-serif;">
+                <a href="https://us7.campaign-archive.com/home/?u=f2b562a267fa144877802007c&amp;id=85efa6d2bb"
+                   target="_blank" rel="noopener noreferrer"
+                   style="color: #437ca5;" class="underline hover:opacity-75 transition-opacity">
+                    Browse previous newsletters
+                </a>
+            </p>
         </div>
     </section>
 
@@ -370,6 +377,14 @@
                 501(c)(3) Nonprofit Organization &middot; EIN: 93-3118214 &middot;
                 <a href="2025%20Annual%20Report.pdf" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">2025 Annual Report</a>
             </p>
+            <div class="mt-4 flex justify-center">
+                <a href="https://www.facebook.com/groups/caponbridgeoldtimemusicanddance"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="CMDF on Facebook"
+                   class="text-white/50 hover:text-gold transition-colors">
+                    <i class="fa-brands fa-facebook text-2xl"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
@@ -429,28 +444,80 @@
                 });
         }
 
+        // Strip HTML tags for safe display (handles Google Calendar rich-text descriptions)
+        function stripHtml(str) {
+            var tmp = document.createElement('div');
+            tmp.innerHTML = str;
+            return tmp.textContent || tmp.innerText || '';
+        }
+
+        // Format a time range string (e.g. "7:00 PM – 9:00 PM")
+        function formatEventTime(start, end, allDay) {
+            if (allDay) return null;
+            var opts = { hour: 'numeric', minute: '2-digit', hour12: true };
+            var s = start.toLocaleTimeString('en-US', opts);
+            var e = end ? end.toLocaleTimeString('en-US', opts) : null;
+            return e ? (s + '\u2013' + e) : s;
+        }
+
         // Build event content using safe DOM methods
         function buildEventContent(info) {
             var container = document.createElement('div');
             container.style.padding = '4px 0';
 
+            // Title
             var titleEl = document.createElement('strong');
             titleEl.style.color = '#07070A';
+            titleEl.style.display = 'block';
             titleEl.textContent = info.event.title;
             container.appendChild(titleEl);
 
+            // Time (skip for all-day events)
+            var timeStr = formatEventTime(info.event.start, info.event.end, info.event.allDay);
+            if (timeStr) {
+                var timeEl = document.createElement('span');
+                timeEl.style.color = '#437CA5';
+                timeEl.style.fontSize = '0.85em';
+                timeEl.style.display = 'block';
+                timeEl.style.marginTop = '3px';
+                var clockIcon = document.createElement('i');
+                clockIcon.className = 'fas fa-clock';
+                clockIcon.style.marginRight = '5px';
+                timeEl.appendChild(clockIcon);
+                timeEl.appendChild(document.createTextNode(timeStr));
+                container.appendChild(timeEl);
+            }
+
+            // Location
             var location = info.event.extendedProps && info.event.extendedProps.location;
             if (location) {
-                container.appendChild(document.createElement('br'));
                 var locationEl = document.createElement('span');
                 locationEl.style.color = '#6b7280';
                 locationEl.style.fontSize = '0.85em';
+                locationEl.style.display = 'block';
+                locationEl.style.marginTop = '3px';
                 var icon = document.createElement('i');
                 icon.className = 'fas fa-map-marker-alt';
-                icon.style.marginRight = '4px';
+                icon.style.marginRight = '5px';
                 locationEl.appendChild(icon);
                 locationEl.appendChild(document.createTextNode(escapeHtml(location)));
                 container.appendChild(locationEl);
+            }
+
+            // Description (strip any HTML from Google Calendar rich text)
+            var description = info.event.extendedProps && info.event.extendedProps.description;
+            if (description) {
+                var cleaned = stripHtml(description).trim();
+                if (cleaned) {
+                    var descEl = document.createElement('p');
+                    descEl.style.color = '#374151';
+                    descEl.style.fontSize = '0.875em';
+                    descEl.style.marginTop = '6px';
+                    descEl.style.marginBottom = '0';
+                    descEl.style.lineHeight = '1.5';
+                    descEl.textContent = cleaned;
+                    container.appendChild(descEl);
+                }
             }
 
             return { domNodes: [container] };

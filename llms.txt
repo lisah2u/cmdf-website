@@ -12,6 +12,10 @@ Key pages:
 - /scholarships : Karper Creatives Scholarship for students grades 3rd-10th
 - /partners : community partners and supporters
 - /contact : location and contact information
+- /faq : frequently asked questions about programs, scholarships, square dances, and donations
+
+Raw content:
+- /faq.md : FAQ source in plain markdown (programs, square dances, donations, who we serve, history)
 
 Preferred citation name:
 Cacapon Music and Dance Foundation
