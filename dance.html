@@ -384,13 +384,9 @@
                 Stay connected with local music, student stories, community dances, and program news.
             </p>
 
-            <form name="footer-signup" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="footer-signup">
-                <p class="hidden">
-                    <label>Don't fill this out if you're human:
-                        <input name="bot-field" />
-                    </label>
-                </p>
+            <form class="footer-subscribe-form">
+                <!-- Honeypot (server-side checked) -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
                 <div class="footer-form-row">
                     <input type="email" name="email" placeholder="Email address" required>
@@ -400,6 +396,7 @@
                 <small class="privacy-note">
                     We respect your inbox — just occasional updates and good news.
                 </small>
+                <div class="subscribe-message" aria-live="polite" style="display:none; margin-top:8px; font-size:0.9em;"></div>
             </form>
             <p style="margin-top: 8px; font-size: smaller; font-family: 'Gilroy', sans-serif;">
                 <a href="https://us7.campaign-archive.com/home/?u=f2b562a267fa144877802007c&amp;id=85efa6d2bb"
@@ -428,7 +425,7 @@
                 <a href="https://www.facebook.com/groups/caponbridgeoldtimemusicanddance"
                    target="_blank" rel="noopener noreferrer"
                    aria-label="CMDF on Facebook"
-                   class="text-white/50 hover:text-gold transition-colors">
+                   class="text-white/60 hover:text-gold transition-colors">
                     <i class="fa-brands fa-facebook text-2xl"></i>
                 </a>
             </div>
@@ -437,6 +434,7 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/subscribe.js" defer></script>
     <!-- Instagram Embed Script -->
     <script async src="//www.instagram.com/embed.js"></script>
 </body>
