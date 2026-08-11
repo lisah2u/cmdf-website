@@ -171,6 +171,7 @@
                     <p style="font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#D4A017; margin-bottom:0.35rem;">Next Square Dance</p>
                     <p id="dance-announcement-date" style="font-size:1.2rem; font-weight:700; color:#fff; margin-bottom:0.25rem; font-family:'Fredericka the Great', serif;"></p>
                     <p style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-bottom:0.9rem;">American Legion Post #137 &middot; Capon Bridge, WV</p>
+                    <p id="dance-announcement-workshop" style="font-size:0.8rem; color:#D4A017; margin-bottom:0.9rem; display:none;"><strong>✦ 3:00–4:30 PM Workshop ✦</strong><br><span id="dance-announcement-workshop-leader" style="color:rgba(255,255,255,0.8);"></span><br><span style="color:rgba(255,255,255,0.8);">All levels of Old Time musicians welcome</span></p>
                     <a href="dance.html" style="display:inline-block; background:#437CA5; color:#fff; font-size:0.85rem; font-weight:700; padding:0.5rem 1.5rem; border-radius:9999px; text-decoration:none;">See Full Schedule &rarr;</a>
                     <p style="margin-top:0.6rem; font-size:0.72rem; color:rgba(255,255,255,0.45);">Free &middot; Suggested Donation $10–$20 &middot; Under 18 Always Free</p>
                 </div>
@@ -325,11 +326,11 @@
         if (sessionStorage.getItem(SESSION_KEY)) return;
 
         var dances = [
-            { date: '2026-08-15', label: 'Saturday, August 15, 2026' },
-            { date: '2026-10-24', label: 'Saturday, October 24, 2026' },
-            { date: '2027-01-09', label: 'Saturday, January 9, 2027' },
-            { date: '2027-03-27', label: 'Saturday, March 27, 2027' },
-            { date: '2027-05-01', label: 'Saturday, May 1, 2027' }
+            { date: '2026-08-15', label: 'Saturday, August 15, 2026', workshop: 'with the William Brauneis Trio' },
+            { date: '2026-10-24', label: 'Saturday, October 24, 2026', workshop: 'with Joe Herrmann' },
+            { date: '2027-01-09', label: 'Saturday, January 9, 2027', workshop: 'with Adam Hurt &amp; Beth Hartness' },
+            { date: '2027-03-27', label: 'Saturday, March 27, 2027', workshop: 'with Rachel Eddy' },
+            { date: '2027-05-01', label: 'Saturday, May 1, 2027', workshop: 'with Dakota Karper' }
         ];
 
         function parseLocalDate(str) {
@@ -347,7 +348,13 @@
         if (!next) return;
 
         var ann = document.getElementById('dance-announcement');
+        var workshopEl = document.getElementById('dance-announcement-workshop');
         document.getElementById('dance-announcement-date').textContent = next.label;
+
+        if (next.workshop) {
+            document.getElementById('dance-announcement-workshop-leader').innerHTML = next.workshop;
+            workshopEl.style.display = 'block';
+        }
 
         setTimeout(function () { ann.style.display = 'block'; }, 700);
 
