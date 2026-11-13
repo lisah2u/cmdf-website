@@ -1,6 +1,8 @@
-// Mailchimp newsletter subscribe function
-// Uses Mailchimp Marketing API v3 directly via fetch (Node 18 built-in)
-// Required env vars: MAILCHIMP_API_KEY, MAILCHIMP_SERVER_PREFIX, MAILCHIMP_AUDIENCE_ID
+// Newsletter subscribe function — adds the email as a contact in Zeffy
+// (moved from Mailchimp in Nov 2026 when the free Mailchimp list filled up).
+// Uses Zeffy's public API: PUT /api/v1/contacts (upsert by email).
+// Docs: https://www.zeffy.com/api/docs  — writes require a Stripe-verified org.
+// Required env var: ZEFFY_API_KEY (Zeffy → Settings → Integrations → API key)
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -26,43 +28,34 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'A valid email address is required.' }) };
   }
 
-  const apiKey = process.env.MAILCHIMP_API_KEY;
-  const server = process.env.MAILCHIMP_SERVER_PREFIX;
-  const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
-
-  if (!apiKey || !server || !audienceId) {
-    console.error('Mailchimp env vars not configured');
+  const apiKey = process.env.ZEFFY_API_KEY;
+  if (!apiKey) {
+    console.error('ZEFFY_API_KEY not configured');
     return { statusCode: 503, body: JSON.stringify({ error: 'Service not configured' }) };
   }
 
-  const url = `https://${server}.api.mailchimp.com/3.0/lists/${audienceId}/members`;
-  const auth = Buffer.from('anystring:' + apiKey).toString('base64');
-
   try {
-    const response = await fetch(url, {
-      method: 'POST',
+    // PUT = create-or-update matched on email. Only the email is sent, so an
+    // existing contact's name/address in Zeffy is never overwritten.
+    const response = await fetch('https://api.zeffy.com/api/v1/contacts', {
+      method: 'PUT',
       headers: {
-        'Authorization': 'Basic ' + auth,
+        'Authorization': 'Bearer ' + apiKey,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        email_address: email,
-        status: 'subscribed',
-      }),
+      body: JSON.stringify({ email }),
     });
 
-    if (response.ok) {
+    if (response.status === 201) {
       return { statusCode: 200, body: JSON.stringify({ message: 'Success!' }) };
     }
-
-    const data = await response.json();
-
-    // Already subscribed — treat as success for UX
-    if (response.status === 400 && data.title === 'Member Exists') {
+    // 200 = contact already existed in Zeffy — treat as success for UX
+    if (response.status === 200) {
       return { statusCode: 200, body: JSON.stringify({ message: 'already_subscribed' }) };
     }
 
-    console.error('Mailchimp error:', data.detail || data.title);
+    const data = await response.json().catch(() => ({}));
+    console.error('Zeffy error:', response.status, data.error && (data.error.code + ': ' + data.error.message));
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Could not subscribe. Please try again.' }),

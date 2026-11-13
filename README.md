@@ -62,8 +62,9 @@ Static website for the [Cacapon Music and Dance Foundation](https://cacaponmusic
 │
 ├── netlify/
 │   └── functions/
-│       └── get-calendar.js     # Serverless proxy: fetches Google Calendar events
-│                               #   server-side so the API key is never in the browser
+│       ├── get-calendar.js     # Serverless proxy: fetches Google Calendar events
+│       │                       #   server-side so the API key is never in the browser
+│       └── subscribe.js        # Footer newsletter signup → Zeffy contact (API key server-side)
 │
 ├── netlify.toml                # Netlify build config, security headers, caching
 ├── _redirects                  # Netlify URL redirects (trailing slashes, aliases)
@@ -178,7 +179,7 @@ All forms use [Netlify Forms](https://docs.netlify.com/forms/setup/) with the `d
 
 - **Contact form** (`contact.html`) — Redirects to `contact-success.html`
 - **Donation/newsletter form** (`donate.html`) — Redirects to `thank-you.html`
-- **Footer email signup** (all pages) — `footer-signup` form
+- **Footer email signup** (all pages) — not a Netlify Form: `assets/js/subscribe.js` POSTs the email to `/.netlify/functions/subscribe`, which upserts it as a Zeffy contact (`PUT https://api.zeffy.com/api/v1/contacts`, matched on email; only the email is sent). Moved from Mailchimp to Zeffy on 2026-11-13 when the free Mailchimp audience filled up. The square-dance check-in app makes the same call. Contacts added this way aren't tagged or put on a Zeffy list (the API can't). To test locally, run `netlify dev` (the Python server on :3000 can't run functions) or call the handler directly: `node --env-file=.env -e "require('./netlify/functions/subscribe.js').handler({httpMethod:'POST',body:JSON.stringify({email:'you@example.com'})}).then(console.log)"`.
 
 ## Deployment
 
@@ -197,6 +198,7 @@ Set these in Netlify → Site configuration → Environment variables:
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `GOOGLE_API_KEY` | Yes | Google Calendar API key (restricted to Calendar API + your domain) |
+| `ZEFFY_API_KEY` | Yes | Zeffy public API key (Zeffy → Settings → Integrations; one key per org, shared with the check-in and camp sites). Writes require a Stripe-verified Zeffy org |
 
 ## Documentation
 
